@@ -2,6 +2,7 @@ import styled from "styled-components"
 
 export const JobsMain = styled.main`
 display: grid;
+margin-top: 4rem;
 
 @media (min-width: 30rem) {
     grid-template-columns: repeat(2, minmax(0, 35rem));
