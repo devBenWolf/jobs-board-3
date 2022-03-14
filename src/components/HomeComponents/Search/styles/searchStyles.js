@@ -22,6 +22,10 @@ export const Wrapper = styled.div`
     @media (min-width: 45rem) {
         width: 65%;
     }
+
+    @media (min-width: 55rem) {
+        width: 55%;
+    }
 `
 export const Input = styled.input.attrs({type: "text"})`
     margin-left: 1rem;
@@ -56,7 +60,9 @@ export const Reset = styled.button.attrs({type: "submit"})`
     border-radius: 5px;
     cursor: pointer;
 
-
+    @media (min-width: 55rem) {
+        margin: 0;
+    }
 `
 export const InputSwitch = styled.img`
     margin-right: 1rem;
@@ -78,7 +84,6 @@ export const TimeFilterDiv = styled.div`
     }
 
     @media (min-width: 55rem) {
- 
     }
 
 `
