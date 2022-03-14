@@ -131,7 +131,6 @@ export const Foot = styled.footer`
     @media (min-width: 35rem) {
         display: flex;
         justify-content: space-between;
-        border: solid red;
         padding: 0 4rem;
     }
 
