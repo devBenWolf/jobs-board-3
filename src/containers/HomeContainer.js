@@ -184,9 +184,9 @@ const HomeContainer = () => {
                             </Search.TimeFilterLabel>
                             <Search.Reset
                             onClick = {clearInput}                         
-                        >
-                        <FaUndo style={{color: "white"}} size="25" />
-                        </Search.Reset>
+                            >
+                                <FaUndo style={{color: "white"}} size="25" />
+                            </Search.Reset>
                         </Search.TimeFilterDiv>
                     </Search.Wrapper>     
                     
