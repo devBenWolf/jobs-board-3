@@ -4,8 +4,8 @@ import Company from "../components/DetailComponents/Company";
 import { OuterDiv } from "../components/DetailComponents/Company/styles/companyStyles";
 import { useParams } from "react-router-dom";
 import data from "../data.json"
-import { JobDiv } from "../components/DetailComponents/Company/Job/styles/jobStyles";
-import Job from "../components/DetailComponents/Company/Job";
+import { JobDiv } from "../components/DetailComponents/Job/styles/jobStyles";
+import Job from "../components/DetailComponents/Job";
 
 const DetailContainer = () => {
     const {themeBoolean} = useContext(ThemeContext)
