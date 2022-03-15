@@ -126,17 +126,17 @@ const HomeContainer = () => {
                         themeBoolean={themeBoolean}
                     >
                         {inputFilter === 1 ? (
-                            <Search.Input 
+                            <Search.GeneralInput 
                                 type="text"
-                                placeholder = "       Enter company name, job title..."
+                                placeholder = "Enter company name, job title..."
                                 value={mainInputData}
                                 onChange = {lowerCaseMainData}
                                 themeBoolean={themeBoolean}
                             />
                         ) : (
-                            <Search.Input 
+                            <Search.LocationInput 
                                 type = "text"
-                                placeholder = "       Enter job location..."
+                                placeholder = "Enter job location..."
                                 value = {locationInputData}
                                 onChange = {lowerCaseLocationData}
                                 themeBoolean={themeBoolean}
@@ -156,17 +156,17 @@ const HomeContainer = () => {
     const desktop = <Search.Wrapper
                             themeBoolean={themeBoolean}
                     >
-                        <Search.Input 
+                        <Search.GeneralInput 
                             type = "text"
-                            placeholder = "       Enter company name, job title..."
+                            placeholder = "Enter company name, job title..."
                             value = {mainInputData}
                             onChange = {lowerCaseMainData}
                             onFocus = {mainInput}
                             themeBoolean = {themeBoolean}
                         />
-                        <Search.Input 
+                        <Search.LocationInput 
                             type = "text"
-                            placeholder = "       Enter job location..."
+                            placeholder = "Enter job location..."
                             value = {locationInputData}
                             onChange = {lowerCaseLocationData}
                             onFocus = {locationInput}
@@ -185,7 +185,7 @@ const HomeContainer = () => {
                             <Search.Reset
                             onClick = {clearInput}                         
                             >
-                                <FaUndo style={{color: "white"}} size="25" />
+                                <FaUndo style={{color: "white"}} size="15" />
                             </Search.Reset>
                         </Search.TimeFilterDiv>
                     </Search.Wrapper>     

@@ -27,7 +27,7 @@ export const Wrapper = styled.div`
         width: 55%;
     }
 `
-export const Input = styled.input.attrs({type: "text"})`
+export const GeneralInput = styled.input.attrs({type: "text"})`
     margin-left: 1rem;
     width: 85%;
     padding: 2rem 0;
@@ -52,6 +52,32 @@ export const Input = styled.input.attrs({type: "text"})`
         width: 30%;
     }
 `
+export const LocationInput = styled.input.attrs({type: "text"})`
+    margin-left: 1rem;
+    width: 85%;
+    padding: 2rem 0;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    background-color: ${(props) => props.themeBoolean ? "white" : "hsl(var(--clr-dark-blue))"};
+    color: ${(props) => props.themeBoolean ? "none" : "white"};
+    transition: .4s;
+
+    @media (min-width: 35rem) {
+        border-right: solid 1px hsl(var(--clr-grey));
+        border-radius: 0px;
+        width: 35%;
+
+        ::placeholder {
+            font-size: 12px;
+        }
+    }
+
+    @media (min-width: 45rem) {
+        width: 30%;
+    }
+`
+
 export const Reset = styled.button.attrs({type: "submit"})`
     margin-right: 6px;
     background-color: #5964e0;
