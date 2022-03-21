@@ -24,21 +24,22 @@ const HomeContainer = () => {
     const [inputFocus, setInputFocus] = useState(1)
     const breakpoint = 700
 
+
     const mainInput = () => {
-        setInputFocus(2)
+        setInputFocus(prevCount => prevCount + 1)
         setLocationInputData("")
         console.log(inputFocus)
       }
 
     const locationInput = () => {
-      setInputFocus(1)
+      setInputFocus(prevCount => prevCount - 1)
       setMainInputData("")
       console.log(inputFocus)
     }
 
     const fullTimeFilter = () => {
         timeFilter ? setCurrentData(data) : setCurrentData(time)
-        setTimeFilter(!timeFilter)
+        setTimeFilter(prevState => !prevState)
       }
     
       const clearInput = () => {
@@ -69,7 +70,7 @@ const HomeContainer = () => {
         if (inputFilter === filterArray.length) {
       setInputFilter(1)
         } else {
-            setInputFilter(inputFilter + 1)
+            setInputFilter(prevState => prevState + 1)
     }
   }
 
@@ -126,17 +127,17 @@ const HomeContainer = () => {
                         themeBoolean={themeBoolean}
                     >
                         {inputFilter === 1 ? (
-                            <Search.GeneralInput 
+                            <Search.Input 
                                 type="text"
-                                placeholder = "Enter company name, job title..."
+                                placeholder = "Enter company, job..."
                                 value={mainInputData}
                                 onChange = {lowerCaseMainData}
                                 themeBoolean={themeBoolean}
                             />
                         ) : (
-                            <Search.LocationInput 
+                            <Search.Input 
                                 type = "text"
-                                placeholder = "Enter job location..."
+                                placeholder = "Enter location..."
                                 value = {locationInputData}
                                 onChange = {lowerCaseLocationData}
                                 themeBoolean={themeBoolean}
@@ -156,17 +157,17 @@ const HomeContainer = () => {
     const desktop = <Search.Wrapper
                             themeBoolean={themeBoolean}
                     >
-                        <Search.GeneralInput 
+                        <Search.Input 
                             type = "text"
-                            placeholder = "Enter company name, job title..."
+                            placeholder = "Enter company, job..."
                             value = {mainInputData}
                             onChange = {lowerCaseMainData}
                             onFocus = {mainInput}
                             themeBoolean = {themeBoolean}
                         />
-                        <Search.LocationInput 
+                        <Search.Input 
                             type = "text"
-                            placeholder = "Enter job location..."
+                            placeholder = "Enter location..."
                             value = {locationInputData}
                             onChange = {lowerCaseLocationData}
                             onFocus = {locationInput}

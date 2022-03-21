@@ -1,8 +1,7 @@
 import {
     SearchDiv,
     Wrapper,
-    GeneralInput,
-    LocationInput,
+    Input,
     Reset,
     InputSwitch,
     TimeFilterDiv,
@@ -21,16 +20,12 @@ Search.Wrapper = function SearchWrapper({children, ...props}) {
         <Wrapper {...props}>{children}</Wrapper>
     )
 }
-Search.GeneralInput = function SearchGeneralInput({children, ...props}) {
+Search.Input = function SearchInput({children, ...props}) {
     return (
-        <GeneralInput {...props}>{children}</GeneralInput>
+        <Input {...props}>{children}</Input>
     )
 }
-Search.LocationInput = function SearchLocationInput({children, ...props}) {
-    return (
-        <LocationInput {...props}>{children}</LocationInput>
-    )
-}
+
 Search.Reset = function SearchReset({children, ...props}) {
     return (
         <Reset {...props}>{children}</Reset>
