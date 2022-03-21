@@ -10,6 +10,10 @@ import { JobsMain } from "../components/HomeComponents/Jobs/styles/jobsStyles"
 
 const HomeContainer = () => {
 
+    // Detect Chrome
+
+
+
     // data matching full time filter
     const time = data.filter(datum => datum.contract === "Full Time")
 
@@ -197,7 +201,7 @@ const HomeContainer = () => {
     return (
         <> 
             <SearchDiv>
-                {width < breakpoint ? mobile : desktop}
+                {width <= breakpoint ? mobile : desktop}
             </SearchDiv>
             <JobsMain>
                 {width < breakpoint ? mobileFilter : desktopFilter}

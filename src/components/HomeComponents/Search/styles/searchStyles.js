@@ -10,22 +10,27 @@ export const Wrapper = styled.div`
     border-radius: 5px;
     display: flex;
     align-items: center;
-    width: 85%;
+    width: 25rem;
     justify-content: space-evenly;
     background-color: ${(props) => props.themeBoolean ? "white" : "hsl(var(--clr-dark-blue))"};
     transition: .4s;
+    
+    @media (min-width: 25rem) {
+        width: 35rem;
+    }
+
+    @media (min-width: 28rem) {
+        width: 42rem;
+    }
 
     @media (min-width: 45rem) {
-        width: 65%;
+        width: 50rem;
     }
 
-    @media (min-width: 55rem) {
-        width: 55%;
-    }
 `
 export const Input = styled.input.attrs({type: "text"})`
     margin-left: 1rem;
-    width: 85%;
+    width: 30rem;
     padding: 2rem 0;
     border: none;
     border-radius: 5px;
@@ -37,13 +42,15 @@ export const Input = styled.input.attrs({type: "text"})`
     ::placeholder {
         font-size: 12px;
     }
-    
+
     @media (min-width: 35rem) {
         border-right: solid 1px hsl(var(--clr-grey));
         border-radius: 0px;
-        width: 35%;
+        width: 20rem;
+    }
 
-        
+    @media (min-width: 45rem) {
+        width: 30rem;
     }
 `
 
@@ -56,7 +63,7 @@ export const Reset = styled.button.attrs({type: "submit"})`
     cursor: pointer;
 
     @media (min-width: 55rem) {
-        margin: 0;
+        
     }
 `
 export const InputSwitch = styled.img`
@@ -65,7 +72,7 @@ export const InputSwitch = styled.img`
 `
 export const TimeFilterDiv = styled.div`
     background-color: ${(props) => props.themeBoolean ? "white" : "hsl(var(--clr-dark-blue))"};
-    width: 30%;
+    width: 12rem;
     height: 100%;
     display: flex;
     align-items: center;
@@ -73,8 +80,9 @@ export const TimeFilterDiv = styled.div`
     color: ${(props) => props.themeBoolean ? "hsl(var(--clr-midnight))" : "white"};
     transition: .4s;
 
-    @media (min-width: 45rem) {
-        width: 25%;
+    @media (min-width: 35rem) {
+        width: 18rem;
+        
     }
 
 `
