@@ -16,7 +16,8 @@ export const Wrapper = styled.div`
     transition: .4s;
     
     @media (min-width: 25rem) {
-        width: 35rem;
+        width: 40rem;
+        border: solid red;
     }
 
     @media (min-width: 28rem) {
@@ -46,7 +47,7 @@ export const Input = styled.input.attrs({type: "text"})`
     @media (min-width: 35rem) {
         border-right: solid 1px hsl(var(--clr-grey));
         border-radius: 0px;
-        width: 20rem;
+        width: 18rem;
     }
 
     @media (min-width: 45rem) {

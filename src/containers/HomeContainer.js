@@ -15,7 +15,7 @@ const HomeContainer = () => {
     let browser = window.navigator.vendor
     let breakpoint
 
-    browser === "Google Inc." ? breakpoint = 550 : breakpoint = 700
+    browser === "Google Inc." ? breakpoint = 650 : breakpoint = 700
 
 
     // data matching full time filter
