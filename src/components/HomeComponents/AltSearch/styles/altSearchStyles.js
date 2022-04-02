@@ -17,7 +17,6 @@ export const Wrapper = styled.div`
     
     @media (min-width: 25rem) {
         width: 40rem;
-        border: solid red;
     }
 
     @media (min-width: 28rem) {
