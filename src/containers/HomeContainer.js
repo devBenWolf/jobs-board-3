@@ -4,6 +4,7 @@ import data from "../data"
 import {ThemeContext} from "../context/ThemeContext"
 import Jobs from "../components/HomeComponents/Jobs"
 import Search from "../components/HomeComponents/Search"
+import AltSearch from"../components/HomeComponents/AltSearch"
 import {FaUndo} from "react-icons/fa"
 import { SearchDiv } from "../components/HomeComponents/Search/styles/searchStyles"
 import { JobsMain } from "../components/HomeComponents/Jobs/styles/jobsStyles"
@@ -11,7 +12,10 @@ import { JobsMain } from "../components/HomeComponents/Jobs/styles/jobsStyles"
 const HomeContainer = () => {
 
     // Detect Chrome
+    let browser = window.navigator.vendor
+    let breakpoint
 
+    browser === "Google Inc." ? breakpoint = 550 : breakpoint = 700
 
 
     // data matching full time filter
@@ -26,7 +30,9 @@ const HomeContainer = () => {
     const [timeFilter, setTimeFilter] = useState(false)
     const [width, setWidth] = useState(window.innerWidth)
     const [inputFocus, setInputFocus] = useState(1)
-    const breakpoint = 700
+    
+
+    
 
 
     const mainInput = () => {
@@ -193,7 +199,44 @@ const HomeContainer = () => {
                                 <FaUndo style={{color: "white"}} size="15" />
                             </Search.Reset>
                         </Search.TimeFilterDiv>
-                    </Search.Wrapper>     
+                    </Search.Wrapper>  
+                    
+    const desktopChrome = <AltSearch.Wrapper
+                              themeBoolean={themeBoolean}
+                          >
+                          <AltSearch.Input 
+                              type = "text"
+                              placeholder = "Enter company, job..."
+                              value = {mainInputData}
+                              onChange = {lowerCaseMainData}
+                              onFocus = {mainInput}
+                              themeBoolean = {themeBoolean}
+                          />
+                          <AltSearch.Input 
+                              type = "text"
+                              placeholder = "Enter location..."
+                              value = {locationInputData}
+                              onChange = {lowerCaseLocationData}
+                              onFocus = {locationInput}
+                              themeBoolean = {themeBoolean}
+                          />
+                          <AltSearch.TimeFilterDiv
+                              themeBoolean = {themeBoolean}
+                          >
+                              <AltSearch.TimeFilterLabel
+                                  themeBoolean = {themeBoolean}
+                              >
+                                  <AltSearch.TimeFilterInput
+                                      onClick = {fullTimeFilter}
+                                  />Full Time
+                              </AltSearch.TimeFilterLabel>
+                              <AltSearch.Reset
+                              onClick = {clearInput}                         
+                              >
+                                  <FaUndo style={{color: "white"}} size="15" />
+                              </AltSearch.Reset>
+                          </AltSearch.TimeFilterDiv>
+                          </AltSearch.Wrapper>  
                     
     const mobileFilter = inputFilter === 1 ? mainSearch : locationSearch
     const desktopFilter = inputFocus === 2 ? mainSearch : locationSearch
@@ -201,7 +244,7 @@ const HomeContainer = () => {
     return (
         <> 
             <SearchDiv>
-                {width <= breakpoint ? mobile : desktop}
+                {width <= breakpoint ? mobile : browser === "Google Inc." ? desktopChrome : desktop}
             </SearchDiv>
             <JobsMain>
                 {width < breakpoint ? mobileFilter : desktopFilter}
