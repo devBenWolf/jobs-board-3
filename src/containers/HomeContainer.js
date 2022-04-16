@@ -18,11 +18,10 @@ const HomeContainer = () => {
     browser === "Google Inc." ? breakpoint = 650 : breakpoint = 700
 
 
-    // data matching full time filter
+    // data matching full-time filter
     const time = data.filter(datum => datum.contract === "Full Time")
 
-    const {themeBoolean} = useContext(ThemeContext)
-    // 
+    const {themeBoolean} = useContext(ThemeContext) 
     const [currentData, setCurrentData] = useState(data)
     const [mainInputData, setMainInputData] = useState("")
     const [locationInputData, setLocationInputData] = useState("")
@@ -31,10 +30,7 @@ const HomeContainer = () => {
     const [width, setWidth] = useState(window.innerWidth)
     const [inputFocus, setInputFocus] = useState(1)
     
-
-    
-
-
+    // clear input on focus change
     const mainInput = () => {
         setInputFocus(prevCount => prevCount + 1)
         setLocationInputData("")
@@ -47,6 +43,7 @@ const HomeContainer = () => {
       console.log(inputFocus)
     }
 
+    // set state for entries labelled "Full time"
     const fullTimeFilter = () => {
         timeFilter ? setCurrentData(data) : setCurrentData(time)
         setTimeFilter(prevState => !prevState)
@@ -57,6 +54,7 @@ const HomeContainer = () => {
         setLocationInputData("")
       }
     
+
       const lowerCaseMainData = (event) => {
         setMainInputData(event.target.value.toLowerCase())
       }
@@ -84,6 +82,7 @@ const HomeContainer = () => {
     }
   }
 
+    // html and entries for main search input
     const mainSearch = currentData.filter(datum => datum.company.toLowerCase().includes(mainInputData) ||
         datum.position.toLowerCase().includes(mainInputData)).map((datum) => (
             <Jobs.OuterDiv key = {datum.id}>
@@ -109,6 +108,7 @@ const HomeContainer = () => {
             </Jobs.OuterDiv>
         ))
     
+    // html and entries for location search input
     const locationSearch = currentData.filter(datum => datum.location.toLowerCase().includes(locationInputData)).map(datum => (
             <Jobs.OuterDiv key = {datum.id}>
                 <Jobs.IconBackground backgroundColor={datum.logoBackground}>
@@ -133,6 +133,7 @@ const HomeContainer = () => {
             </Jobs.OuterDiv>
         ))
 
+    // mobile searchbar layout
     const mobile = <Search.Wrapper
                         themeBoolean={themeBoolean}
                     >
@@ -164,6 +165,7 @@ const HomeContainer = () => {
                         </Search.Reset>
                     </Search.Wrapper>
 
+    // desktop searchbar layout
     const desktop = <Search.Wrapper
                             themeBoolean={themeBoolean}
                     >
@@ -200,7 +202,8 @@ const HomeContainer = () => {
                             </Search.Reset>
                         </Search.TimeFilterDiv>
                     </Search.Wrapper>  
-                    
+             
+    // desktop layout if using Chrome browser 
     const desktopChrome = <AltSearch.Wrapper
                               themeBoolean={themeBoolean}
                           >
@@ -237,7 +240,8 @@ const HomeContainer = () => {
                               </AltSearch.Reset>
                           </AltSearch.TimeFilterDiv>
                           </AltSearch.Wrapper>  
-                    
+                   
+    // conditionally render main or location search results on mobile or desktop
     const mobileFilter = inputFilter === 1 ? mainSearch : locationSearch
     const desktopFilter = inputFocus === 2 ? mainSearch : locationSearch
 

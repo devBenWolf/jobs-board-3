@@ -10,6 +10,7 @@ import Job from "../components/DetailComponents/Job";
 const DetailContainer = () => {
     const {themeBoolean} = useContext(ThemeContext)
 
+    // useParams to access id of the url
     const params = useParams()
     const findJob = (id) => {
         return data.find((job) => job.id === id)
