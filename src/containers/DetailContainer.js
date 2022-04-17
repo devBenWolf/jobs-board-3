@@ -16,6 +16,7 @@ const DetailContainer = () => {
         return data.find((job) => job.id === id)
     }
 
+    // store id integer
     const selectedJob = findJob(parseInt(params.jobId, 10))
 
     return ( 
