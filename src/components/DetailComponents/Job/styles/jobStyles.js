@@ -95,8 +95,7 @@ export const ApplyDiv = styled.div`
 
         width: min-content;
         display: grid;
-        place-items: center;
-        
+        place-items: center;      
     }
 `
 export const BodyDiv = styled.div``
