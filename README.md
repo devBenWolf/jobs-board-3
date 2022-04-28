@@ -1,3 +1,10 @@
+# Devjobs app
+Search and filter functions, pulls data from a json file. 
+
+## Figma file and assets available at https://www.frontendmentor.io/challenges/devjobs-web-app-HuvC_LP4l
+
+## To see a deployment of this site, visit https://vercel.com/devbenwolf/jobs-board-3
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +75,29 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+# Routing handled with React Router
+
+React Router is a lightweight, fully-featured routing library for the [React](https://reactjs.org) JavaScript library. React Router runs everywhere that React runs; on the web, on the server (using node.js), and on React Native.
+
+If you're new to React Router, we recommend you start with [the getting started guide](/docs/getting-started/installation.md).
+
+If you're migrating to v6 from v5 (or v4, which is the same as v5), check out [the migration guide](/docs/upgrading/v5.md). If you're migrating from Reach Router, check out [the migration guide for Reach Router](/docs/upgrading/reach.md). If you need to find the code for v5, [it is on the `v5` branch](https://github.com/remix-run/react-router/tree/v5).
+
+# Getting started with Styled Components
+
+## [Docs](https://www.styled-components.com/docs)
+
+**See the documentation at [styled-components.com/docs](https://www.styled-components.com/docs)** for more information about using `styled-components`!
+
+Quicklinks to some of the most-visited pages:
+
+- [**Getting started**](https://www.styled-components.com/docs/basics)
+- [API Reference](https://styled-components.com/docs/api)
+- [Theming](https://www.styled-components.com/docs/advanced#theming)
+- [Server-side rendering](https://www.styled-components.com/docs/advanced#server-side-rendering)
+- [Tagged Template Literals explained](https://www.styled-components.com/docs/advanced#tagged-template-literals)
+
+# Getting started with React-Icons
+
+https://react-icons.github.io/react-icons/
