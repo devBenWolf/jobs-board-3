@@ -76,7 +76,7 @@ export const GlobalStyles = createGlobalStyle`
     input,
     button,
     textarea {
-        font-inherit;
+        font: inherit;
     }
 
     h1,
