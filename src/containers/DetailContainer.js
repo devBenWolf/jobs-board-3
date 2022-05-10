@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ThemeContext } from "../context/ThemeContext"
+import { ThemeContext } from "../contexts/ThemeContext"
 import Company from "../components/DetailComponents/Company";
 import { OuterDiv } from "../components/DetailComponents/Company/styles/companyStyles";
 import { useParams } from "react-router-dom";

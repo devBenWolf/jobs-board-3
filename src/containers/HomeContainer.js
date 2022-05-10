@@ -1,41 +1,44 @@
 import {useContext, useEffect, useState} from "react"
 import {Link, Outlet} from "react-router-dom"
 import data from "../data"
-import {ThemeContext} from "../context/ThemeContext"
+import {ThemeContext} from "../contexts/ThemeContext"
+import { DataContext } from "../contexts/DataContext"
 import Jobs from "../components/HomeComponents/Jobs"
 import Search from "../components/HomeComponents/Search"
 import AltSearch from"../components/HomeComponents/AltSearch"
 import {FaUndo} from "react-icons/fa"
 import { SearchDiv } from "../components/HomeComponents/Search/styles/searchStyles"
 import { JobsMain } from "../components/HomeComponents/Jobs/styles/jobsStyles"
+import { InputContext } from "../contexts/InputContext"
+
 
 const HomeContainer = () => {
-
+    
     // Detect Chrome
     let browser = window.navigator.vendor
     let breakpoint
 
     browser === "Google Inc." ? breakpoint = 650 : breakpoint = 700
-
+        const [width, setWidth] = useState(window.innerWidth)
 
     // data matching full-time filter
     const time = data.filter(datum => datum.contract === "Full Time")
 
-    const {themeBoolean} = useContext(ThemeContext) 
-    const [currentData, setCurrentData] = useState(data)
-    const [mainInputData, setMainInputData] = useState("")
-    const [locationInputData, setLocationInputData] = useState("")
-    const [inputFilter, setInputFilter] = useState(1)
-    const [timeFilter, setTimeFilter] = useState(false)
-    const [width, setWidth] = useState(window.innerWidth)
-    const [inputFocus, setInputFocus] = useState(1)
+    // contexts
+    const {themeBoolean} = useContext(ThemeContext)
+    const {currentData, setCurrentData, mainInputData, 
+            setMainInputData, locationInputData, setLocationInputData} = useContext(DataContext)
+    
+    const {inputFilter, setInputFilter, timeFilter, setTimeFilter, 
+            inputFocus, setInputFocus} = useContext(InputContext)
+
     
     // clear input on focus change
     const mainInput = () => {
         setInputFocus(prevCount => prevCount + 1)
         setLocationInputData("")
         console.log(inputFocus)
-      }
+    }
 
     const locationInput = () => {
       setInputFocus(prevCount => prevCount - 1)

@@ -2,7 +2,7 @@ import {useState, createContext} from "react"
 
 export const ThemeContext = createContext()
 
-const ContextProvider = ({children}) => {
+const ThemeContextProvider = ({children}) => {
 
     const [themeBoolean, setThemeBoolean] = useState(true)
     const [test, setTest] = useState(false)
@@ -14,4 +14,4 @@ const ContextProvider = ({children}) => {
      );
 }
  
-export default ContextProvider;
+export default ThemeContextProvider;

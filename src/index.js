@@ -3,15 +3,18 @@ import ReactDOM from 'react-dom';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Job from "./routes/job"
 import Layout from './components/Layout';
-import ContextProvider from './context/ThemeContext';
 import { GlobalStyles } from './globalStyles';
 import HomeContainer from './containers/HomeContainer';
+import ThemeContextProvider from './contexts/ThemeContext';
+import DataContextProvider from './contexts/DataContext';
+import InputContextProvider from './contexts/InputContext';
 
 ReactDOM.render(
   <React.StrictMode>
     <GlobalStyles />
-    <ContextProvider>
-    
+    <ThemeContextProvider>
+    <DataContextProvider>
+    <InputContextProvider>
       <BrowserRouter>
       <Layout>
         <Routes>
@@ -20,8 +23,9 @@ ReactDOM.render(
         </Routes>
         </Layout>
       </BrowserRouter>
-    
-    </ContextProvider>
+    </InputContextProvider>
+    </DataContextProvider>
+    </ThemeContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

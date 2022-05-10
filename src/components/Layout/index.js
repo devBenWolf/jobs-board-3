@@ -1,5 +1,5 @@
 import {useContext} from "react"
-import { ThemeContext } from "../../context/ThemeContext"
+import { ThemeContext } from "../../contexts/ThemeContext"
 import Header from "../HomeComponents/Header"
 import { HeaderDiv } from "../HomeComponents/Header/styles/headerStyles"
 import {Main} from "../HomeComponents/PrimaryDiv/styles/primaryDivStyles"
