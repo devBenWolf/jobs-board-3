@@ -3,13 +3,15 @@ import {Link, Outlet} from "react-router-dom"
 import data from "../data"
 import {ThemeContext} from "../contexts/ThemeContext"
 import { DataContext } from "../contexts/DataContext"
+import { InputContext } from "../contexts/InputContext"
 import Jobs from "../components/HomeComponents/Jobs"
 import Search from "../components/HomeComponents/Search"
 import AltSearch from"../components/HomeComponents/AltSearch"
 import {FaUndo} from "react-icons/fa"
 import { SearchDiv } from "../components/HomeComponents/Search/styles/searchStyles"
 import { JobsMain } from "../components/HomeComponents/Jobs/styles/jobsStyles"
-import { InputContext } from "../contexts/InputContext"
+import MainSearchContainer from "./MainSearchContainer"
+import LocationSearchContainer from "./LocationSearchContainer"
 
 
 const HomeContainer = () => {
@@ -59,7 +61,7 @@ const HomeContainer = () => {
     
 
       const lowerCaseMainData = (event) => {
-        setMainInputData(event.target.value.toLowerCase())
+        setMainInputData(event.target.value.toLowerCase())            
       }
     
       const lowerCaseLocationData = (event) => {
@@ -84,57 +86,6 @@ const HomeContainer = () => {
             setInputFilter(prevState => prevState + 1)
     }
   }
-
-    // html and entries for main search input
-    const mainSearch = currentData.filter(datum => datum.company.toLowerCase().includes(mainInputData) ||
-        datum.position.toLowerCase().includes(mainInputData)).map((datum) => (
-            <Jobs.OuterDiv key = {datum.id}>
-                <Jobs.IconBackground backgroundColor={datum.logoBackground}>
-                    <Jobs.Icon
-                        src={datum.logo}
-                    />
-                </Jobs.IconBackground>
-                <Jobs.InnerDiv themeBoolean={themeBoolean}>
-                    <Link
-                        style={{textDecoration: "none"}}
-                        to={`/${datum.id}`}
-                    >
-                        <Jobs.InfoDiv>
-                            <Jobs.Heading>{datum.postedAt}<Jobs.HeadingSpan></Jobs.HeadingSpan>{datum.contract}</Jobs.Heading>
-                            <Jobs.InfoText themeBoolean={themeBoolean}>{datum.position}</Jobs.InfoText>
-                            <Jobs.InfoSubtext>{datum.company}</Jobs.InfoSubtext>
-                            <Jobs.LocationText>{datum.location}</Jobs.LocationText>
-                        </Jobs.InfoDiv>
-                    </Link>
-                </Jobs.InnerDiv>
-                <Outlet />
-            </Jobs.OuterDiv>
-        ))
-    
-    // html and entries for location search input
-    const locationSearch = currentData.filter(datum => datum.location.toLowerCase().includes(locationInputData)).map(datum => (
-            <Jobs.OuterDiv key = {datum.id}>
-                <Jobs.IconBackground backgroundColor={datum.logoBackground}>
-                    <Jobs.Icon
-                        src={datum.logo}
-                    />
-                </Jobs.IconBackground>
-                <Jobs.InnerDiv themeBoolean={themeBoolean}>
-                    <Link
-                        style={{textDecoration: "none"}}
-                        to={`/${datum.id}`}
-                    >
-                        <Jobs.InfoDiv>
-                            <Jobs.Heading>{datum.postedAt}<Jobs.HeadingSpan></Jobs.HeadingSpan>{datum.contract}</Jobs.Heading>
-                            <Jobs.InfoText themeBoolean={themeBoolean}>{datum.position}</Jobs.InfoText>
-                            <Jobs.InfoSubtext>{datum.company}</Jobs.InfoSubtext>
-                            <Jobs.LocationText>{datum.location}</Jobs.LocationText>
-                        </Jobs.InfoDiv>
-                    </Link>
-                </Jobs.InnerDiv>
-                <Outlet />
-            </Jobs.OuterDiv>
-        ))
 
     // mobile searchbar layout
     const mobile = <Search.Wrapper
@@ -245,8 +196,8 @@ const HomeContainer = () => {
                           </AltSearch.Wrapper>  
                    
     // conditionally render main or location search results on mobile or desktop
-    const mobileFilter = inputFilter === 1 ? mainSearch : locationSearch
-    const desktopFilter = inputFocus === 2 ? mainSearch : locationSearch
+    const mobileFilter = inputFilter === 1 ? <MainSearchContainer /> : <LocationSearchContainer />
+    const desktopFilter = inputFocus === 2 ? <MainSearchContainer /> : <LocationSearchContainer />
 
     return (
         <> 
