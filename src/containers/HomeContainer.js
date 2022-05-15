@@ -28,8 +28,8 @@ const HomeContainer = () => {
 
     // contexts
     const {themeBoolean} = useContext(ThemeContext)
-    const {currentData, setCurrentData, mainInputData, 
-            setMainInputData, locationInputData, setLocationInputData} = useContext(DataContext)
+    const {setCurrentData, mainInputData, setMainInputData, 
+            locationInputData, setLocationInputData} = useContext(DataContext)
     
     const {inputFilter, setInputFilter, timeFilter, setTimeFilter, 
             inputFocus, setInputFocus} = useContext(InputContext)

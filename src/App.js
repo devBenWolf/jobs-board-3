@@ -12,7 +12,6 @@ import Layout from './components/Layout';
 
 
 function App() {
-  const [auth, setAuth] = useState(false)
 
   return (
     <>
