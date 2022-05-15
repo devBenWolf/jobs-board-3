@@ -25,15 +25,9 @@ const DetailContainer = () => {
                 key={selectedJob.id}
                 themeBoolean={themeBoolean}
             >
-                <Company.InnerDiv 
-                    themeBoolean={themeBoolean}
-                >
-                    <Company.IconBackground
-                        backgroundColor={selectedJob.logoBackground}
-                    >
-                        <Company.Icon 
-                            src={selectedJob.logo}
-                        />
+                <Company.InnerDiv themeBoolean={themeBoolean}>
+                    <Company.IconBackground backgroundColor={selectedJob.logoBackground}>
+                        <Company.Icon src={selectedJob.logo}/>
                     </Company.IconBackground>
                     <Company.InfoDiv>
                         <Company.Name themeBoolean={themeBoolean}>{selectedJob.company}</Company.Name>

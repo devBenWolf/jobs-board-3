@@ -1,10 +1,8 @@
 import {useContext, useEffect, useState} from "react"
-import {Link, Outlet} from "react-router-dom"
 import data from "../data"
 import {ThemeContext} from "../contexts/ThemeContext"
 import { DataContext } from "../contexts/DataContext"
 import { InputContext } from "../contexts/InputContext"
-import Jobs from "../components/HomeComponents/Jobs"
 import Search from "../components/HomeComponents/Search"
 import AltSearch from"../components/HomeComponents/AltSearch"
 import {FaUndo} from "react-icons/fa"
@@ -15,7 +13,6 @@ import LocationSearchContainer from "./LocationSearchContainer"
 
 
 const HomeContainer = () => {
-    
     // Detect Chrome
     let browser = window.navigator.vendor
     let breakpoint
