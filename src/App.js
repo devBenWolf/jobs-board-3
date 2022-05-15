@@ -5,6 +5,7 @@ import ThemeContextProvider from './contexts/ThemeContext';
 import DataContextProvider from './contexts/DataContext';
 import InputContextProvider from './contexts/InputContext';
 import HomeContainer from "./containers/HomeContainer";
+
 import Job from './components/DetailComponents/Job';
 import Login from './Login';
 import Layout from './components/Layout';
