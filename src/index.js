@@ -8,24 +8,11 @@ import HomeContainer from './containers/HomeContainer';
 import ThemeContextProvider from './contexts/ThemeContext';
 import DataContextProvider from './contexts/DataContext';
 import InputContextProvider from './contexts/InputContext';
+import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <GlobalStyles />
-    <ThemeContextProvider>
-    <DataContextProvider>
-    <InputContextProvider>
-      <BrowserRouter>
-      <Layout>
-        <Routes>
-          <Route path = "/" element={<HomeContainer />} />
-          <Route path = ":jobId" element = {<Job />} />
-        </Routes>
-        </Layout>
-      </BrowserRouter>
-    </InputContextProvider>
-    </DataContextProvider>
-    </ThemeContextProvider>
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );

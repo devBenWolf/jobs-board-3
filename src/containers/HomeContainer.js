@@ -37,15 +37,13 @@ const HomeContainer = () => {
     
     // clear input on focus change
     const mainInput = () => {
-        setInputFocus(prevCount => prevCount + 1)
+        inputFocus > 2 || inputFocus < 1 ? setInputFocus(1) : setInputFocus(prevCount => prevCount + 1)
         setLocationInputData("")
-        console.log(inputFocus)
     }
 
     const locationInput = () => {
-      setInputFocus(prevCount => prevCount - 1)
+        inputFocus > 2 || inputFocus < 1 ? setInputFocus(1) : setInputFocus(prevCount => prevCount - 1)
       setMainInputData("")
-      console.log(inputFocus)
     }
 
     // set state for entries labelled "Full time"
@@ -57,6 +55,7 @@ const HomeContainer = () => {
       const clearInput = () => {
         setMainInputData("")
         setLocationInputData("")
+        setInputFilter(1)
       }
     
 
@@ -85,7 +84,7 @@ const HomeContainer = () => {
         } else {
             setInputFilter(prevState => prevState + 1)
     }
-  }
+}
 
     // mobile searchbar layout
     const mobile = <Search.Wrapper
