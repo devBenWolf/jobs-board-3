@@ -31,6 +31,7 @@ const DetailContainer = () => {
                     </Company.IconBackground>
                     <Company.InfoDiv>
                         <Company.Name themeBoolean={themeBoolean}>{selectedJob.company}</Company.Name>
+                        
                         {/* Remove spaces in company name, convert to lower case, add ".com" suffix */}
                         <Company.URL>{`${selectedJob.company.split(" ").join("").toLowerCase()}.com`}</Company.URL>
                     </Company.InfoDiv>

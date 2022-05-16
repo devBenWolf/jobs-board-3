@@ -4,9 +4,11 @@ import ThemeContextProvider from './contexts/ThemeContext';
 import DataContextProvider from './contexts/DataContext';
 import InputContextProvider from './contexts/InputContext';
 import HomeContainer from "./containers/HomeContainer";
-
+import LoginContainer from './containers/LoginContainer';
 import Job from './routes/job';
 import Layout from './components/Layout';
+import AuthContextProvider from './contexts/AuthContext';
+import CreateJobsContainer from './containers/CreateJobsContainer';
 
 
 function App() {
@@ -17,14 +19,18 @@ function App() {
       <ThemeContextProvider>
       <DataContextProvider>
       <InputContextProvider>
+      <AuthContextProvider>
         <BrowserRouter>
           <Layout>
             <Routes>
-              <Route path = "/" element={<HomeContainer />} />
+              <Route path = "/" element={<HomeContainer />} />              
+              <Route path = "/login" element={<LoginContainer />} />     
+              <Route path = "/create-job" element={<CreateJobsContainer />} />         
               <Route path = "/:jobId" element = {<Job />} />
             </Routes>
           </Layout>
         </BrowserRouter>
+        </AuthContextProvider>
       </InputContextProvider>
       </DataContextProvider>
       </ThemeContextProvider>

@@ -1,5 +1,6 @@
 import {useContext, useEffect, useState} from "react"
 import data from "../data"
+
 import {ThemeContext} from "../contexts/ThemeContext"
 import { DataContext } from "../contexts/DataContext"
 import { InputContext } from "../contexts/InputContext"
@@ -12,7 +13,9 @@ import MainSearchContainer from "./MainSearchContainer"
 import LocationSearchContainer from "./LocationSearchContainer"
 
 
+
 const HomeContainer = () => {
+
     // Detect Chrome
     let browser = window.navigator.vendor
     let breakpoint
