@@ -46,6 +46,7 @@ const CreateJobsContainer = () => {
                     onChange = {(event) => setDescription(event.target.value)}
                 />
             </CreateJobs.DescriptionDiv>
+            <CreateJobs.Submit>Submit</CreateJobs.Submit>
         </CreateJobsMain>
      );
 }

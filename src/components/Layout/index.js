@@ -19,12 +19,14 @@ const Layout = ({children}) => {
     const {themeBoolean, setThemeBoolean} = useContext(ThemeContext)
     const {isAuth, setIsAuth} = useContext(AuthContext)
     const navigate = useNavigate()
+    const local = localStorage.getItem("isAuth")
+    console.log(local)
 
     const signout = () => {
         signOut(auth).then(() => {
             localStorage.clear()
             setIsAuth(false)
-            navigate("/login")
+            navigate("/")
         })
     }
 
@@ -46,8 +48,8 @@ const Layout = ({children}) => {
             {children}
             <FooterMain>
                 <Footer.Text>
-                    {!isAuth ? <Link to="/login" style={{textDecoration: "none", color: "white"}}>login</Link> 
-                    : <Link to="/login" style={{textDecoration: "none", color: "white"}} onClick = {signout}>logout</Link>}
+                    {!local ? <Link to="/login" style={{textDecoration: "none", color: "white"}}>login</Link> 
+                    : <Footer.LogoutButton style={{textDecoration: "none", color: "white"}} onClick = {signout}>logout</Footer.LogoutButton>}
                 </Footer.Text>
             </FooterMain>
         </Main>

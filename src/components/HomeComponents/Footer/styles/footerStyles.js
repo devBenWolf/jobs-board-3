@@ -11,3 +11,5 @@ export const Text = styled.p`
     font-size: clamp(18px, 6vw, 28px);
     color: hsl(var(--clr-white));
 `
+
+export const LogoutButton = styled.button``

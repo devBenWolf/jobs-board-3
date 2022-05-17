@@ -1,4 +1,4 @@
-import {FooterMain, Text} from "./styles/footerStyles"
+import {FooterMain, Text, LogoutButton} from "./styles/footerStyles"
 
 const Footer = ({children, ...props}) => {
     return ( 
@@ -9,6 +9,12 @@ const Footer = ({children, ...props}) => {
 Footer.Text = function FooterText({children, ...props}) {
     return (
         <Text {...props}>{children}</Text>
+    )
+}
+
+Footer.LogoutButton = function FooterLogoutButton({children, ...props}) {
+    return (
+        <LogoutButton {...props}>{children}</LogoutButton>
     )
 }
  

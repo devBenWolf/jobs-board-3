@@ -6,7 +6,8 @@ import {
     CompanyInput,
     DescriptionDiv,
     DescriptionTitle,
-    DescriptionInput
+    DescriptionInput,
+    Submit
 } from "./style/createJobsStyles"
 
 const CreateJobs = ({children, ...props}) => {
@@ -53,6 +54,13 @@ CreateJobs.DescriptionTitle = function CreateJobsDescriptionTitle({children, ...
 CreateJobs.DescriptionInput = function CreateJobsDescriptionInput({children, ...props}) {
     return (
         <DescriptionInput {...props}>{children}</DescriptionInput>
+    )
+}
+
+// Submit button
+CreateJobs.Submit = function CreateJobsSubmit({children, ...props}) {
+    return (
+        <Submit {...props}>{children}</Submit>
     )
 }
 

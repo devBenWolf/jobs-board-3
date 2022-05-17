@@ -36,3 +36,7 @@ export const DescriptionInput = styled.textarea`
     width: 80%;
     font-size: 2rem;
 `
+
+export const Submit = styled.button`
+
+`
