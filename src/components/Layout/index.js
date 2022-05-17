@@ -35,7 +35,7 @@ const Layout = ({children}) => {
             <HeaderDiv>
                 {/* Make sure component from which you're linking is within the BrowserRouter context */}
                 
-                <Link to="/" style={{textDecoration: "none"}}><Header.Text>devjobs</Header.Text></Link>
+                <Link to="/create-jobs" style={{textDecoration: "none"}}><Header.Text>devjobs</Header.Text></Link>
                 <ThemeDiv>
                     <FaSun style={{color: "hsl(var(--clr-white))"}} size="20" />
                     <ThemeInput.Label className = "switch">
