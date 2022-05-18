@@ -2,13 +2,26 @@ import {
     RequirementSkillsSection,
     Title,
     Input,
-    PushButton
+    PushButton,
+    InputDiv,
+    DisplayDiv
 } from "./style/requirementSkillsStyles.js"
 
 const RequirementSkills = ({children, ...props}) => {
     return ( 
         <RequirementSkillsSection {...props}>{children}</RequirementSkillsSection>
      );
+}
+
+RequirementSkills.InputDiv = function RequirementSkillsInputDiv({children, ...props}) {
+    return (
+        <InputDiv {...props}>{children}</InputDiv>
+    )
+}
+RequirementSkills.DisplayDiv = function RequirementSkillsDisplayDiv({children, ...props}) {
+    return (
+        <DisplayDiv {...props}>{children}</DisplayDiv>
+    )
 }
 
 RequirementSkills.Title = function RequirementSkillsTitle({children, ...props}) {

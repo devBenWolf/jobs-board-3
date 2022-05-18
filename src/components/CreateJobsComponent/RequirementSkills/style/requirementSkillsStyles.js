@@ -2,18 +2,34 @@ import styled from 'styled-components'
 
 export const RequirementSkillsSection = styled.section`
 display: grid;
-place-items: center;
+grid-template-areas:
+    ". input display";
+grid-template-columns: 1fr 1fr 1fr;
 width: 80%;
+height: 20rem;
+grid-gap: 5rem;
+border: solid red;
 `
 export const Title = styled.h3`
 color: ${(props) => props.themeBoolean ? "black" : "white"};`
 
 export const Input = styled.input.attrs({type: "text"})`
+jusfity-self: center;
 border-radius: 10px;
 border: none;
-width: 20%;
+
 height: 3rem;
 `
 
 export const PushButton = styled.button`
+`
+
+export const InputDiv = styled.div`
+grid-area: input;
+border: solid red;
+`
+
+export const DisplayDiv = styled.div`
+grid-area: display;
+border: solid blue;
 `

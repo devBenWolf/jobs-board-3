@@ -1,6 +1,7 @@
 
 
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
+
 import { addDoc, collection } from "firebase/firestore";
 import { ThemeContext } from "../contexts/ThemeContext";
 import CreateJobs from "../components/CreateJobsComponent/CreateJobs";
@@ -31,6 +32,7 @@ import { RequirementContentSection } from "../components/CreateJobsComponent/Req
 import RequirementContent from "../components/CreateJobsComponent/RequirementContent";
 import { RequirementSkillsSection } from "../components/CreateJobsComponent/RequirementSkills/style/requirementSkillsStyles";
 import RequirementSkills from "../components/CreateJobsComponent/RequirementSkills";
+import { AuthContext } from "../contexts/AuthContext";
 
 const CreateJobsContainer = () => {
     const [company, setCompany] = useState("")
@@ -44,8 +46,10 @@ const CreateJobsContainer = () => {
     const [website, setWebsite] = useState("")
     const [apply, setApply] = useState("")
     const [requirementContent, setRequirementContent] = useState("")
+    const [requireMentSkills, setRequirementSkills] = useState([])
 
     const {themeBoolean} = useContext(ThemeContext)
+    const {isAuth} = useContext(AuthContext)
 
     // database and collection to which we add the jobs
     const jobsCollectionRef = collection(db, "jobs")
@@ -59,6 +63,7 @@ const CreateJobsContainer = () => {
             {name:  auth.currentUser.displayName, id: auth.currentUser.uid}})
             navigate("/")
     }
+
 
     return ( 
         <CreateJobsMain data-flow="2">
@@ -164,12 +169,17 @@ const CreateJobsContainer = () => {
 
             {/* Required Skills */}
             <RequirementSkillsSection>
-                <RequirementSkills.Title themeBoolean={themeBoolean}>Required Skills</RequirementSkills.Title>
-                <RequirementSkills.Input 
-                    value = {requirementContent}
-                    onChange = {(event) => setRequirementContent(event.target.value)} 
-                />
-                <RequirementSkills.PushButton>Add to skills</RequirementSkills.PushButton>
+                <RequirementSkills.InputDiv>
+                    <RequirementSkills.Title themeBoolean={themeBoolean}>Required Skills</RequirementSkills.Title>
+                    <RequirementSkills.Input 
+                        value = {requirementContent}
+                        onChange = {(event) => setRequirementContent(event.target.value)} 
+                    />
+                    <RequirementSkills.PushButton>Add to skills</RequirementSkills.PushButton>
+                </RequirementSkills.InputDiv>
+                <RequirementSkills.DisplayDiv>
+                    <RequirementSkills.Title>hello</RequirementSkills.Title>
+                </RequirementSkills.DisplayDiv>
             </RequirementSkillsSection>
             <CreateJobs.Submit onClick = {createJob}>Submit</CreateJobs.Submit>
         </CreateJobsMain>

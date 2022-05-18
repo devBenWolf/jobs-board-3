@@ -11,12 +11,14 @@ const LoginContainer = () => {
     const {setIsAuth} = useContext(AuthContext)
     let navigate = useNavigate()
 
-    const signIn = () => {
+    const signInWithGoogle = () => {
         signInWithPopup(auth, provider).then((result) => {
             // set auth in local storage
             localStorage.setItem("isAuth", true)
             setIsAuth(true)
-            navigate("/create-job")
+            if (localStorage.getItem("isAuth")) {
+                navigate("/create-job")
+            }
         })
     }
 
@@ -24,7 +26,7 @@ const LoginContainer = () => {
         <LoginMain>
             <Login.Div>
                 <Login.Text>log in with the thing</Login.Text>
-                <Login.Button onClick = {signIn}>sign in</Login.Button>
+                <Login.Button onClick = {signInWithGoogle}>sign in</Login.Button>
             </Login.Div>
         </LoginMain>
 
