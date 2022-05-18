@@ -1,8 +1,7 @@
 import { nanoid } from "nanoid"
-
-import { useContext, useState } from "react";
-
 import { addDoc, collection } from "firebase/firestore";
+import { db, auth } from "../firebase";
+import { useContext, useState } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
 import CreateJobs from "../components/CreateJobsComponent/CreateJobs";
 import { CreateJobsMain } from "../components/CreateJobsComponent/CreateJobs/style/createJobsStyles";
@@ -10,7 +9,6 @@ import Company from "../components/CreateJobsComponent/Company";
 import { CompanySection } from "../components/CreateJobsComponent/Company/style/companyStyles";
 import { DescriptionSection } from "../components/CreateJobsComponent/Description/style/descriptionStyles";
 import Description from "../components/CreateJobsComponent/Description";
-import { db, auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
 import { LogoSection } from "../components/CreateJobsComponent/Logo/style/logoStyles";
 import Logo from "../components/CreateJobsComponent/Logo";
@@ -32,44 +30,33 @@ import { RequirementContentSection } from "../components/CreateJobsComponent/Req
 import RequirementContent from "../components/CreateJobsComponent/RequirementContent";
 import { RequirementSkillsSection } from "../components/CreateJobsComponent/RequirementSkills/style/requirementSkillsStyles";
 import RequirementSkills from "../components/CreateJobsComponent/RequirementSkills";
-import { AuthContext } from "../contexts/AuthContext";
+import { InputContext } from "../contexts/InputContext";
 
 const CreateJobsContainer = () => {
-    const [company, setCompany] = useState("")
-    const [description, setDescription] = useState("")
-    const [logo, setLogo] = useState("")
-    const [logoBackground, setLogoBackground] = useState("")
-    const [position, setPosition] = useState("")
-    const [postedAt, setPostedAt] = useState("")
-    const [contract, setContract] = useState("")
-    const [location, setLocation] = useState("")
-    const [website, setWebsite] = useState("")
-    const [apply, setApply] = useState("")
-    const [requirementContent, setRequirementContent] = useState("")
-    const [requirementSkillsInput, setRequirementSkillsInput] = useState("")
-    const [requirementSkillsArray, setRequirementSkillsArray] = useState([])
+    const {addToSkills, removeFromSkills, handleCompany, handleDescription, handleLogo,handleLogoBackground, handlePosition, handlePostedAt, handleContract,
+        handleLocation, handleWebsite, handleApply, handleRequirementContent, handleRequirementSkillsInput,
+        requirementSkillsArray, company, description, logo, logoBackground, position, postedAt, 
+        contract, location, website, apply, requirementContent, requirementSkillsInput    
+    } = useContext(InputContext)
+
 
     const {themeBoolean} = useContext(ThemeContext)
-    const {isAuth} = useContext(AuthContext)
 
-    // database and collection to which we add the jobs
-    const jobsCollectionRef = collection(db, "jobs")
+            // database and collection to which we add the jobs
+            const jobsCollectionRef = collection(db, "jobs")
 
-    // navigate to homepage after submitting job data
-    const navigate = useNavigate()
-
+            // navigate to homepage after submitting job data
+            const navigate = useNavigate()
+    
     const createJob = async () => {
         // add document to the collection along with with author id object
-        await addDoc(jobsCollectionRef, {company, description, logo, logoBackground, author: 
+        await addDoc(jobsCollectionRef, {
+            company, description, logo, logoBackground, position, postedAt, 
+            contract, location, website, apply, requirementContent, requirementSkillsArray, author: 
             {name:  auth.currentUser.displayName, id: auth.currentUser.uid}})
-            navigate("/")
+            localStorage.clear()
+            navigate("/create-jobs")
     }
-
-    const addToSkills = () => {
-        setRequirementSkillsArray(prevState => [...prevState, requirementSkillsInput ])
-        setRequirementSkillsInput("")
-    }
-
 
     return ( 
         <CreateJobsMain data-flow="2">
@@ -78,8 +65,8 @@ const CreateJobsContainer = () => {
             <CompanySection>
                 <Company.CompanyTitle themeBoolean={themeBoolean}>company</Company.CompanyTitle>
                 <Company.CompanyInput 
-                    value    = {company} 
-                    onChange = {(event) => setCompany(event.target.value)}    
+                    value    = {localStorage.getItem("Company") || company} 
+                    onChange = {handleCompany}    
                 />
             </CompanySection>
 
@@ -87,8 +74,8 @@ const CreateJobsContainer = () => {
             <DescriptionSection>
                 <Description.Title themeBoolean={themeBoolean}>description</Description.Title>
                 <Description.Input 
-                    value    = {description} 
-                    onChange = {(event) => setDescription(event.target.value)}
+                    value    = {localStorage.getItem("Description") || description} 
+                    onChange = {handleDescription}
                 />
             </DescriptionSection>
             
@@ -96,8 +83,8 @@ const CreateJobsContainer = () => {
             <LogoSection>
                 <Logo.Title themeBoolean={themeBoolean}>Logo path</Logo.Title>
                 <Logo.Input 
-                    value    = {logo}
-                    onChange = {(event) => setLogo(event.target.value)}
+                    value    = {localStorage.getItem("Logo") || logo}
+                    onChange = {handleLogo}
                 />
             </LogoSection>
 
@@ -105,8 +92,8 @@ const CreateJobsContainer = () => {
             <LogoBackgroundSection>
                 <LogoBackground.Title themeBoolean={themeBoolean}>Logo background color</LogoBackground.Title>
                 <LogoBackground.Input 
-                    value = {logoBackground}
-                    onChange = {(event) => setLogoBackground(event.target.value)}
+                    value = {localStorage.getItem("LogoBackground") || logoBackground}
+                    onChange = {handleLogoBackground}
                 />
             </LogoBackgroundSection>
 
@@ -114,8 +101,8 @@ const CreateJobsContainer = () => {
             <PositionSection>
                 <Position.Title themeBoolean={themeBoolean}>Position</Position.Title>
                 <Position.Input
-                    value = {position}
-                    onChange = {(event) => setPosition(event.target.value)}
+                    value = {localStorage.getItem("Position") || position}
+                    onChange = {handlePosition}
                 />
             </PositionSection>
 
@@ -123,8 +110,8 @@ const CreateJobsContainer = () => {
             <PostedAtSection>
                 <PostedAt.Title themeBoolean={themeBoolean}>Posted At:</PostedAt.Title>
                 <PostedAt.Input
-                    value = {postedAt}
-                    onChange = {(event) => setPostedAt(event.target.value)}                    
+                    value = {localStorage.getItem("PostedAt") || postedAt}
+                    onChange = {handlePostedAt}                    
                 />
             </PostedAtSection>
 
@@ -132,8 +119,8 @@ const CreateJobsContainer = () => {
             <ContractSection>
                 <Contract.Title themeBoolean={themeBoolean}>Contract Type</Contract.Title>
                 <Contract.Input 
-                    value = {contract}
-                    onChange = {(event) => setContract(event.target.value)}                  
+                    value = {localStorage.getItem("Contract") || contract}
+                    onChange = {handleContract}                  
                 />
             </ContractSection>
 
@@ -141,8 +128,8 @@ const CreateJobsContainer = () => {
             <LocationSection>
                 <Location.Title themeBoolean={themeBoolean}>Job Location</Location.Title>
                 <Location.Input 
-                    value = {location}
-                    onChange = {(event) => setLocation(event.target.value)}                
+                    value = {localStorage.getItem("Location") || location}
+                    onChange = {handleLocation}                
                 />
             </LocationSection>
 
@@ -150,8 +137,8 @@ const CreateJobsContainer = () => {
             <WebsiteSection>
                 <Website.Title themeBoolean={themeBoolean}>Website</Website.Title>
                 <Website.Input 
-                    value = {website}
-                    onChange = {(event) => setWebsite(event.target.value)}                
+                    value = {localStorage.getItem("Website") || website}
+                    onChange = {handleWebsite}                
                 />
             </WebsiteSection>
 
@@ -159,8 +146,8 @@ const CreateJobsContainer = () => {
             <ApplySection>
                 <Apply.Title themeBoolean={themeBoolean}>Application Link</Apply.Title>
                 <Apply.Input 
-                    value = {apply}
-                    onChange = {(event) => setApply(event.target.value)}                  
+                    value = {localStorage.getItem("Apply") || apply}
+                    onChange = {handleApply}                  
                 />
             </ApplySection>
 
@@ -168,26 +155,31 @@ const CreateJobsContainer = () => {
             <RequirementContentSection>
                 <RequirementContent.Title themeBoolean={themeBoolean}>Requirement Content</RequirementContent.Title>
                 <RequirementContent.Input 
-                    value = {requirementContent}
-                    onChange = {(event) => setRequirementContent(event.target.value)}                   
+                    value = {localStorage.getItem("RequirementContent") || requirementContent}
+                    onChange = {handleRequirementContent}                   
                 />
             </RequirementContentSection>
 
             {/* Required Skills */}
             <RequirementSkillsSection>
-                <RequirementSkills.InputDiv>
+                <RequirementSkills.InputDiv data-flow="2">
                     <RequirementSkills.Title themeBoolean={themeBoolean}>Required Skills</RequirementSkills.Title>
                     <RequirementSkills.Input 
                         value = {requirementSkillsInput}
-                        onChange = {(event) => setRequirementSkillsInput(event.target.value)} 
+                        onChange = {handleRequirementSkillsInput}                        
                     />
                     <RequirementSkills.PushButton onClick = {addToSkills}>Add to skills</RequirementSkills.PushButton>
                 </RequirementSkills.InputDiv>
                     <RequirementSkills.UL>
-                        {requirementSkillsArray.map((item) => (
-                            <RequirementSkills.LI key={nanoid()}>{item}</RequirementSkills.LI>
-                        ))}                       
+                        {requirementSkillsArray.map((item, index) => (
+                            <RequirementSkills.SkillDiv key = {item.id}>
+                            <RequirementSkills.LI>{item.requirementSkillsInput}</RequirementSkills.LI>
+                            <RequirementSkills.DeleteButton onClick = {() => removeFromSkills(index)}>Delete</RequirementSkills.DeleteButton>
+                            </RequirementSkills.SkillDiv>
+                        ))}                      
                     </RequirementSkills.UL>
+                     
+                    
             </RequirementSkillsSection>
             <CreateJobs.Submit onClick = {createJob}>Submit</CreateJobs.Submit>
         </CreateJobsMain>

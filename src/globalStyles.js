@@ -64,6 +64,7 @@ export const GlobalStyles = createGlobalStyle`
         font-family: 'Kumbh Sans', sans-serif;
         margin: 0;
         text-rendering: optimizeSpeed;
+        line-height: 1.5;
     }
 
     img,

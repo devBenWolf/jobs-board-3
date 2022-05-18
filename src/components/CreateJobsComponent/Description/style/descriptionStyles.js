@@ -11,6 +11,7 @@ color: ${(props) => props.themeBoolean ? "black" : "white"};
 export const Input = styled.textarea`
     border-radius: 10px;
     border: none;
-    width: 80%;
-    font-size: 2rem;
+    width: 60rem;
+    font-size: 1.5rem; 
+    height: 15rem;
 `

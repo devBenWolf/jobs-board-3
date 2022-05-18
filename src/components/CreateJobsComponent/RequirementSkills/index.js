@@ -5,7 +5,9 @@ import {
     PushButton,
     InputDiv,
     UL,
-    LI
+    LI,
+    DeleteButton,
+    SkillDiv
 } from "./style/requirementSkillsStyles.js"
 
 const RequirementSkills = ({children, ...props}) => {
@@ -17,6 +19,11 @@ const RequirementSkills = ({children, ...props}) => {
 RequirementSkills.InputDiv = function RequirementSkillsInputDiv({children, ...props}) {
     return (
         <InputDiv {...props}>{children}</InputDiv>
+    )
+}
+RequirementSkills.SkillDiv = function RequirementSkillsSkillDiv({children, ...props}) {
+    return (
+        <SkillDiv {...props}>{children}</SkillDiv>
     )
 }
 RequirementSkills.UL = function RequirementSkillsUL({children, ...props}) {
@@ -45,6 +52,11 @@ RequirementSkills.Input = function RequirementSkillsInput({children, ...props}) 
 RequirementSkills.PushButton = function RequirementSkillsPushButton({children, ...props}) {
     return (
         <PushButton {...props}>{children}</PushButton>
+    )
+}
+RequirementSkills.DeleteButton = function RequirementSkillsDeleteButton({children, ...props}) {
+    return (
+        <DeleteButton {...props}>{children}</DeleteButton>
     )
 }
 

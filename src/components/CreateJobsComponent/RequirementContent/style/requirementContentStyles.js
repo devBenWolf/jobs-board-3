@@ -13,4 +13,7 @@ border-radius: 10px;
 border: none;
 width: 20%;
 height: 3rem;
+width: 60rem;
+height: 15rem;
+font-size: 1.5;
 `
