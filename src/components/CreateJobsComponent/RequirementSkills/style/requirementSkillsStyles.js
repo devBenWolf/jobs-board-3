@@ -29,7 +29,9 @@ grid-area: input;
 border: solid red;
 `
 
-export const DisplayDiv = styled.div`
+export const UL = styled.ul`
 grid-area: display;
 border: solid blue;
 `
+
+export const LI = styled.li``

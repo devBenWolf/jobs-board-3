@@ -1,6 +1,6 @@
+import { nanoid } from "nanoid"
 
-
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState } from "react";
 
 import { addDoc, collection } from "firebase/firestore";
 import { ThemeContext } from "../contexts/ThemeContext";
@@ -46,7 +46,8 @@ const CreateJobsContainer = () => {
     const [website, setWebsite] = useState("")
     const [apply, setApply] = useState("")
     const [requirementContent, setRequirementContent] = useState("")
-    const [requireMentSkills, setRequirementSkills] = useState([])
+    const [requirementSkillsInput, setRequirementSkillsInput] = useState("")
+    const [requirementSkillsArray, setRequirementSkillsArray] = useState([])
 
     const {themeBoolean} = useContext(ThemeContext)
     const {isAuth} = useContext(AuthContext)
@@ -62,6 +63,11 @@ const CreateJobsContainer = () => {
         await addDoc(jobsCollectionRef, {company, description, logo, logoBackground, author: 
             {name:  auth.currentUser.displayName, id: auth.currentUser.uid}})
             navigate("/")
+    }
+
+    const addToSkills = () => {
+        setRequirementSkillsArray(prevState => [...prevState, requirementSkillsInput ])
+        setRequirementSkillsInput("")
     }
 
 
@@ -172,14 +178,16 @@ const CreateJobsContainer = () => {
                 <RequirementSkills.InputDiv>
                     <RequirementSkills.Title themeBoolean={themeBoolean}>Required Skills</RequirementSkills.Title>
                     <RequirementSkills.Input 
-                        value = {requirementContent}
-                        onChange = {(event) => setRequirementContent(event.target.value)} 
+                        value = {requirementSkillsInput}
+                        onChange = {(event) => setRequirementSkillsInput(event.target.value)} 
                     />
-                    <RequirementSkills.PushButton>Add to skills</RequirementSkills.PushButton>
+                    <RequirementSkills.PushButton onClick = {addToSkills}>Add to skills</RequirementSkills.PushButton>
                 </RequirementSkills.InputDiv>
-                <RequirementSkills.DisplayDiv>
-                    <RequirementSkills.Title>hello</RequirementSkills.Title>
-                </RequirementSkills.DisplayDiv>
+                    <RequirementSkills.UL>
+                        {requirementSkillsArray.map((item) => (
+                            <RequirementSkills.LI key={nanoid()}>{item}</RequirementSkills.LI>
+                        ))}                       
+                    </RequirementSkills.UL>
             </RequirementSkillsSection>
             <CreateJobs.Submit onClick = {createJob}>Submit</CreateJobs.Submit>
         </CreateJobsMain>

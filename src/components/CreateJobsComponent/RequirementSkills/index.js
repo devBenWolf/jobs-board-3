@@ -4,7 +4,8 @@ import {
     Input,
     PushButton,
     InputDiv,
-    DisplayDiv
+    UL,
+    LI
 } from "./style/requirementSkillsStyles.js"
 
 const RequirementSkills = ({children, ...props}) => {
@@ -18,9 +19,15 @@ RequirementSkills.InputDiv = function RequirementSkillsInputDiv({children, ...pr
         <InputDiv {...props}>{children}</InputDiv>
     )
 }
-RequirementSkills.DisplayDiv = function RequirementSkillsDisplayDiv({children, ...props}) {
+RequirementSkills.UL = function RequirementSkillsUL({children, ...props}) {
     return (
-        <DisplayDiv {...props}>{children}</DisplayDiv>
+        <UL {...props}>{children}</UL>
+    )
+}
+
+RequirementSkills.LI = function RequirementSkillsLI({children, ...props}) {
+    return (
+        <LI {...props}>{children}</LI>
     )
 }
 
@@ -29,6 +36,7 @@ RequirementSkills.Title = function RequirementSkillsTitle({children, ...props}) 
         <Title {...props}>{children}</Title>
     )
 }
+
 RequirementSkills.Input = function RequirementSkillsInput({children, ...props}) {
     return (
         <Input {...props}>{children}</Input>
