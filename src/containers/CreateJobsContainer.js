@@ -47,7 +47,7 @@ const CreateJobsContainer = () => {
         contract, location, website, apply, requirementContent, requirementSkillsInput, roleItemsArray    
     } = useContext(InputContext)
 
-
+    console.log(roleItemsArray)
     const {themeBoolean} = useContext(ThemeContext)
 
             // database and collection to which we add the jobs
@@ -67,9 +67,10 @@ const CreateJobsContainer = () => {
     }
 
     return ( 
-        <CreateJobsMain data-flow="2">
+        <CreateJobsMain data-flow="10">
             <CreateJobs.PageTitle themeBoolean = {themeBoolean}>enter jobs data</CreateJobs.PageTitle>
             {/* Company info */}
+            <CreateJobs.SubDiv>
             <CompanySection>
                 <Company.CompanyTitle themeBoolean={themeBoolean}>company</Company.CompanyTitle>
                 <Company.CompanyInput 
@@ -77,19 +78,10 @@ const CreateJobsContainer = () => {
                     onChange = {handleCompany}    
                 />
             </CompanySection>
-
-            {/* Description info */}
-            <DescriptionSection>
-                <Description.Title themeBoolean={themeBoolean}>description</Description.Title>
-                <Description.Input 
-                    value    = {localStorage.getItem("Description") || description} 
-                    onChange = {handleDescription}
-                />
-            </DescriptionSection>
             
             {/* Logo info */}
             <LogoSection>
-                <Logo.Title themeBoolean={themeBoolean}>Logo path</Logo.Title>
+                <Logo.Title themeBoolean={themeBoolean}>logo path</Logo.Title>
                 <Logo.Input 
                     value    = {localStorage.getItem("Logo") || logo}
                     onChange = {handleLogo}
@@ -98,16 +90,16 @@ const CreateJobsContainer = () => {
 
             {/* Logo Background info */}
             <LogoBackgroundSection>
-                <LogoBackground.Title themeBoolean={themeBoolean}>Logo background color</LogoBackground.Title>
+                <LogoBackground.Title themeBoolean={themeBoolean}>logo background color</LogoBackground.Title>
                 <LogoBackground.Input 
                     value = {localStorage.getItem("LogoBackground") || logoBackground}
                     onChange = {handleLogoBackground}
                 />
             </LogoBackgroundSection>
 
-            {/* Position info */}
+            {/* position info */}
             <PositionSection>
-                <Position.Title themeBoolean={themeBoolean}>Position</Position.Title>
+                <Position.Title themeBoolean={themeBoolean}>position</Position.Title>
                 <Position.Input
                     value = {localStorage.getItem("Position") || position}
                     onChange = {handlePosition}
@@ -116,7 +108,7 @@ const CreateJobsContainer = () => {
 
             {/* Time Posted info */}
             <PostedAtSection>
-                <PostedAt.Title themeBoolean={themeBoolean}>Posted At:</PostedAt.Title>
+                <PostedAt.Title themeBoolean={themeBoolean}>posted at:</PostedAt.Title>
                 <PostedAt.Input
                     value = {localStorage.getItem("PostedAt") || postedAt}
                     onChange = {handlePostedAt}                    
@@ -125,7 +117,7 @@ const CreateJobsContainer = () => {
 
             {/* Contract info */}
             <ContractSection>
-                <Contract.Title themeBoolean={themeBoolean}>Contract Type</Contract.Title>
+                <Contract.Title themeBoolean={themeBoolean}>contract type</Contract.Title>
                 <Contract.Input 
                     value = {localStorage.getItem("Contract") || contract}
                     onChange = {handleContract}                  
@@ -134,7 +126,7 @@ const CreateJobsContainer = () => {
 
             {/* Location info */}
             <LocationSection>
-                <Location.Title themeBoolean={themeBoolean}>Job Location</Location.Title>
+                <Location.Title themeBoolean={themeBoolean}>job location</Location.Title>
                 <Location.Input 
                     value = {localStorage.getItem("Location") || location}
                     onChange = {handleLocation}                
@@ -143,7 +135,7 @@ const CreateJobsContainer = () => {
 
             {/* Website info */}
             <WebsiteSection>
-                <Website.Title themeBoolean={themeBoolean}>Website</Website.Title>
+                <Website.Title themeBoolean={themeBoolean}>website</Website.Title>
                 <Website.Input 
                     value = {localStorage.getItem("Website") || website}
                     onChange = {handleWebsite}                
@@ -152,16 +144,26 @@ const CreateJobsContainer = () => {
 
             {/* Application link */}
             <ApplySection>
-                <Apply.Title themeBoolean={themeBoolean}>Application Link</Apply.Title>
+                <Apply.Title themeBoolean={themeBoolean}>application link</Apply.Title>
                 <Apply.Input 
                     value = {localStorage.getItem("Apply") || apply}
                     onChange = {handleApply}                  
                 />
             </ApplySection>
+            </CreateJobs.SubDiv>
+            <CreateJobs.SubDiv>
+            {/* Description info */}
+            <DescriptionSection>
+                <Description.Title themeBoolean={themeBoolean}>description</Description.Title>
+                <Description.Input 
+                    value    = {localStorage.getItem("Description") || description} 
+                    onChange = {handleDescription}
+                />
+            </DescriptionSection>
 
             {/* Requirement content */}
             <RequirementContentSection>
-                <RequirementContent.Title themeBoolean={themeBoolean}>Requirement Content</RequirementContent.Title>
+                <RequirementContent.Title themeBoolean={themeBoolean}>requirement summary</RequirementContent.Title>
                 <RequirementContent.Input 
                     value = {localStorage.getItem("RequirementContent") || requirementContent}
                     onChange = {handleRequirementContent}                   
@@ -171,18 +173,18 @@ const CreateJobsContainer = () => {
             {/* Required Skills */}
             <RequirementSkillsSection>
                 <RequirementSkills.InputDiv data-flow="2">
-                    <RequirementSkills.Title themeBoolean={themeBoolean}>Required Skills</RequirementSkills.Title>
+                    <RequirementSkills.Title themeBoolean={themeBoolean}>specific skills</RequirementSkills.Title>
                     <RequirementSkills.Input 
                         value = {localStorage.getItem("RequirementSkillsInput") || requirementSkillsInput}
                         onChange = {handleRequirementSkillsInput}                        
                     />
-                    <RequirementSkills.PushButton onClick = {addToSkills}>Add to skills</RequirementSkills.PushButton>
+                    <RequirementSkills.PushButton onClick = {addToSkills}>add to skills</RequirementSkills.PushButton>
                 </RequirementSkills.InputDiv>
                     <RequirementSkills.UL>
                         {requirementSkillsArray.map((item, index) => (
                             <RequirementSkills.SkillDiv key = {item.id}>
                             <RequirementSkills.LI>{item.requirementSkillsInput}</RequirementSkills.LI>
-                            <RequirementSkills.DeleteButton onClick = {() => removeFromSkills(index)}>Delete</RequirementSkills.DeleteButton>
+                            <RequirementSkills.DeleteButton onClick = {() => removeFromSkills(index)}>delete</RequirementSkills.DeleteButton>
                             </RequirementSkills.SkillDiv>
                         ))}                      
                     </RequirementSkills.UL>        
@@ -190,7 +192,7 @@ const CreateJobsContainer = () => {
 
             {/* Role Summary */}
             <RoleContentSection data-flow="2">
-                <RoleContent.Title themeBoolean={themeBoolean}>Role Summary</RoleContent.Title>
+                <RoleContent.Title themeBoolean={themeBoolean}>role summary</RoleContent.Title>
                 <RoleContent.Input 
                     value = {localStorage.getItem("RoleContent") || roleContent}
                     onChange = {handleRoleContent}                
@@ -211,12 +213,13 @@ const CreateJobsContainer = () => {
                         {roleItemsArray.map((item, index) => (
                             <RoleItems.Div key = {item.id}>
                             <RoleItems.LI>{item.roleItemsInput}</RoleItems.LI>
-                            <RoleItems.DeleteButton onClick = {() => removeFromRoleItems(index)}>Delete</RoleItems.DeleteButton>
+                            <RoleItems.DeleteButton onClick = {() => removeFromRoleItems(index)}>delete</RoleItems.DeleteButton>
                             </RoleItems.Div>
                         ))}                      
                     </RoleItems.UL> 
             </RoleItemsSection>
-            <CreateJobs.Submit onClick = {createJob}>Submit</CreateJobs.Submit>
+            </CreateJobs.SubDiv>
+            <CreateJobs.Submit onClick = {createJob}>submit</CreateJobs.Submit>
         </CreateJobsMain>
      );
 }

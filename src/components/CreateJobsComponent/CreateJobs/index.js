@@ -1,13 +1,8 @@
 import {
     CreateJobsMain,
     PageTitle,
-    CompanyDiv,
-    CompanyTitle,
-    CompanyInput,
-    DescriptionDiv,
-    DescriptionTitle,
-    DescriptionInput,
     Submit,
+    SubDiv
 } from "./style/createJobsStyles"
 
 const CreateJobs = ({children, ...props}) => {
@@ -16,6 +11,11 @@ const CreateJobs = ({children, ...props}) => {
      );
 }
 
+CreateJobs.SubDiv = function CreateJobsSubDiv({children, ...props}) {
+    return (
+        <SubDiv {...props}>{children}</SubDiv>
+    )
+}
 
 CreateJobs.PageTitle = function CreateJobsPageTitle({children, ...props}) {
     return (

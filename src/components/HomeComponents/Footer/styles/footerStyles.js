@@ -20,6 +20,7 @@ export const Text = styled.p`
     color: hsl(var(--clr-white));
     margin-inline: 1rem;
     cursor: pointer;
+    
 `
 
 export const LogoutButton = styled.button`

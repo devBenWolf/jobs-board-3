@@ -35,7 +35,7 @@ const InputContextProvider = ({children}) => {
 
         // role bullet points
         const addToRoleItems = () => {
-            const newItem = [...roleItemsArray, {id: nanoid(), roleItemsArray}]
+            const newItem = [...roleItemsArray, {id: nanoid(), roleItemsInput}]
             setRoleItemsArray(newItem)
             setRoleItemsInput("")
             localStorage.removeItem("RoleItems")

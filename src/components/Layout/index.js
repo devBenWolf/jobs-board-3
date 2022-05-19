@@ -67,7 +67,7 @@ const Layout = ({children}) => {
             <FooterMain>
                 <Footer.Div>
                     {!local ? <Footer.Text onClick={signInWithGoogle}>login</Footer.Text>
-                    :         <Link to="/" onClick={signout}><Footer.Text>logout</Footer.Text></Link>
+                    :         <Link to="/" onClick={signout} style={{textDecoration: "none"}}><Footer.Text>logout</Footer.Text></Link>
                     }
                 </Footer.Div>
             </FooterMain>

@@ -122,6 +122,11 @@ export const GlobalStyles = createGlobalStyle`
             margin-top: 4rem;
         }
     }
+    [data-flow="10"] {
+        >*:where(:not(:first-child)) {
+            margin-top: 10rem;
+        }
+    }
 
     @keyframes fade_in_show {
         0% {

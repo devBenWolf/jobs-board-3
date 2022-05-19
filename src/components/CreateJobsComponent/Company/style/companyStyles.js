@@ -7,11 +7,23 @@ place-items: center;
 width: 80%;
 `
 export const CompanyTitle = styled.h3`
-color: ${(props) => props.themeBoolean ? "black" : "white"};`
+color: ${(props) => props.themeBoolean ? "black" : "white"};
+font-size: 2rem;
+font-weight: bold;
+margin-bottom: 1rem;
+`
 
 export const CompanyInput = styled.input.attrs({type: "text"})`
 border-radius: 10px;
-border: none;
-width: 20%;
+width: 30rem;
+padding: 2rem;
+font-size: 2rem;
 height: 3rem;
+text-align: center;
+color: darkred;
+margin-bottom: 3rem;
+
+@media (width < 45rem) {
+    width: 20rem;
+}
 `
