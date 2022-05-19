@@ -21,11 +21,24 @@ const InputContextProvider = ({children}) => {
     const [requirementContent, setRequirementContent] = useState("")
     const [requirementSkillsInput, setRequirementSkillsInput] = useState("")
     const [requirementSkillsArray, setRequirementSkillsArray] = useState([])
+    const [roleContent, setRoleContent] = useState("")
+    const [roleItems, setRoleItems] = useState("")
+    const [roleItemsArray, setRoleItemsArray] = useState([])
+
         // create skills array in local and firebase
         const addToSkills = () => {
             const newSkill = [...requirementSkillsArray, {id: nanoid(), requirementSkillsInput}]
             setRequirementSkillsArray(newSkill)
             setRequirementSkillsInput("")
+            localStorage.removeItem("RequirementSkillsInput")
+        }
+
+        // role bullet points
+        const addToRoleItems = () => {
+            const newItem = [...requirementSkillsArray, {id: nanoid(), roleItemsArray}]
+            setRoleItemsArray(newItem)
+            setRequirementSkillsInput("")
+            localStorage.removeItem("RoleItems")
         }
     
         const removeFromSkills = index => {
@@ -81,18 +94,30 @@ const InputContextProvider = ({children}) => {
         }
         const handleRequirementSkillsInput = (event) => {
             setRequirementSkillsInput(event.target.value)
+            localStorage.setItem(`RequirementSkillsInput`, event.target.value)
+        }
+
+        const handleRoleContent = (event) => {
+            setRoleContent(event.target.value)
+            localStorage.setItem(`RoleContent`, event.target.value)
+        }
+
+        const handleRoleItems = (event) => {
+            setRoleItems(event.target.value)
+            localStorage.setItem(`RoleItems`, event.target.value)
         }
 
 
 
     return ( 
-        <InputContext.Provider value={{inputFilter, setInputFilter, timeFilter, setTimeFilter, inputFocus, setInputFocus,
-            desktopInputFocus, setDesktopInputFocus, addToSkills, removeFromSkills, handleCompany, 
+        <InputContext.Provider value={{setInputFilter, setTimeFilter, setInputFocus,
+            setDesktopInputFocus, addToSkills, removeFromSkills, handleCompany, 
             handleDescription, handleLogo, handleLogoBackground, handlePosition, handlePostedAt, handleContract,
             handleLocation, handleWebsite, handleApply, handleRequirementContent, handleRequirementSkillsInput,
-            company, description, logo, logoBackground, position, postedAt, 
-            contract, location, website, apply, requirementContent, requirementSkillsArray, requirementSkillsInput
-
+            handleRoleItems, handleRoleContent,
+            company, description, logo, logoBackground, position, postedAt, inputFilter, timeFilter, inputFocus,
+            contract, location, website, apply, requirementContent, requirementSkillsArray, requirementSkillsInput,
+            desktopInputFocus, roleContent, roleItems, roleItemsArray
 
         }}
         >

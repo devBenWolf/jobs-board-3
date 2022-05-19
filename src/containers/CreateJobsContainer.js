@@ -30,11 +30,15 @@ import RequirementContent from "../components/CreateJobsComponent/RequirementCon
 import { RequirementSkillsSection } from "../components/CreateJobsComponent/RequirementSkills/style/requirementSkillsStyles";
 import RequirementSkills from "../components/CreateJobsComponent/RequirementSkills";
 import { InputContext } from "../contexts/InputContext";
+import { RoleContentSection } from "../components/CreateJobsComponent/RoleContent/style/roleContentStyles";
+import RoleContent from "../components/CreateJobsComponent/RoleContent";
 
 const CreateJobsContainer = () => {
+    // functions
     const {addToSkills, removeFromSkills, handleCompany, handleDescription, handleLogo,handleLogoBackground, handlePosition, handlePostedAt, handleContract,
-        handleLocation, handleWebsite, handleApply, handleRequirementContent, handleRequirementSkillsInput,
-        requirementSkillsArray, company, description, logo, logoBackground, position, postedAt, 
+        handleLocation, handleWebsite, handleApply, handleRequirementContent, handleRequirementSkillsInput, handleRoleContent, handleRoleItems,
+        // state hooks
+        requirementSkillsArray, company, description, logo, logoBackground, position, postedAt, roleContent, roleItems, roleItemsArray, 
         contract, location, website, apply, requirementContent, requirementSkillsInput    
     } = useContext(InputContext)
 
@@ -164,7 +168,7 @@ const CreateJobsContainer = () => {
                 <RequirementSkills.InputDiv data-flow="2">
                     <RequirementSkills.Title themeBoolean={themeBoolean}>Required Skills</RequirementSkills.Title>
                     <RequirementSkills.Input 
-                        value = {requirementSkillsInput}
+                        value = {localStorage.getItem("RequirementSkillsInput") || requirementSkillsInput}
                         onChange = {handleRequirementSkillsInput}                        
                     />
                     <RequirementSkills.PushButton onClick = {addToSkills}>Add to skills</RequirementSkills.PushButton>
@@ -176,10 +180,15 @@ const CreateJobsContainer = () => {
                             <RequirementSkills.DeleteButton onClick = {() => removeFromSkills(index)}>Delete</RequirementSkills.DeleteButton>
                             </RequirementSkills.SkillDiv>
                         ))}                      
-                    </RequirementSkills.UL>
-                     
-                    
+                    </RequirementSkills.UL>        
             </RequirementSkillsSection>
+            <RoleContentSection data-flow="2">
+                <RoleContent.Title themeBoolean={themeBoolean}>Role Summary</RoleContent.Title>
+                <RoleContent.Input 
+                    value = {localStorage.getItem("RoleContentContent") || roleContentContent}
+                    onChange = {handleRoleContent}                
+                />
+            </RoleContentSection>
             <CreateJobs.Submit onClick = {createJob}>Submit</CreateJobs.Submit>
         </CreateJobsMain>
      );
