@@ -1,4 +1,4 @@
-import {useContext} from "react"
+import {useContext, useEffect} from "react"
 import { ThemeContext } from "../../contexts/ThemeContext"
 import { AuthContext } from "../../contexts/AuthContext"
 import Header from "../HomeComponents/Header"
@@ -30,27 +30,32 @@ const Layout = ({children}) => {
         })
     }
 
+    useEffect(() => {
+        if (local) {
+            navigate("/create-jobs")
+        }
+    }, [])
+
     return (
         <Main themeBoolean={themeBoolean}>
             <HeaderDiv>
                 {/* Make sure component from which you're linking is within the BrowserRouter context */}
                 
-                <Link to="/create-jobs" style={{textDecoration: "none"}}><Header.Text>devjobs</Header.Text></Link>
+                <Link to="/" style={{textDecoration: "none"}}><Header.Text>devjobs</Header.Text></Link>
                 <ThemeDiv>
                     <FaSun style={{color: "hsl(var(--clr-white))"}} size="20" />
                     <ThemeInput.Label className = "switch">
                         <ThemeInput.Button onClick={() => setThemeBoolean(!themeBoolean)}/>
                         <ThemeInput.Span className = "slider round"></ThemeInput.Span>
                     </ThemeInput.Label>
-                    <FaMoon style={{color: "hsl(var(--clr-white))"}} size="20" />
+                  <FaMoon style={{color: "hsl(var(--clr-white))"}} size="20" />
                 </ThemeDiv>
             </HeaderDiv>
             {children}
             <FooterMain>
-                <Footer.Text>
-                    {!local ? <Link to="/login" style={{textDecoration: "none", color: "white"}}>login</Link> 
-                    : <Footer.LogoutButton style={{textDecoration: "none", color: "white"}} onClick = {signout}>logout</Footer.LogoutButton>}
-                </Footer.Text>
+                <Footer.Div>
+                    
+                </Footer.Div>
             </FooterMain>
         </Main>
     )

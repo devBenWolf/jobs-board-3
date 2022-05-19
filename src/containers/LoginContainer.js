@@ -17,7 +17,7 @@ const LoginContainer = () => {
             localStorage.setItem("isAuth", true)
             setIsAuth(true)
             if (localStorage.getItem("isAuth")) {
-                navigate("/create-job")
+                navigate("/create-jobs")
             }
         })
     }

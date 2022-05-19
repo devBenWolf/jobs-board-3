@@ -32,14 +32,19 @@ import RequirementSkills from "../components/CreateJobsComponent/RequirementSkil
 import { InputContext } from "../contexts/InputContext";
 import { RoleContentSection } from "../components/CreateJobsComponent/RoleContent/style/roleContentStyles";
 import RoleContent from "../components/CreateJobsComponent/RoleContent";
+import { RoleItemsSection } from "../components/CreateJobsComponent/RoleItems/style/roleItemsStyles";
+import RoleItems from "../components/CreateJobsComponent/RoleItems";
+
 
 const CreateJobsContainer = () => {
+
     // functions
-    const {addToSkills, removeFromSkills, handleCompany, handleDescription, handleLogo,handleLogoBackground, handlePosition, handlePostedAt, handleContract,
-        handleLocation, handleWebsite, handleApply, handleRequirementContent, handleRequirementSkillsInput, handleRoleContent, handleRoleItems,
+    const {addToSkills, addToRoleItems, removeFromSkills, handleCompany, handleDescription, handleLogo,handleLogoBackground, handlePosition, handlePostedAt, handleContract,
+        handleLocation, handleWebsite, handleApply, handleRequirementContent, handleRequirementSkillsInput, handleRoleContent, handleRoleItemsInput,
+        removeFromRoleItems,
         // state hooks
-        requirementSkillsArray, company, description, logo, logoBackground, position, postedAt, roleContent, roleItems, roleItemsArray, 
-        contract, location, website, apply, requirementContent, requirementSkillsInput    
+        requirementSkillsArray, company, description, logo, logoBackground, position, postedAt, roleContent, roleItemsInput, 
+        contract, location, website, apply, requirementContent, requirementSkillsInput, roleItemsArray    
     } = useContext(InputContext)
 
 
@@ -182,13 +187,35 @@ const CreateJobsContainer = () => {
                         ))}                      
                     </RequirementSkills.UL>        
             </RequirementSkillsSection>
+
+            {/* Role Summary */}
             <RoleContentSection data-flow="2">
                 <RoleContent.Title themeBoolean={themeBoolean}>Role Summary</RoleContent.Title>
                 <RoleContent.Input 
-                    value = {localStorage.getItem("RoleContentContent") || roleContentContent}
+                    value = {localStorage.getItem("RoleContent") || roleContent}
                     onChange = {handleRoleContent}                
                 />
             </RoleContentSection>
+
+            {/* Role specifics */}
+            <RoleItemsSection>
+                <RoleItems.InputDiv>
+                    <RoleItems.Title>specific roles</RoleItems.Title>
+                    <RoleItems.Input 
+                        value = {localStorage.getItem("RoleItemsInput") || roleItemsInput}
+                        onChange = {handleRoleItemsInput}                     
+                    />
+                    <RoleItems.PushButton onClick = {addToRoleItems}>add to rolls</RoleItems.PushButton>
+                </RoleItems.InputDiv>
+                <RoleItems.UL>
+                        {roleItemsArray.map((item, index) => (
+                            <RoleItems.Div key = {item.id}>
+                            <RoleItems.LI>{item.roleItemsInput}</RoleItems.LI>
+                            <RoleItems.DeleteButton onClick = {() => removeFromRoleItems(index)}>Delete</RoleItems.DeleteButton>
+                            </RoleItems.Div>
+                        ))}                      
+                    </RoleItems.UL> 
+            </RoleItemsSection>
             <CreateJobs.Submit onClick = {createJob}>Submit</CreateJobs.Submit>
         </CreateJobsMain>
      );

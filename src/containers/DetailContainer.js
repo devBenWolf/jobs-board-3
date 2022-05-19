@@ -18,7 +18,7 @@ const DetailContainer = () => {
 
     // store id integer
     const selectedJob = findJob(parseInt(params.jobId, 10))
-
+    console.log(selectedJob)
     return ( 
         <>
             <OuterDiv

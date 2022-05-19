@@ -1,6 +1,5 @@
 import {useContext, useEffect, useState} from "react"
 import data from "../data"
-
 import {ThemeContext} from "../contexts/ThemeContext"
 import { DataContext } from "../contexts/DataContext"
 import { InputContext } from "../contexts/InputContext"
