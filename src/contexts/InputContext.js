@@ -21,7 +21,7 @@ const InputContextProvider = ({children}) => {
     const [requirementContent, setRequirementContent] = useState("")
     const [requirementSkillsInput, setRequirementSkillsInput] = useState("")
     const [requirementSkillsArray, setRequirementSkillsArray] = useState([])
-    
+    console.log(`variable in InputContext: ${requirementSkillsInput}`)
         // create skills array in local and firebase
         const addToSkills = () => {
             const newSkill = [...requirementSkillsArray, {id: nanoid(), requirementSkillsInput}]
@@ -92,7 +92,7 @@ const InputContextProvider = ({children}) => {
             handleDescription, handleLogo, handleLogoBackground, handlePosition, handlePostedAt, handleContract,
             handleLocation, handleWebsite, handleApply, handleRequirementContent, handleRequirementSkillsInput,
             company, description, logo, logoBackground, position, postedAt, 
-            contract, location, website, apply, requirementContent, requirementSkillsArray
+            contract, location, website, apply, requirementContent, requirementSkillsArray, requirementSkillsInput
 
 
         }}

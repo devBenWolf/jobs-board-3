@@ -1,7 +1,6 @@
-import { nanoid } from "nanoid"
 import { addDoc, collection } from "firebase/firestore";
 import { db, auth } from "../firebase";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
 import CreateJobs from "../components/CreateJobsComponent/CreateJobs";
 import { CreateJobsMain } from "../components/CreateJobsComponent/CreateJobs/style/createJobsStyles";
