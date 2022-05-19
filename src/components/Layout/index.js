@@ -11,7 +11,8 @@ import { Link, useNavigate } from "react-router-dom"
 import { FooterMain } from "../HomeComponents/Footer/styles/footerStyles"
 import Footer from "../HomeComponents/Footer"
 import { signOut } from "firebase/auth"
-import { auth } from "../../firebase"
+import {auth, provider} from "../../firebase"
+import { signInWithPopup } from "firebase/auth";
 
 
 
@@ -27,6 +28,17 @@ const Layout = ({children}) => {
             localStorage.clear()
             setIsAuth(false)
             navigate("/")
+        })
+    }
+
+    const signInWithGoogle = () => {
+        signInWithPopup(auth, provider).then((result) => {
+            // set auth in local storage
+            localStorage.setItem("isAuth", true)
+            setIsAuth(true)
+            if (localStorage.getItem("isAuth")) {
+                navigate("/create-jobs")
+            }
         })
     }
 
@@ -54,7 +66,9 @@ const Layout = ({children}) => {
             {children}
             <FooterMain>
                 <Footer.Div>
-                    
+                    {!local ? <Footer.Text onClick={signInWithGoogle}>login</Footer.Text>
+                    :         <Link to="/" onClick={signout}><Footer.Text>logout</Footer.Text></Link>
+                    }
                 </Footer.Div>
             </FooterMain>
         </Main>

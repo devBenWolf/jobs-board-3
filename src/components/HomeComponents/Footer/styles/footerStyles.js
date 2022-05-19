@@ -4,6 +4,8 @@ export const FooterMain = styled.footer`
     display: grid;
     place-items: center;
     background-color: #5964e0;
+    position: relative;
+    bottom: 0;
 `
 
 export const Div = styled.div`
@@ -17,7 +19,7 @@ export const Text = styled.p`
     font-size: clamp(18px, 6vw, 28px);
     color: hsl(var(--clr-white));
     margin-inline: 1rem;
-    
+    cursor: pointer;
 `
 
 export const LogoutButton = styled.button`
