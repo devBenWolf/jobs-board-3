@@ -41,7 +41,10 @@ width: 60rem;
 export const SkillDiv = styled.div`
 display: flex;
 justify-content: space-between;
-
+`
+export const RoleDiv = styled.div`
+display: flex;
+justify-content: space-between;
 `
 
 export const UL = styled.ul`

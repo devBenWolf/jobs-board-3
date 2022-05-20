@@ -114,7 +114,7 @@ const InputContextProvider = ({children}) => {
         }
 
         const clearAllInputs = () => {
-            setRequirementSkillsArray("")
+            setRequirementSkillsArray([])
             setCompany("")
             setDescription("")
             setLogo("")
@@ -129,7 +129,7 @@ const InputContextProvider = ({children}) => {
             setApply("")
             setRequirementContent("")
             setRequirementSkillsInput("")
-            setRoleItemsArray("")
+            setRoleItemsArray([])
         }
 
 

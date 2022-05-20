@@ -7,7 +7,8 @@ import {
     UL,
     LI,
     DeleteButton,
-    SkillDiv
+    SkillDiv,
+    RoleDiv
 } from "./style/ListDisplayStyles.js"
 
 const ListDisplay = ({children, ...props}) => {
@@ -24,6 +25,11 @@ ListDisplay.InputDiv = function ListDisplayInputDiv({children, ...props}) {
 ListDisplay.SkillDiv = function ListDisplaySkillDiv({children, ...props}) {
     return (
         <SkillDiv {...props}>{children}</SkillDiv>
+    )
+}
+ListDisplay.RoleDiv = function ListDisplayRoleDiv({children, ...props}) {
+    return (
+        <RoleDiv {...props}>{children}</RoleDiv>
     )
 }
 ListDisplay.UL = function ListDisplayUL({children, ...props}) {

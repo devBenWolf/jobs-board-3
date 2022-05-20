@@ -9,31 +9,10 @@ import TextInput from "../components/CreateJobsComponent/TextInput";
 import { TextInputSection } from "../components/CreateJobsComponent/TextInput/style/textInputStyles";
 import { TextAreaSection } from "../components/CreateJobsComponent/TextArea/style/textAreaStyles";
 import TextArea from "../components/CreateJobsComponent/TextArea";
-import { LogoSection } from "../components/CreateJobsComponent/Logo/style/logoStyles";
-import Logo from "../components/CreateJobsComponent/Logo";
-import { LogoBackgroundSection } from "../components/CreateJobsComponent/LogoBackground/style/logoBackgroundStyles";
-import LogoBackground from "../components/CreateJobsComponent/LogoBackground";
-import { PositionSection } from "../components/CreateJobsComponent/Position/style/positionStyles";
-import Position from "../components/CreateJobsComponent/Position";
-import { PostedAtSection } from "../components/CreateJobsComponent/PostedAt/style/postedAtStyles";
-import PostedAt from "../components/CreateJobsComponent/PostedAt";
-import { ContractSection } from "../components/CreateJobsComponent/Contract/style/contractStyles";
-import Contract from "../components/CreateJobsComponent/Contract";
-import { LocationSection } from "../components/CreateJobsComponent/Location/style/locationStyles";
-import Location from "../components/CreateJobsComponent/Location";
-import { WebsiteSection } from "../components/CreateJobsComponent/Website/style/websiteStyles";
-import Website from "../components/CreateJobsComponent/Website";
-import { ApplySection } from "../components/CreateJobsComponent/Apply/style/applyStyles";
-import Apply from "../components/CreateJobsComponent/Apply";
-import { RequirementContentSection } from "../components/CreateJobsComponent/RequirementContent/style/requirementContentStyles";
-import RequirementContent from "../components/CreateJobsComponent/RequirementContent";
 import { ListDisplaySection } from "../components/CreateJobsComponent/ListDisplay/style/ListDisplayStyles";
 import ListDisplay from "../components/CreateJobsComponent/ListDisplay";
 import { InputContext } from "../contexts/InputContext";
-import { RoleContentSection } from "../components/CreateJobsComponent/RoleContent/style/roleContentStyles";
-import RoleContent from "../components/CreateJobsComponent/RoleContent";
-import { RoleItemsSection } from "../components/CreateJobsComponent/RoleItems/style/roleItemsStyles";
-import RoleItems from "../components/CreateJobsComponent/RoleItems";
+
 
 
 const CreateJobsContainer = () => {
@@ -60,11 +39,11 @@ const CreateJobsContainer = () => {
         // add document to the collection along with with author id object
         await addDoc(jobsCollectionRef, {
             company, description, logo, logoBackground, position, postedAt, 
-            contract, location, website, apply, requirementContent, requirementSkillsArray, author: 
-            {name:  auth.currentUser.displayName, id: auth.currentUser.uid}})
+            contract, location, website, apply, requirementContent, requirementSkillsArray, roleItemsArray, 
+            author: {name:  auth.currentUser.displayName, id: auth.currentUser.uid}})
             localStorage.clear()
-            
             navigate("/create-jobs")
+            clearAllInputs()
     }
 
     return ( 
@@ -73,10 +52,11 @@ const CreateJobsContainer = () => {
             {/* TextInput info */}
             <CreateJobs.TopSubDiv>
             <TextInputSection>
-                <TextInput.Title themeBoolean={themeBoolean}>TextInput</TextInput.Title>
+                <TextInput.Title themeBoolean={themeBoolean}>company name</TextInput.Title>
                 <TextInput.Input 
                     value    = {localStorage.getItem("TextInput") || company} 
-                    onChange = {handleCompany}    
+                    onChange = {handleCompany}
+                    required    
                 />
             </TextInputSection>
             
@@ -163,7 +143,7 @@ const CreateJobsContainer = () => {
                 />
             </TextAreaSection>
 
-            {/* Requirement content */}
+            {/* Requirement summary */}
             <TextAreaSection>
                 <TextArea.Title themeBoolean={themeBoolean}>requirement summary</TextArea.Title>
                 <TextArea.Input 
@@ -182,15 +162,14 @@ const CreateJobsContainer = () => {
                     />
                     <ListDisplay.PushButton onClick = {addToSkills}>add to skills</ListDisplay.PushButton>
                 </TextArea.InputDiv>
-                    <ListDisplay.UL>
+                    <ListDisplay.UL data-flow="2">
                         {requirementSkillsArray.map((item, index) => (
                             <ListDisplay.SkillDiv key = {item.id}>
-                            <ListDisplay.LI>{item.requirementSkillsInput}</ListDisplay.LI>
-                            <ListDisplay.DeleteButton onClick = {() => removeFromSkills(index)}>delete</ListDisplay.DeleteButton>
+                                <ListDisplay.LI>{item.requirementSkillsInput}</ListDisplay.LI>
+                                <ListDisplay.DeleteButton onClick = {() => removeFromSkills(index)}>delete</ListDisplay.DeleteButton>
                             </ListDisplay.SkillDiv>
                         ))}                      
-                    </ListDisplay.UL>
-                        
+                    </ListDisplay.UL>                      
             </ListDisplaySection>
 
             {/* Role Summary */}
@@ -204,20 +183,20 @@ const CreateJobsContainer = () => {
 
             {/* Role specifics */}
             <ListDisplaySection>
-                <ListDisplay.InputDiv>
-                    <ListDisplay.Title>specific roles</ListDisplay.Title>
-                    <ListDisplay.Input 
+                <TextArea.InputDiv>
+                    <TextArea.Title>specific roles</TextArea.Title>
+                    <TextArea.Input 
                         value = {localStorage.getItem("RoleItemsInput") || roleItemsInput}
                         onChange = {handleRoleItemsInput}                     
                     />
-                    <ListDisplay.PushButton onClick = {addToRoleItems}>add to rolls</ListDisplay.PushButton>
-                </ListDisplay.InputDiv>
-                <ListDisplay.UL>
+                    <ListDisplay.PushButton onClick = {addToRoleItems}>add to roles</ListDisplay.PushButton>
+                </TextArea.InputDiv>
+                <ListDisplay.UL data-flow="2">
                         {roleItemsArray.map((item, index) => (
-                            <ListDisplay.Div key = {item.id}>
+                            <ListDisplay.RoleDiv key = {item.id}>
                             <ListDisplay.LI>{item.roleItemsInput}</ListDisplay.LI>
                             <ListDisplay.DeleteButton onClick = {() => removeFromRoleItems(index)}>delete</ListDisplay.DeleteButton>
-                            </ListDisplay.Div>
+                            </ListDisplay.RoleDiv>
                         ))}                      
                     </ListDisplay.UL> 
             </ListDisplaySection>
