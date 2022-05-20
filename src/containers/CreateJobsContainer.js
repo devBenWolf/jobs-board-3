@@ -52,10 +52,16 @@ const CreateJobsContainer = () => {
             {/* TextInput info */}
             <CreateJobs.TopSubDiv>
             <TextInputSection>
-                <TextInput.Title themeBoolean={themeBoolean}>company name</TextInput.Title>
+                <TextInput.Title 
+                    themeBoolean={themeBoolean}
+                    
+                >company name</TextInput.Title>
+                    
                 <TextInput.Input 
                     value    = {localStorage.getItem("TextInput") || company} 
                     onChange = {handleCompany}
+                    background = "hsl(235, 69%, 91%)"
+                    placeholder = "company name"
                     required    
                 />
             </TextInputSection>

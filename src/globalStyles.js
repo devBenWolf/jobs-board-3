@@ -271,5 +271,4 @@ input:checked + .hover-slider::before {
     transform: rotate(45deg);    
 }
 
-
 `

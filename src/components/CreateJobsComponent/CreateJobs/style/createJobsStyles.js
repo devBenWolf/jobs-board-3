@@ -4,6 +4,7 @@ export const CreateJobsMain = styled.div`
     display: grid;
     border: solid blue;
     place-items: center;
+    background-color: white;
 `
 
 export const TopSubDiv = styled.main`

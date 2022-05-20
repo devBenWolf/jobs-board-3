@@ -7,6 +7,7 @@ width: 80%;
 `
 export const Title = styled.h3`
 color: ${(props) => props.themeBoolean ? "black" : "white"};
+background-color: #5964e0;
 `
 export const Input = styled.textarea`
     border-radius: 10px;
