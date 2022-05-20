@@ -113,10 +113,29 @@ const InputContextProvider = ({children}) => {
             localStorage.setItem(`RoleItems`, event.target.value)
         }
 
+        const clearAllInputs = () => {
+            setRequirementSkillsArray("")
+            setCompany("")
+            setDescription("")
+            setLogo("")
+            setLogoBackground("")
+            setPosition("")
+            setPostedAt("")
+            setRoleContent("")
+            setRoleItemsInput("")
+            setContract("")
+            setLocation("")
+            setWebsite("")
+            setApply("")
+            setRequirementContent("")
+            setRequirementSkillsInput("")
+            setRoleItemsArray("")
+        }
+
 
 
     return ( 
-        <InputContext.Provider value={{setInputFilter, setTimeFilter, setInputFocus,
+        <InputContext.Provider value={{setInputFilter, setTimeFilter, setInputFocus, clearAllInputs,
             setDesktopInputFocus, addToSkills, addToRoleItems, removeFromSkills, removeFromRoleItems, handleCompany, 
             handleDescription, handleLogo, handleLogoBackground, handlePosition, handlePostedAt, handleContract,
             handleLocation, handleWebsite, handleApply, handleRequirementContent, handleRequirementSkillsInput,

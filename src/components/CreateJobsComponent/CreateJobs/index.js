@@ -2,7 +2,8 @@ import {
     CreateJobsMain,
     PageTitle,
     Submit,
-    SubDiv
+    TopSubDiv,
+    BottomSubDiv
 } from "./style/createJobsStyles"
 
 const CreateJobs = ({children, ...props}) => {
@@ -11,9 +12,14 @@ const CreateJobs = ({children, ...props}) => {
      );
 }
 
-CreateJobs.SubDiv = function CreateJobsSubDiv({children, ...props}) {
+CreateJobs.TopSubDiv = function CreateJobsTopSubDiv({children, ...props}) {
     return (
-        <SubDiv {...props}>{children}</SubDiv>
+        <TopSubDiv {...props}>{children}</TopSubDiv>
+    )
+}
+CreateJobs.BottomSubDiv = function CreateJobsBottomSubDiv({children, ...props}) {
+    return (
+        <BottomSubDiv {...props}>{children}</BottomSubDiv>
     )
 }
 

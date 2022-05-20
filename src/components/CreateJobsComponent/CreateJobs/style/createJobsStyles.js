@@ -6,7 +6,7 @@ export const CreateJobsMain = styled.div`
     place-items: center;
 `
 
-export const SubDiv = styled.main`
+export const TopSubDiv = styled.main`
 display: grid;
 width: 100vw;
 grid-template-columns: 1fr 1fr 1fr;
@@ -26,6 +26,10 @@ border: solid red;
     width: 40rem;
 
 }
+`
+
+export const BottomSubDiv = styled.main`
+
 `
 
 export const PageTitle = styled.h1`

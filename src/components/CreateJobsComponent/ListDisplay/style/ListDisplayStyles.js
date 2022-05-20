@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const RequirementSkillsSection = styled.section`
+export const ListDisplaySection = styled.section`
 display: grid;
 place-items: center;
 width: 80%;

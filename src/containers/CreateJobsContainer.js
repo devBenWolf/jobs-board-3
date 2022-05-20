@@ -1,14 +1,14 @@
+import { useNavigate } from "react-router-dom";
 import { addDoc, collection } from "firebase/firestore";
 import { db, auth } from "../firebase";
 import { useContext } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
 import CreateJobs from "../components/CreateJobsComponent/CreateJobs";
 import { CreateJobsMain } from "../components/CreateJobsComponent/CreateJobs/style/createJobsStyles";
-import Company from "../components/CreateJobsComponent/Company";
-import { CompanySection } from "../components/CreateJobsComponent/Company/style/companyStyles";
-import { DescriptionSection } from "../components/CreateJobsComponent/Description/style/descriptionStyles";
-import Description from "../components/CreateJobsComponent/Description";
-import { useNavigate } from "react-router-dom";
+import TextInput from "../components/CreateJobsComponent/TextInput";
+import { TextInputSection } from "../components/CreateJobsComponent/TextInput/style/textInputStyles";
+import { TextAreaSection } from "../components/CreateJobsComponent/TextArea/style/textAreaStyles";
+import TextArea from "../components/CreateJobsComponent/TextArea";
 import { LogoSection } from "../components/CreateJobsComponent/Logo/style/logoStyles";
 import Logo from "../components/CreateJobsComponent/Logo";
 import { LogoBackgroundSection } from "../components/CreateJobsComponent/LogoBackground/style/logoBackgroundStyles";
@@ -27,8 +27,8 @@ import { ApplySection } from "../components/CreateJobsComponent/Apply/style/appl
 import Apply from "../components/CreateJobsComponent/Apply";
 import { RequirementContentSection } from "../components/CreateJobsComponent/RequirementContent/style/requirementContentStyles";
 import RequirementContent from "../components/CreateJobsComponent/RequirementContent";
-import { RequirementSkillsSection } from "../components/CreateJobsComponent/RequirementSkills/style/requirementSkillsStyles";
-import RequirementSkills from "../components/CreateJobsComponent/RequirementSkills";
+import { ListDisplaySection } from "../components/CreateJobsComponent/ListDisplay/style/ListDisplayStyles";
+import ListDisplay from "../components/CreateJobsComponent/ListDisplay";
 import { InputContext } from "../contexts/InputContext";
 import { RoleContentSection } from "../components/CreateJobsComponent/RoleContent/style/roleContentStyles";
 import RoleContent from "../components/CreateJobsComponent/RoleContent";
@@ -39,7 +39,7 @@ import RoleItems from "../components/CreateJobsComponent/RoleItems";
 const CreateJobsContainer = () => {
 
     // functions
-    const {addToSkills, addToRoleItems, removeFromSkills, handleCompany, handleDescription, handleLogo,handleLogoBackground, handlePosition, handlePostedAt, handleContract,
+    const {addToSkills, addToRoleItems, removeFromSkills, clearAllInputs, handleCompany, handleDescription, handleLogo,handleLogoBackground, handlePosition, handlePostedAt, handleContract,
         handleLocation, handleWebsite, handleApply, handleRequirementContent, handleRequirementSkillsInput, handleRoleContent, handleRoleItemsInput,
         removeFromRoleItems,
         // state hooks
@@ -63,162 +63,165 @@ const CreateJobsContainer = () => {
             contract, location, website, apply, requirementContent, requirementSkillsArray, author: 
             {name:  auth.currentUser.displayName, id: auth.currentUser.uid}})
             localStorage.clear()
+            
             navigate("/create-jobs")
     }
 
     return ( 
         <CreateJobsMain data-flow="10">
             <CreateJobs.PageTitle themeBoolean = {themeBoolean}>enter jobs data</CreateJobs.PageTitle>
-            {/* Company info */}
-            <CreateJobs.SubDiv>
-            <CompanySection>
-                <Company.CompanyTitle themeBoolean={themeBoolean}>company</Company.CompanyTitle>
-                <Company.CompanyInput 
-                    value    = {localStorage.getItem("Company") || company} 
+            {/* TextInput info */}
+            <CreateJobs.TopSubDiv>
+            <TextInputSection>
+                <TextInput.Title themeBoolean={themeBoolean}>TextInput</TextInput.Title>
+                <TextInput.Input 
+                    value    = {localStorage.getItem("TextInput") || company} 
                     onChange = {handleCompany}    
                 />
-            </CompanySection>
+            </TextInputSection>
             
             {/* Logo info */}
-            <LogoSection>
-                <Logo.Title themeBoolean={themeBoolean}>logo path</Logo.Title>
-                <Logo.Input 
+            <TextInputSection>
+                <TextInput.Title themeBoolean={themeBoolean}>logo path</TextInput.Title>
+                <TextInput.Input 
                     value    = {localStorage.getItem("Logo") || logo}
                     onChange = {handleLogo}
                 />
-            </LogoSection>
+            </TextInputSection>
 
             {/* Logo Background info */}
-            <LogoBackgroundSection>
-                <LogoBackground.Title themeBoolean={themeBoolean}>logo background color</LogoBackground.Title>
-                <LogoBackground.Input 
+            <TextInputSection>
+                <TextInput.Title themeBoolean={themeBoolean}>logo background color</TextInput.Title>
+                <TextInput.Input 
                     value = {localStorage.getItem("LogoBackground") || logoBackground}
                     onChange = {handleLogoBackground}
                 />
-            </LogoBackgroundSection>
+            </TextInputSection>
 
             {/* position info */}
-            <PositionSection>
-                <Position.Title themeBoolean={themeBoolean}>position</Position.Title>
-                <Position.Input
+            <TextInputSection>
+                <TextInput.Title themeBoolean={themeBoolean}>position</TextInput.Title>
+                <TextInput.Input
                     value = {localStorage.getItem("Position") || position}
                     onChange = {handlePosition}
                 />
-            </PositionSection>
+            </TextInputSection>
 
             {/* Time Posted info */}
-            <PostedAtSection>
-                <PostedAt.Title themeBoolean={themeBoolean}>posted at:</PostedAt.Title>
-                <PostedAt.Input
+            <TextInputSection>
+                <TextInput.Title themeBoolean={themeBoolean}>posted at:</TextInput.Title>
+                <TextInput.Input
                     value = {localStorage.getItem("PostedAt") || postedAt}
                     onChange = {handlePostedAt}                    
                 />
-            </PostedAtSection>
+            </TextInputSection>
 
             {/* Contract info */}
-            <ContractSection>
-                <Contract.Title themeBoolean={themeBoolean}>contract type</Contract.Title>
-                <Contract.Input 
+            <TextInputSection>
+                <TextInput.Title themeBoolean={themeBoolean}>contract type</TextInput.Title>
+                <TextInput.Input 
                     value = {localStorage.getItem("Contract") || contract}
                     onChange = {handleContract}                  
                 />
-            </ContractSection>
+            </TextInputSection>
 
             {/* Location info */}
-            <LocationSection>
-                <Location.Title themeBoolean={themeBoolean}>job location</Location.Title>
-                <Location.Input 
+            <TextInputSection>
+                <TextInput.Title themeBoolean={themeBoolean}>job location</TextInput.Title>
+                <TextInput.Input 
                     value = {localStorage.getItem("Location") || location}
                     onChange = {handleLocation}                
                 />
-            </LocationSection>
+            </TextInputSection>
 
             {/* Website info */}
-            <WebsiteSection>
-                <Website.Title themeBoolean={themeBoolean}>website</Website.Title>
-                <Website.Input 
+            <TextInputSection>
+                <TextInput.Title themeBoolean={themeBoolean}>website</TextInput.Title>
+                <TextInput.Input 
                     value = {localStorage.getItem("Website") || website}
                     onChange = {handleWebsite}                
                 />
-            </WebsiteSection>
+            </TextInputSection>
 
             {/* Application link */}
-            <ApplySection>
-                <Apply.Title themeBoolean={themeBoolean}>application link</Apply.Title>
-                <Apply.Input 
+            <TextInputSection>
+                <TextInput.Title themeBoolean={themeBoolean}>application link</TextInput.Title>
+                <TextInput.Input 
                     value = {localStorage.getItem("Apply") || apply}
                     onChange = {handleApply}                  
                 />
-            </ApplySection>
-            </CreateJobs.SubDiv>
-            <CreateJobs.SubDiv>
+            </TextInputSection>
+            </CreateJobs.TopSubDiv>
+
+            <CreateJobs.BottomSubDiv>
             {/* Description info */}
-            <DescriptionSection>
-                <Description.Title themeBoolean={themeBoolean}>description</Description.Title>
-                <Description.Input 
+            <TextAreaSection>
+                <TextArea.Title themeBoolean={themeBoolean}>description</TextArea.Title>
+                <TextArea.Input 
                     value    = {localStorage.getItem("Description") || description} 
                     onChange = {handleDescription}
                 />
-            </DescriptionSection>
+            </TextAreaSection>
 
             {/* Requirement content */}
-            <RequirementContentSection>
-                <RequirementContent.Title themeBoolean={themeBoolean}>requirement summary</RequirementContent.Title>
-                <RequirementContent.Input 
+            <TextAreaSection>
+                <TextArea.Title themeBoolean={themeBoolean}>requirement summary</TextArea.Title>
+                <TextArea.Input 
                     value = {localStorage.getItem("RequirementContent") || requirementContent}
                     onChange = {handleRequirementContent}                   
                 />
-            </RequirementContentSection>
+            </TextAreaSection>
 
             {/* Required Skills */}
-            <RequirementSkillsSection>
-                <RequirementSkills.InputDiv data-flow="2">
-                    <RequirementSkills.Title themeBoolean={themeBoolean}>specific skills</RequirementSkills.Title>
-                    <RequirementSkills.Input 
+            <ListDisplaySection>
+                <TextArea.InputDiv data-flow="2">
+                    <TextArea.Title themeBoolean={themeBoolean}>specific skills</TextArea.Title>
+                    <TextArea.Input 
                         value = {localStorage.getItem("RequirementSkillsInput") || requirementSkillsInput}
                         onChange = {handleRequirementSkillsInput}                        
                     />
-                    <RequirementSkills.PushButton onClick = {addToSkills}>add to skills</RequirementSkills.PushButton>
-                </RequirementSkills.InputDiv>
-                    <RequirementSkills.UL>
+                    <ListDisplay.PushButton onClick = {addToSkills}>add to skills</ListDisplay.PushButton>
+                </TextArea.InputDiv>
+                    <ListDisplay.UL>
                         {requirementSkillsArray.map((item, index) => (
-                            <RequirementSkills.SkillDiv key = {item.id}>
-                            <RequirementSkills.LI>{item.requirementSkillsInput}</RequirementSkills.LI>
-                            <RequirementSkills.DeleteButton onClick = {() => removeFromSkills(index)}>delete</RequirementSkills.DeleteButton>
-                            </RequirementSkills.SkillDiv>
+                            <ListDisplay.SkillDiv key = {item.id}>
+                            <ListDisplay.LI>{item.requirementSkillsInput}</ListDisplay.LI>
+                            <ListDisplay.DeleteButton onClick = {() => removeFromSkills(index)}>delete</ListDisplay.DeleteButton>
+                            </ListDisplay.SkillDiv>
                         ))}                      
-                    </RequirementSkills.UL>        
-            </RequirementSkillsSection>
+                    </ListDisplay.UL>
+                        
+            </ListDisplaySection>
 
             {/* Role Summary */}
-            <RoleContentSection data-flow="2">
-                <RoleContent.Title themeBoolean={themeBoolean}>role summary</RoleContent.Title>
-                <RoleContent.Input 
+            <TextAreaSection data-flow="2">
+                <TextArea.Title themeBoolean={themeBoolean}>role summary</TextArea.Title>
+                <TextArea.Input 
                     value = {localStorage.getItem("RoleContent") || roleContent}
                     onChange = {handleRoleContent}                
                 />
-            </RoleContentSection>
+            </TextAreaSection>
 
             {/* Role specifics */}
-            <RoleItemsSection>
-                <RoleItems.InputDiv>
-                    <RoleItems.Title>specific roles</RoleItems.Title>
-                    <RoleItems.Input 
+            <ListDisplaySection>
+                <ListDisplay.InputDiv>
+                    <ListDisplay.Title>specific roles</ListDisplay.Title>
+                    <ListDisplay.Input 
                         value = {localStorage.getItem("RoleItemsInput") || roleItemsInput}
                         onChange = {handleRoleItemsInput}                     
                     />
-                    <RoleItems.PushButton onClick = {addToRoleItems}>add to rolls</RoleItems.PushButton>
-                </RoleItems.InputDiv>
-                <RoleItems.UL>
+                    <ListDisplay.PushButton onClick = {addToRoleItems}>add to rolls</ListDisplay.PushButton>
+                </ListDisplay.InputDiv>
+                <ListDisplay.UL>
                         {roleItemsArray.map((item, index) => (
-                            <RoleItems.Div key = {item.id}>
-                            <RoleItems.LI>{item.roleItemsInput}</RoleItems.LI>
-                            <RoleItems.DeleteButton onClick = {() => removeFromRoleItems(index)}>delete</RoleItems.DeleteButton>
-                            </RoleItems.Div>
+                            <ListDisplay.Div key = {item.id}>
+                            <ListDisplay.LI>{item.roleItemsInput}</ListDisplay.LI>
+                            <ListDisplay.DeleteButton onClick = {() => removeFromRoleItems(index)}>delete</ListDisplay.DeleteButton>
+                            </ListDisplay.Div>
                         ))}                      
-                    </RoleItems.UL> 
-            </RoleItemsSection>
-            </CreateJobs.SubDiv>
+                    </ListDisplay.UL> 
+            </ListDisplaySection>
+            </CreateJobs.BottomSubDiv>
             <CreateJobs.Submit onClick = {createJob}>submit</CreateJobs.Submit>
         </CreateJobsMain>
      );
