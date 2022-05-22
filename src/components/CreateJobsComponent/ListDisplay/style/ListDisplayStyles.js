@@ -25,6 +25,7 @@ border: none;
 width: 20rem;
 height: 2.2rem;
 background-color: ${(props) => props.background};
+cursor: pointer;
 border-radius: 10px;
 color: white;
 font-weight: bold;

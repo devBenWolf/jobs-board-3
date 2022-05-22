@@ -47,7 +47,7 @@ const CreateJobsContainer = () => {
     }
 
     return ( 
-        <CreateJobsMain data-flow="10">
+        <CreateJobsMain>
             <CreateJobs.PageTitle themeBoolean = {themeBoolean}>enter jobs data</CreateJobs.PageTitle>
             {/* TextInput info */}
             <CreateJobs.TopSubDiv>
@@ -150,7 +150,7 @@ const CreateJobsContainer = () => {
                 />
             </TextInputSection>
             </CreateJobs.TopSubDiv>
-            <CreateJobs.BottomSubDiv>
+            <CreateJobs.BottomSubDiv data-flow="3">
                 <TextAreaSection>
                     <TextArea.Input 
                         value    = {localStorage.getItem("Description") || description} 
@@ -159,10 +159,10 @@ const CreateJobsContainer = () => {
                         color = "hsl(235, 69%, 61%)"
                         placeholder = "enter job description . . ."
                     />
+
                 </TextAreaSection>
 
                 <TextAreaSection>
-                    <TextArea.InputDiv background = "hsl(235, 69%, 86%)">
                     <TextArea.Input 
                         value    = {localStorage.getItem("RequirementContent") || requirementContent} 
                         onChange = {handleRequirementContent}
@@ -170,10 +170,8 @@ const CreateJobsContainer = () => {
                         color = "hsl(235, 69%, 61%)"
                         placeholder = "enter skill summary . . ."
                     />
-                    <ListDisplay.AddButton background = "hsl(235, 69%, 86%)">Add to skills</ListDisplay.AddButton>
-                    </TextArea.InputDiv>
-                </TextAreaSection>
 
+                </TextAreaSection>
                 <ListDisplay.SkillDiv>
                     <TextAreaSection>
                         <TextArea.InputDiv
@@ -186,7 +184,10 @@ const CreateJobsContainer = () => {
                             color = "hsl(235, 69%, 61%)"
                             placeholder = "enter up to 5 specific skills . . ."
                         />
-                    <ListDisplay.AddButton background = "hsl(235, 69%, 79%)">Add to skills</ListDisplay.AddButton>
+                    <ListDisplay.AddButton 
+                        background = "hsl(235, 69%, 79%)"
+                        onClick = {addToSkills}
+                    >Add to skills</ListDisplay.AddButton>
                     </TextArea.InputDiv> 
                     </TextAreaSection>
                     <ListDisplay.UL>
