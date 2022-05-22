@@ -24,7 +24,7 @@ export const AddButton = styled.button`
 border: none;
 width: 20rem;
 height: 2.2rem;
-background-color: hsl(235, 69%, 79%);
+background-color: ${(props) => props.background};
 border-radius: 10px;
 color: white;
 font-weight: bold;

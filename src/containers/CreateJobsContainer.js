@@ -162,6 +162,7 @@ const CreateJobsContainer = () => {
                 </TextAreaSection>
 
                 <TextAreaSection>
+                    <TextArea.InputDiv background = "hsl(235, 69%, 86%)">
                     <TextArea.Input 
                         value    = {localStorage.getItem("RequirementContent") || requirementContent} 
                         onChange = {handleRequirementContent}
@@ -169,7 +170,8 @@ const CreateJobsContainer = () => {
                         color = "hsl(235, 69%, 61%)"
                         placeholder = "enter skill summary . . ."
                     />
-                    <ListDisplay.AddButton>Add to skills</ListDisplay.AddButton>
+                    <ListDisplay.AddButton background = "hsl(235, 69%, 86%)">Add to skills</ListDisplay.AddButton>
+                    </TextArea.InputDiv>
                 </TextAreaSection>
 
                 <ListDisplay.SkillDiv>
@@ -184,7 +186,7 @@ const CreateJobsContainer = () => {
                             color = "hsl(235, 69%, 61%)"
                             placeholder = "enter up to 5 specific skills . . ."
                         />
-                    <ListDisplay.AddButton>Add to skills</ListDisplay.AddButton>
+                    <ListDisplay.AddButton background = "hsl(235, 69%, 79%)">Add to skills</ListDisplay.AddButton>
                     </TextArea.InputDiv> 
                     </TextAreaSection>
                     <ListDisplay.UL>
