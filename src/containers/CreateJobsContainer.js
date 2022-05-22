@@ -26,7 +26,7 @@ const CreateJobsContainer = () => {
         contract, location, website, apply, requirementContent, requirementSkillsInput, roleItemsArray    
     } = useContext(InputContext)
 
-    console.log(roleItemsArray)
+    console.log(requirementSkillsArray)
     const {themeBoolean} = useContext(ThemeContext)
 
             // database and collection to which we add the jobs
@@ -178,8 +178,8 @@ const CreateJobsContainer = () => {
                             background = "hsl(235, 69%, 79%)"
                         >                       
                         <TextArea.Input 
-                            value = {localStorage.getItem("Apply") || apply}
-                            onChange = {handleApply}   
+                            value = {localStorage.getItem("RequirementSkillsInput") || requirementSkillsInput}
+                            onChange = {handleRequirementSkillsInput}   
                             background = "hsl(235, 69%, 79%)"
                             color = "hsl(235, 69%, 61%)"
                             placeholder = "enter up to 5 specific skills . . ."
