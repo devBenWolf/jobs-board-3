@@ -16,19 +16,36 @@ padding: 1rem;
 border-radius: 5px;
 `
 
+
 export const Input = styled.input.attrs({type: "text"})`
 border-radius: 10px;
-width: 30rem;
+width: 20rem;
 padding: 2rem;
-font-size: 2rem;
+font-size: 1.2rem;
 height: 3rem;
 text-align: center;
-color: darkred;
 margin-bottom: 3rem;
 color: ${(props) => props.color};
 background-color: ${(props) => props.background};
 
-@media (width < 45rem) {
+&::placeholder {
+    opacity: 1;
+}
+
+@media(width > 20rem) {
+    width: 25rem;
+}
+
+@media(width > 30rem) {
+    width: 30rem;
+}
+
+@media(width > 35rem) {
     width: 20rem;
 }
+
+@media(width > 45rem) {
+    width: 25rem;
+}
+
 `

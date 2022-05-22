@@ -3,7 +3,10 @@ import {
     PageTitle,
     Submit,
     TopSubDiv,
-    BottomSubDiv
+    BottomSubDiv,
+    DescriptionDiv,
+    SkillDiv,
+    RoleDiv
 } from "./style/createJobsStyles"
 
 const CreateJobs = ({children, ...props}) => {

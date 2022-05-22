@@ -2,7 +2,7 @@ import {
     ListDisplaySection,
     Title,
     Input,
-    PushButton,
+    AddButton,
     InputDiv,
     UL,
     LI,
@@ -55,9 +55,9 @@ ListDisplay.Input = function ListDisplayInput({children, ...props}) {
         <Input {...props}>{children}</Input>
     )
 }
-ListDisplay.PushButton = function ListDisplayPushButton({children, ...props}) {
+ListDisplay.AddButton = function ListDisplayAddButton({children, ...props}) {
     return (
-        <PushButton {...props}>{children}</PushButton>
+        <AddButton {...props}>{children}</AddButton>
     )
 }
 ListDisplay.DeleteButton = function ListDisplayDeleteButton({children, ...props}) {

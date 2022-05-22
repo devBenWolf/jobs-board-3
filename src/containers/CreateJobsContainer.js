@@ -51,16 +51,12 @@ const CreateJobsContainer = () => {
             <CreateJobs.PageTitle themeBoolean = {themeBoolean}>enter jobs data</CreateJobs.PageTitle>
             {/* TextInput info */}
             <CreateJobs.TopSubDiv>
-            <TextInputSection>
-                <TextInput.Title 
-                    themeBoolean={themeBoolean}
-                    
-                >company name</TextInput.Title>
-                    
+            <TextInputSection>                   
                 <TextInput.Input 
                     value    = {localStorage.getItem("TextInput") || company} 
                     onChange = {handleCompany}
                     background = "hsl(235, 69%, 91%)"
+                    color = "hsl(235, 69%, 61%)"
                     placeholder = "company name"
                     required    
                 />
@@ -68,146 +64,139 @@ const CreateJobsContainer = () => {
             
             {/* Logo info */}
             <TextInputSection>
-                <TextInput.Title themeBoolean={themeBoolean}>logo path</TextInput.Title>
                 <TextInput.Input 
                     value    = {localStorage.getItem("Logo") || logo}
                     onChange = {handleLogo}
+                    background = "hsl(235, 69%, 91%)"
+                    color = "hsl(235, 69%, 61%)"
+                    placeholder = "logo path"
                 />
             </TextInputSection>
 
             {/* Logo Background info */}
             <TextInputSection>
-                <TextInput.Title themeBoolean={themeBoolean}>logo background color</TextInput.Title>
                 <TextInput.Input 
                     value = {localStorage.getItem("LogoBackground") || logoBackground}
                     onChange = {handleLogoBackground}
+                    background = "hsl(235, 69%, 91%)"
+                    color = "hsl(235, 69%, 61%)"
+                    placeholder = "logo background color"
                 />
             </TextInputSection>
 
             {/* position info */}
             <TextInputSection>
-                <TextInput.Title themeBoolean={themeBoolean}>position</TextInput.Title>
                 <TextInput.Input
                     value = {localStorage.getItem("Position") || position}
                     onChange = {handlePosition}
+                    background = "hsl(235, 69%, 86%)"
+                    color = "hsl(235, 69%, 61%)"
+                    placeholder = "position"
                 />
             </TextInputSection>
 
             {/* Time Posted info */}
             <TextInputSection>
-                <TextInput.Title themeBoolean={themeBoolean}>posted at:</TextInput.Title>
                 <TextInput.Input
                     value = {localStorage.getItem("PostedAt") || postedAt}
-                    onChange = {handlePostedAt}                    
+                    onChange = {handlePostedAt}
+                    background = "hsl(235, 69%, 86%)"
+                    color = "hsl(235, 69%, 61%)"
+                    placeholder = "posted at"                    
                 />
             </TextInputSection>
 
             {/* Contract info */}
             <TextInputSection>
-                <TextInput.Title themeBoolean={themeBoolean}>contract type</TextInput.Title>
                 <TextInput.Input 
                     value = {localStorage.getItem("Contract") || contract}
-                    onChange = {handleContract}                  
+                    onChange = {handleContract}   
+                    background = "hsl(235, 69%, 86%)"
+                    color = "hsl(235, 69%, 61%)"
+                    placeholder = "contract type"               
                 />
             </TextInputSection>
 
             {/* Location info */}
             <TextInputSection>
-                <TextInput.Title themeBoolean={themeBoolean}>job location</TextInput.Title>
                 <TextInput.Input 
                     value = {localStorage.getItem("Location") || location}
                     onChange = {handleLocation}                
+                    background = "hsl(235, 69%, 79%)"
+                    color = "hsl(235, 69%, 61%)"
+                    placeholder = "job location"
                 />
             </TextInputSection>
 
             {/* Website info */}
             <TextInputSection>
-                <TextInput.Title themeBoolean={themeBoolean}>website</TextInput.Title>
                 <TextInput.Input 
                     value = {localStorage.getItem("Website") || website}
-                    onChange = {handleWebsite}                
+                    onChange = {handleWebsite} 
+                    background = "hsl(235, 69%, 79%)"
+                    color = "hsl(235, 69%, 61%)"
+                    placeholder = "website"              
                 />
             </TextInputSection>
 
             {/* Application link */}
             <TextInputSection>
-                <TextInput.Title themeBoolean={themeBoolean}>application link</TextInput.Title>
                 <TextInput.Input 
                     value = {localStorage.getItem("Apply") || apply}
-                    onChange = {handleApply}                  
+                    onChange = {handleApply}   
+                    background = "hsl(235, 69%, 79%)"
+                    color = "hsl(235, 69%, 61%)"
+                    placeholder = "apply at"               
                 />
             </TextInputSection>
             </CreateJobs.TopSubDiv>
-
             <CreateJobs.BottomSubDiv>
-            {/* Description info */}
-            <TextAreaSection>
-                <TextArea.Title themeBoolean={themeBoolean}>description</TextArea.Title>
-                <TextArea.Input 
-                    value    = {localStorage.getItem("Description") || description} 
-                    onChange = {handleDescription}
-                />
-            </TextAreaSection>
-
-            {/* Requirement summary */}
-            <TextAreaSection>
-                <TextArea.Title themeBoolean={themeBoolean}>requirement summary</TextArea.Title>
-                <TextArea.Input 
-                    value = {localStorage.getItem("RequirementContent") || requirementContent}
-                    onChange = {handleRequirementContent}                   
-                />
-            </TextAreaSection>
-
-            {/* Required Skills */}
-            <ListDisplaySection>
-                <TextArea.InputDiv data-flow="2">
-                    <TextArea.Title themeBoolean={themeBoolean}>specific skills</TextArea.Title>
+                <TextAreaSection>
                     <TextArea.Input 
-                        value = {localStorage.getItem("RequirementSkillsInput") || requirementSkillsInput}
-                        onChange = {handleRequirementSkillsInput}                        
+                        value    = {localStorage.getItem("Description") || description} 
+                        onChange = {handleDescription}
+                        background = "hsl(235, 69%, 91%)"
+                        color = "hsl(235, 69%, 61%)"
+                        placeholder = "enter job description . . ."
                     />
-                    <ListDisplay.PushButton onClick = {addToSkills}>add to skills</ListDisplay.PushButton>
-                </TextArea.InputDiv>
-                    <ListDisplay.UL data-flow="2">
+                </TextAreaSection>
+
+                <TextAreaSection>
+                    <TextArea.Input 
+                        value    = {localStorage.getItem("RequirementContent") || requirementContent} 
+                        onChange = {handleRequirementContent}
+                        background = "hsl(235, 69%, 86%)"
+                        color = "hsl(235, 69%, 61%)"
+                        placeholder = "enter skill summary . . ."
+                    />
+                    <ListDisplay.AddButton>Add to skills</ListDisplay.AddButton>
+                </TextAreaSection>
+
+                <ListDisplay.SkillDiv>
+                    <TextAreaSection>
+                        <TextArea.InputDiv
+                            background = "hsl(235, 69%, 79%)"
+                        >                       
+                        <TextArea.Input 
+                            value = {localStorage.getItem("Apply") || apply}
+                            onChange = {handleApply}   
+                            background = "hsl(235, 69%, 79%)"
+                            color = "hsl(235, 69%, 61%)"
+                            placeholder = "enter up to 5 specific skills . . ."
+                        />
+                    <ListDisplay.AddButton>Add to skills</ListDisplay.AddButton>
+                    </TextArea.InputDiv> 
+                    </TextAreaSection>
+                    <ListDisplay.UL>
                         {requirementSkillsArray.map((item, index) => (
                             <ListDisplay.SkillDiv key = {item.id}>
                                 <ListDisplay.LI>{item.requirementSkillsInput}</ListDisplay.LI>
                                 <ListDisplay.DeleteButton onClick = {() => removeFromSkills(index)}>delete</ListDisplay.DeleteButton>
                             </ListDisplay.SkillDiv>
-                        ))}                      
-                    </ListDisplay.UL>                      
-            </ListDisplaySection>
-
-            {/* Role Summary */}
-            <TextAreaSection data-flow="2">
-                <TextArea.Title themeBoolean={themeBoolean}>role summary</TextArea.Title>
-                <TextArea.Input 
-                    value = {localStorage.getItem("RoleContent") || roleContent}
-                    onChange = {handleRoleContent}                
-                />
-            </TextAreaSection>
-
-            {/* Role specifics */}
-            <ListDisplaySection>
-                <TextArea.InputDiv>
-                    <TextArea.Title>specific roles</TextArea.Title>
-                    <TextArea.Input 
-                        value = {localStorage.getItem("RoleItemsInput") || roleItemsInput}
-                        onChange = {handleRoleItemsInput}                     
-                    />
-                    <ListDisplay.PushButton onClick = {addToRoleItems}>add to roles</ListDisplay.PushButton>
-                </TextArea.InputDiv>
-                <ListDisplay.UL data-flow="2">
-                        {roleItemsArray.map((item, index) => (
-                            <ListDisplay.RoleDiv key = {item.id}>
-                            <ListDisplay.LI>{item.roleItemsInput}</ListDisplay.LI>
-                            <ListDisplay.DeleteButton onClick = {() => removeFromRoleItems(index)}>delete</ListDisplay.DeleteButton>
-                            </ListDisplay.RoleDiv>
-                        ))}                      
-                    </ListDisplay.UL> 
-            </ListDisplaySection>
+                        ))}                        
+                    </ListDisplay.UL>
+                </ListDisplay.SkillDiv>
             </CreateJobs.BottomSubDiv>
-            <CreateJobs.Submit onClick = {createJob}>submit</CreateJobs.Submit>
         </CreateJobsMain>
      );
 }
