@@ -199,6 +199,17 @@ const CreateJobsContainer = () => {
                         ))}                        
                     </ListDisplay.UL>
                 </ListDisplay.SkillDiv>
+
+                <TextAreaSection>
+                    <TextArea.Input 
+                        value    = {localStorage.getItem("RequirementContent") || requirementContent} 
+                        onChange = {handleRequirementContent}
+                        background = "hsl(235, 69%, 86%)"
+                        color = "hsl(235, 69%, 61%)"
+                        placeholder = "enter skill summary . . ."
+                    />
+
+                </TextAreaSection>
             </CreateJobs.BottomSubDiv>
         </CreateJobsMain>
      );
