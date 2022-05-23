@@ -45,6 +45,8 @@ const Layout = ({children}) => {
     useEffect(() => {
         if (local) {
             navigate("/create-jobs")
+        } else {
+            navigate("/login")
         }
     }, [])
 

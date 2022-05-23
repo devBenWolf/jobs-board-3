@@ -3,6 +3,7 @@ import { addDoc, collection } from "firebase/firestore";
 import { db, auth } from "../firebase";
 import { useContext } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
+import { useEffect } from "react";
 import CreateJobs from "../components/CreateJobsComponent/CreateJobs";
 import { CreateJobsMain } from "../components/CreateJobsComponent/CreateJobs/style/createJobsStyles";
 import TextInput from "../components/CreateJobsComponent/TextInput";
@@ -11,6 +12,7 @@ import { TextAreaSection } from "../components/CreateJobsComponent/TextArea/styl
 import TextArea from "../components/CreateJobsComponent/TextArea";
 import ListDisplay from "../components/CreateJobsComponent/ListDisplay";
 import { InputContext } from "../contexts/InputContext";
+import {AuthContext} from "../contexts/AuthContext"
 
 
 
@@ -28,11 +30,15 @@ const CreateJobsContainer = () => {
     console.log(requirementSkillsArray)
     const {themeBoolean} = useContext(ThemeContext)
 
-            // database and collection to which we add the jobs
-            const jobsCollectionRef = collection(db, "jobs")
+    // database and collection to which we add the jobs
+    const jobsCollectionRef = collection(db, "jobs")
+    // navigate to homepage after submitting job data
+    const navigate = useNavigate()
 
-            // navigate to homepage after submitting job data
-            const navigate = useNavigate()
+    useEffect(() => {
+        if (localStorage.isAuth === false)
+        navigate("/")
+    }, [])
     
     const createJob = async () => {
         // add document to the collection along with with author id object
@@ -41,6 +47,7 @@ const CreateJobsContainer = () => {
             contract, location, website, apply, requirementContent, requirementSkillsArray, roleItemsArray, 
             author: {name:  auth.currentUser.displayName, id: auth.currentUser.uid}})
             localStorage.clear()
+            localStorage.setItem("isAuth", true)
             navigate("/create-jobs")
             clearAllInputs()
     }

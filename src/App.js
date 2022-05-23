@@ -24,7 +24,7 @@ function App() {
           <Layout>
             <Routes>
               <Route path = "/" element={<HomeContainer />} />              
-              <Route path = "/login" element={<LoginContainer />} />     
+              <Route path = "/login" element={<LoginContainer />} />                  
               <Route path = "/create-jobs" element={<CreateJobsContainer />} />         
               <Route path = "/:jobId" element = {<Job />} />
             </Routes>
