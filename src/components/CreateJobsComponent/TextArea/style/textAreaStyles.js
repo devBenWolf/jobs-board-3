@@ -33,6 +33,7 @@ export const Input = styled.textarea`
     
     @media(width > 35rem) {
         width: 40rem;
+        height: 18rem;
     }
     
     @media(width > 45rem) {
@@ -43,6 +44,7 @@ export const Input = styled.textarea`
     @media(width > 55rem) {
         width: 60rem;
         font-size: 1.6rem;
+        height: 20rem;
     }
 `
 
