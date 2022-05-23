@@ -152,25 +152,45 @@ const CreateJobsContainer = () => {
             </CreateJobs.TopSubDiv>
             <CreateJobs.BottomSubDiv data-flow="3">
                 <TextAreaSection>
+                    <TextArea.InputDiv
+                        background = "hsl(235, 69%, 91%)"
+                    >
                     <TextArea.Input 
                         value    = {localStorage.getItem("Description") || description} 
                         onChange = {handleDescription}
                         background = "hsl(235, 69%, 91%)"
                         color = "hsl(235, 69%, 61%)"
+                        border = "hsl(235, 69%, 61%) solid"
+                        borderBottom="none"
                         placeholder = "enter job description . . ."
                     />
-
+                    <ListDisplay.PseudoButton
+                        background = "hsl(235, 69%, 91%)"
+                        border = "hsl(235, 69%, 61%) solid"
+                        borderTop = "none"
+                    ></ListDisplay.PseudoButton>
+                    </TextArea.InputDiv>
                 </TextAreaSection>
 
                 <TextAreaSection>
+                    <TextArea.InputDiv
+                        background = "hsl(235, 69%, 86%)"
+                    >
                     <TextArea.Input 
                         value    = {localStorage.getItem("RequirementContent") || requirementContent} 
                         onChange = {handleRequirementContent}
                         background = "hsl(235, 69%, 86%)"
                         color = "hsl(235, 69%, 61%)"
+                        border = "hsl(235, 69%, 61%) solid"
+                        borderBottom="none"
                         placeholder = "enter skill summary . . ."
                     />
-
+                    <ListDisplay.PseudoButton
+                        background = "hsl(235, 69%, 86%)"
+                        border = "hsl(235, 69%, 61%) solid"
+                        borderTop = "none"
+                    ></ListDisplay.PseudoButton>
+                    </TextArea.InputDiv>
                 </TextAreaSection>
                 <ListDisplay.TextAndListDiv>
                     <TextAreaSection>
@@ -182,10 +202,14 @@ const CreateJobsContainer = () => {
                             onChange = {handleRequirementSkillsInput}   
                             background = "hsl(235, 69%, 79%)"
                             color = "hsl(235, 69%, 61%)"
+                            border = "hsl(235, 69%, 61%) solid"
+                            borderBottom="none"
                             placeholder = "enter up to 5 specific skills . . ."
                         />
                     <ListDisplay.AddButton 
                         background = "hsl(235, 69%, 79%)"
+                        border = "hsl(235, 69%, 61%) solid"
+                        borderTop = "none"
                         onClick = {addToSkills}
                     >Add to skills</ListDisplay.AddButton>
                     </TextArea.InputDiv> 
@@ -201,13 +225,24 @@ const CreateJobsContainer = () => {
                 </ListDisplay.TextAndListDiv>
 
                 <TextAreaSection>
+                        <TextArea.InputDiv
+                    background = "hsl(235, 69%, 71%)"
+                    >
                     <TextArea.Input 
                         value    = {localStorage.getItem("RoleContent") || roleContent} 
                         onChange = {handleRoleContent}
                         background = "hsl(235, 69%, 71%)"
                         color = "white"
+                        border = "hsl(235, 69%, 61%) solid"
+                        borderBottom="none"
                         placeholder = "enter role summary . . ."
                     />
+                    <ListDisplay.PseudoButton
+                        background = "hsl(235, 69%, 71%)"
+                        border = "hsl(235, 69%, 61%) solid"
+                        borderTop = "none"
+                    ></ListDisplay.PseudoButton>
+                    </TextArea.InputDiv>
                 </TextAreaSection>
 
                 <ListDisplay.TextAndListDiv>
@@ -216,16 +251,19 @@ const CreateJobsContainer = () => {
                             background = "hsl(235, 69%, 61%)"
                         >                       
                         <TextArea.Input 
-                            value = {localStorage.getItem("ReoleItemsInput") || roleItemsInput}
+                            value = {localStorage.getItem("RoleItemsInput") || roleItemsInput}
                             onChange = {handleRoleItemsInput}   
                             background = "hsl(235, 69%, 61%)"
                             color = "white"
                             placeholder = "enter up to 5 specific roles . . ."
                             border = "hsl(235, 69%, 61%) solid"
+                            borderBottom = "none"
                         />
                     <ListDisplay.AddButton 
                         background = "hsl(235, 69%, 61%)"
                         onClick = {addToRoleItems}
+                        borderTop = "none"
+                        border = "hsl(235, 69%, 61%) solid"
                     >Add to skills</ListDisplay.AddButton>
                     </TextArea.InputDiv> 
                     </TextAreaSection>

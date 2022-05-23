@@ -23,8 +23,8 @@ font-size: 1.5rem;
 export const AddButton = styled.button`
 display: grid;
 place-items: center;
-
-border: none;
+border: ${(props) => props.border};
+border-top: ${(props) => props.borderTop};
 width: 100%;
 height: 2.2rem;
 background-color: ${(props) => props.background};
@@ -36,6 +36,17 @@ font-weight: bold;
     background-color: red;
     transition: 1s;
 }
+`
+
+export const PseudoButton = styled.div`
+border: ${(props) => props.border};
+border-top: ${(props) => props.borderTop};
+width: 100%;
+height: 2.2rem;
+background-color: ${(props) => props.background};
+cursor: pointer;
+border-radius: 0 0 10px 10px;
+
 `
 
 export const DeleteButton = styled.button`

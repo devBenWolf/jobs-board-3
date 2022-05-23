@@ -3,6 +3,7 @@ import {
     Title,
     Input,
     AddButton,
+    PseudoButton,
     InputDiv,
     UL,
     LI,
@@ -62,9 +63,9 @@ ListDisplay.AddButton = function ListDisplayAddButton({children, ...props}) {
     )
 }
 
-ListDisplay.AddButton = function ListDisplayAddButton({children, ...props}) {
+ListDisplay.PseudoButton = function ListDisplayPseudoButton({children, ...props}) {
     return (
-        <AddButton {...props}>{children}</AddButton>
+        <PseudoButton {...props}>{children}</PseudoButton>
     )
 }
 
