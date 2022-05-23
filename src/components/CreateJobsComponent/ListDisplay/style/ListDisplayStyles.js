@@ -73,28 +73,16 @@ export const TextAndListDiv = styled.div`
 export const MapDiv = styled.div`
 display: flex;
 justify-content: space-between;
-border: solid red;
+width: 100%;
 `
 
 export const UL = styled.ul`
+display: grid;
+place-items: center;
 margin-top: 0;
 border-radius: 5px;
-width: 20rem;
-@media(width > 20rem) {
-    width: 25rem;
-}
+width: 100%;
 
-@media(width > 30rem) {
-    width: 30rem;
-}
-
-@media(width > 35rem) {
-    width: 40rem;
-}
-
-@media(width > 45rem) {
-    width: 50rem;
-}
 `
 
 export const LI = styled.li`
