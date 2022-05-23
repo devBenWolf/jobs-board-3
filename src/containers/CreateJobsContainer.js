@@ -192,10 +192,10 @@ const CreateJobsContainer = () => {
                     </TextAreaSection>
                     <ListDisplay.UL>
                         {requirementSkillsArray.map((item, index) => (
-                            <ListDisplay.SkillDiv key = {item.id}>
+                            <ListDisplay.MapDiv key = {item.id}>
                                 <ListDisplay.LI>{item.requirementSkillsInput}</ListDisplay.LI>
                                 <ListDisplay.DeleteButton onClick = {() => removeFromSkills(index)}>delete</ListDisplay.DeleteButton>
-                            </ListDisplay.SkillDiv>
+                            </ListDisplay.MapDiv>
                         ))}                        
                     </ListDisplay.UL>
                 </ListDisplay.SkillDiv>
@@ -230,10 +230,10 @@ const CreateJobsContainer = () => {
                     </TextAreaSection>
                     <ListDisplay.UL>
                         {roleItemsArray.map((item, index) => (
-                            <ListDisplay.SkillDiv key = {item.id}>
+                            <ListDisplay.MapDiv key = {item.id}>
                                 <ListDisplay.LI>{item.roleItemsInput}</ListDisplay.LI>
                                 <ListDisplay.DeleteButton onClick = {() => removeFromRoleItems(index)}>delete</ListDisplay.DeleteButton>
-                            </ListDisplay.SkillDiv>
+                            </ListDisplay.MapDiv>
                         ))}                        
                     </ListDisplay.UL>
                 </ListDisplay.SkillDiv>

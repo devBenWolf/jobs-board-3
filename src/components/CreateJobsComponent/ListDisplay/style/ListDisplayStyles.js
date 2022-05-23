@@ -26,9 +26,15 @@ width: 20rem;
 height: 2.2rem;
 background-color: ${(props) => props.background};
 cursor: pointer;
-border-radius: 10px;
+border-radius: 0 0 10px 10px;
 color: white;
 font-weight: bold;
+
+&:hover {
+    background-color: red;
+    transition: 1s;
+}
+
 @media(width > 20rem) {
     width: 25rem;
 }
@@ -63,16 +69,31 @@ width: 60rem;
 export const SkillDiv = styled.div`
 
 `
-export const RoleDiv = styled.div`
+export const MapDiv = styled.div`
 display: flex;
-justify-content: space-between;
 `
 
 export const UL = styled.ul`
-display: grid;
 background-color: red;
 margin-top: 0;
 border-radius: 5px;
+width: 20rem;
+
+@media(width > 20rem) {
+    width: 25rem;
+}
+
+@media(width > 30rem) {
+    width: 30rem;
+}
+
+@media(width > 35rem) {
+    width: 20rem;
+}
+
+@media(width > 45rem) {
+    width: 25rem;
+}
 `
 
 export const LI = styled.li`
