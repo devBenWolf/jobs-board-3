@@ -2,11 +2,13 @@ import styled from "styled-components"
 
 
 export const LoginMain = styled.div`
+display: grid;
+place-items: center;
+height: 100vh;
 `
 export const Div = styled.main`
 display: grid;
 place-items: center;
-height: 20rem;
 border: solid black;
 `
 export const Text = styled.p``

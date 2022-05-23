@@ -4,15 +4,14 @@ import { db, auth } from "../firebase";
 import { useContext } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
 import { useEffect } from "react";
-import CreateJobs from "../components/CreateJobsComponent/CreateJobs";
-import { CreateJobsMain } from "../components/CreateJobsComponent/CreateJobs/style/createJobsStyles";
-import TextInput from "../components/CreateJobsComponent/TextInput";
-import { TextInputSection } from "../components/CreateJobsComponent/TextInput/style/textInputStyles";
-import { TextAreaSection } from "../components/CreateJobsComponent/TextArea/style/textAreaStyles";
-import TextArea from "../components/CreateJobsComponent/TextArea";
-import ListDisplay from "../components/CreateJobsComponent/ListDisplay";
+import CreateJobs from "../components/CreateJobsComponents/CreateJobs";
+import { CreateJobsMain } from "../components/CreateJobsComponents/CreateJobs/style/createJobsStyles";
+import TextInput from "../components/CreateJobsComponents/TextInput";
+import { TextInputSection } from "../components/CreateJobsComponents/TextInput/style/textInputStyles";
+import { TextAreaSection } from "../components/CreateJobsComponents/TextArea/style/textAreaStyles";
+import TextArea from "../components/CreateJobsComponents/TextArea";
+import ListDisplay from "../components/CreateJobsComponents/ListDisplay";
 import { InputContext } from "../contexts/InputContext";
-import {AuthContext} from "../contexts/AuthContext"
 
 
 
@@ -36,8 +35,11 @@ const CreateJobsContainer = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        if (localStorage.isAuth === false)
+        const local = localStorage.getItem("isAuth")
+        if (!local) {
         navigate("/")
+        alert("You must log in")
+        }
     }, [])
     
     const createJob = async () => {

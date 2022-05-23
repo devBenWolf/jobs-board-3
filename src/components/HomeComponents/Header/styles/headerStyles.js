@@ -7,8 +7,6 @@ export const HeaderDiv = styled.div`
     background-size: cover;
     height: 10rem;
     align-items: center;
-
-
     > * {
         margin-inline: 1rem;
     }

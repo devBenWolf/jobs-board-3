@@ -42,13 +42,13 @@ const Layout = ({children}) => {
         })
     }
 
-    useEffect(() => {
-        if (local) {
-            navigate("/create-jobs")
-        } else {
-            navigate("/login")
-        }
-    }, [])
+    //useEffect(() => {
+    //    if (local) {
+    //        navigate("/create-jobs")
+    //    } else {
+    //        navigate("/")
+    //    }
+    //}, [])
 
     return (
         <Main themeBoolean={themeBoolean}>
