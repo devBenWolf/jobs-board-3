@@ -55,7 +55,11 @@ place-items: center;
 width: 8rem;
 height: 2.2rem;
 align-self: center;
-background-color: 
+background-color: red;
+border-radius: 10px;
+font-weight: bold;
+color: white; 
+text-transform: uppercase;
 `
 
 export const InputDiv = styled.div`
@@ -68,13 +72,14 @@ export const TextAndListDiv = styled.div`
 `
 export const MapDiv = styled.div`
 display: flex;
+justify-content: space-between;
+border: solid red;
 `
 
 export const UL = styled.ul`
 margin-top: 0;
 border-radius: 5px;
 width: 20rem;
-
 @media(width > 20rem) {
     width: 25rem;
 }
@@ -95,6 +100,5 @@ width: 20rem;
 export const LI = styled.li`
 line-height: 1.5;
 font-size: 1.5rem;
-width: 40ch;
-color: ${(props) => props.themeBoolean ? "black" : "white"}
+color: ${(props) => props.themeBoolean ? "black" : "white"};
 `

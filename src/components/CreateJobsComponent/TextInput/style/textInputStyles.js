@@ -19,7 +19,7 @@ border-radius: 5px;
 
 export const Input = styled.input.attrs({type: "text"})`
 border-radius: 10px;
-border: none;
+border: hsl(235, 69%, 61%) solid;
 width: 20rem;
 padding: 2rem;
 font-size: 1.2rem;

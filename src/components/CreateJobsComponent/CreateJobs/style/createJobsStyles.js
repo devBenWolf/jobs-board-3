@@ -2,13 +2,11 @@ import styled from 'styled-components'
 
 export const CreateJobsMain = styled.div`
     display: grid;
-    border: solid blue;
     background-color: ${(props) => props.backgroundColor }; 
 `
 
 export const TopSubDiv = styled.main`
 display: grid;
-border: solid red;
 place-items: center;
 margin-top: 3rem;
 
@@ -25,7 +23,6 @@ export const BottomSubDiv = styled.main`
 display: grid;
 place-items: center;
 margin-top: 3rem;
-border: solid green;
 `
 
 export const PageTitle = styled.h1`
