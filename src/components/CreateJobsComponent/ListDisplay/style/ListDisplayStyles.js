@@ -39,6 +39,7 @@ font-weight: bold;
 }
 
 
+
 `
 
 export const DeleteButton = styled.button`
@@ -89,5 +90,5 @@ export const LI = styled.li`
 line-height: 1.5;
 font-size: 1.5rem;
 width: 40ch;
-
+color: ${(props) => props.themeBoolean ? "black" : "white"}
 `
