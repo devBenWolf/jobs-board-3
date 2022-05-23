@@ -2,7 +2,17 @@ import styled from 'styled-components'
 
 export const TextAreaSection = styled.section`
 display: grid;
+position: relative;
 place-items: center;
+&::after {
+    content: "";
+    border: solid red;
+    width: 10px;
+    background-color: solid red;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
 `
 export const Title = styled.h3`
 color: ${(props) => props.themeBoolean ? "black" : "white"};
