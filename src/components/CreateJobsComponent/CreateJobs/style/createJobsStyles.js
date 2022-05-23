@@ -16,7 +16,7 @@ margin-top: 3rem;
     grid-template-columns: 1fr 1fr;
 }
 
-@media(width > 45rem) {
+@media(width > 50rem) {
     grid-template-columns: repeat(3, 1fr);
 }
 `
