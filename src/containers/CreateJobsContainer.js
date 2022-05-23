@@ -278,7 +278,7 @@ const CreateJobsContainer = () => {
                         ))}                        
                     </ListDisplay.UL>
                 </ListDisplay.TextAndListDiv>
-                <CreateJobs.Submit>create job</CreateJobs.Submit>
+                <CreateJobs.Submit onClick = {createJob}>create job</CreateJobs.Submit>
             </CreateJobs.BottomSubDiv>
             
         </CreateJobsMain>
