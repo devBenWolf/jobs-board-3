@@ -9,7 +9,6 @@ import TextInput from "../components/CreateJobsComponent/TextInput";
 import { TextInputSection } from "../components/CreateJobsComponent/TextInput/style/textInputStyles";
 import { TextAreaSection } from "../components/CreateJobsComponent/TextArea/style/textAreaStyles";
 import TextArea from "../components/CreateJobsComponent/TextArea";
-import { ListDisplaySection } from "../components/CreateJobsComponent/ListDisplay/style/ListDisplayStyles";
 import ListDisplay from "../components/CreateJobsComponent/ListDisplay";
 import { InputContext } from "../contexts/InputContext";
 
