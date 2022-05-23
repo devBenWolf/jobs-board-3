@@ -221,6 +221,7 @@ const CreateJobsContainer = () => {
                             background = "hsl(235, 69%, 61%)"
                             color = "white"
                             placeholder = "enter up to 5 specific roles . . ."
+                            border = "hsl(235, 69%, 61%) solid"
                         />
                     <ListDisplay.AddButton 
                         background = "hsl(235, 69%, 61%)"

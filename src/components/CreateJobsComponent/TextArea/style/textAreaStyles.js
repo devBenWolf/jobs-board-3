@@ -11,6 +11,8 @@ background-color: #5964e0;
 `
 export const Input = styled.textarea`
     border-radius: 10px;
+    border: ${(props) => props.border};
+    border-bottom:;
     font-size: 1.2rem; 
     height: 15rem;
     width: 20rem;
