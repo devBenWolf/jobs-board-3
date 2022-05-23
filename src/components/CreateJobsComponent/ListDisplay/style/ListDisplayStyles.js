@@ -59,7 +59,8 @@ background-color: red;
 border-radius: 10px;
 font-weight: bold;
 color: white; 
-text-transform: uppercase;
+letter-spacing: 0.1rem;
+border: none;
 `
 
 export const InputDiv = styled.div`
@@ -74,6 +75,9 @@ export const MapDiv = styled.div`
 display: flex;
 justify-content: space-between;
 width: 100%;
+height: 4rem;
+align-items: center;
+border-bottom: ${(props) => props.themeBoolean ? "1px solid hsl(235, 69%, 61%)" : "1px solid white" }
 `
 
 export const UL = styled.ul`
@@ -82,11 +86,16 @@ place-items: center;
 margin-top: 0;
 border-radius: 5px;
 width: 100%;
-
 `
 
 export const LI = styled.li`
 line-height: 1.5;
 font-size: 1.5rem;
+letter-spacing: 0.1rem;
 color: ${(props) => props.themeBoolean ? "black" : "white"};
+margin-top: 1rem;
+
+@media(width > 35rem) {
+    font-size: 1.6rem;
+}
 `

@@ -269,14 +269,18 @@ const CreateJobsContainer = () => {
                     </TextAreaSection>
                     <ListDisplay.UL>
                         {roleItemsArray.map((item, index) => (
-                            <ListDisplay.MapDiv key = {item.id}>
+                            <ListDisplay.MapDiv 
+                                themeBoolean = {themeBoolean}
+                                key = {item.id}>
                                 <ListDisplay.LI themeBoolean = {themeBoolean}>{item.roleItemsInput}</ListDisplay.LI>
                                 <ListDisplay.DeleteButton themeBoolean = {themeBoolean} onClick = {() => removeFromRoleItems(index)}>delete</ListDisplay.DeleteButton>
                             </ListDisplay.MapDiv>
                         ))}                        
                     </ListDisplay.UL>
                 </ListDisplay.TextAndListDiv>
+                <CreateJobs.Submit>create job</CreateJobs.Submit>
             </CreateJobs.BottomSubDiv>
+            
         </CreateJobsMain>
      );
 }

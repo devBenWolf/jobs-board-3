@@ -35,5 +35,14 @@ font-weight: bold;
 `
 
 export const Submit = styled.button`
+margin: 4rem 0 4rem 0;
+font-size: 1.6rem;
+border: none;
+background-color: red;
+color: white;
+font-weight: bold;
+letter-spacing: 0.1rem;
+border-radius: 10px;
+padding: 1rem;
 
 `
