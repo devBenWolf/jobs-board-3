@@ -7,7 +7,7 @@ import {
     UL,
     LI,
     DeleteButton,
-    SkillDiv,
+    TextAndListDiv,
     MapDiv
 } from "./style/ListDisplayStyles.js"
 
@@ -22,9 +22,9 @@ ListDisplay.InputDiv = function ListDisplayInputDiv({children, ...props}) {
         <InputDiv {...props}>{children}</InputDiv>
     )
 }
-ListDisplay.SkillDiv = function ListDisplaySkillDiv({children, ...props}) {
+ListDisplay.TextAndListDiv = function ListDisplayTextAndListDiv({children, ...props}) {
     return (
-        <SkillDiv {...props}>{children}</SkillDiv>
+        <TextAndListDiv {...props}>{children}</TextAndListDiv>
     )
 }
 ListDisplay.MapDiv = function ListDisplayMapDiv({children, ...props}) {
@@ -55,11 +55,19 @@ ListDisplay.Input = function ListDisplayInput({children, ...props}) {
         <Input {...props}>{children}</Input>
     )
 }
+
 ListDisplay.AddButton = function ListDisplayAddButton({children, ...props}) {
     return (
         <AddButton {...props}>{children}</AddButton>
     )
 }
+
+ListDisplay.AddButton = function ListDisplayAddButton({children, ...props}) {
+    return (
+        <AddButton {...props}>{children}</AddButton>
+    )
+}
+
 ListDisplay.DeleteButton = function ListDisplayDeleteButton({children, ...props}) {
     return (
         <DeleteButton {...props}>{children}</DeleteButton>

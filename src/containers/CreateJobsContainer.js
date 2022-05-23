@@ -172,7 +172,7 @@ const CreateJobsContainer = () => {
                     />
 
                 </TextAreaSection>
-                <ListDisplay.SkillDiv>
+                <ListDisplay.TextAndListDiv>
                     <TextAreaSection>
                         <TextArea.InputDiv
                             background = "hsl(235, 69%, 79%)"
@@ -198,7 +198,7 @@ const CreateJobsContainer = () => {
                             </ListDisplay.MapDiv>
                         ))}                        
                     </ListDisplay.UL>
-                </ListDisplay.SkillDiv>
+                </ListDisplay.TextAndListDiv>
 
                 <TextAreaSection>
                     <TextArea.Input 
@@ -210,7 +210,7 @@ const CreateJobsContainer = () => {
                     />
                 </TextAreaSection>
 
-                <ListDisplay.SkillDiv>
+                <ListDisplay.TextAndListDiv>
                     <TextAreaSection>
                         <TextArea.InputDiv
                             background = "hsl(235, 69%, 61%)"
@@ -236,7 +236,7 @@ const CreateJobsContainer = () => {
                             </ListDisplay.MapDiv>
                         ))}                        
                     </ListDisplay.UL>
-                </ListDisplay.SkillDiv>
+                </ListDisplay.TextAndListDiv>
             </CreateJobs.BottomSubDiv>
         </CreateJobsMain>
      );

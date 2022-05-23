@@ -8,7 +8,6 @@ const TextInput = ({children, ...props}) => {
         <TextInputSection {...props}>{children}</TextInputSection>
      );
 }
- 
 
 TextInput.Title = function TextInputTitle({children, ...props}) {
     return (

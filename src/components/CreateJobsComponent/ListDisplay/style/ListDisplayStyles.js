@@ -32,14 +32,10 @@ cursor: pointer;
 border-radius: 0 0 10px 10px;
 color: white;
 font-weight: bold;
-
 &:hover {
     background-color: red;
     transition: 1s;
 }
-
-
-
 `
 
 export const DeleteButton = styled.button`
@@ -56,7 +52,7 @@ display: grid;
 width: 60rem;
 `
 
-export const SkillDiv = styled.div`
+export const TextAndListDiv = styled.div`
 
 `
 export const MapDiv = styled.div`
@@ -64,7 +60,6 @@ display: flex;
 `
 
 export const UL = styled.ul`
-
 margin-top: 0;
 border-radius: 5px;
 width: 20rem;
