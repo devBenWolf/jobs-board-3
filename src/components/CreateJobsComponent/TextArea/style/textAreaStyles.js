@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import {FaUndo} from "react-icons/fa"
 
 export const TextAreaSection = styled.section`
 display: grid;
@@ -12,7 +11,6 @@ background-color: #5964e0;
 `
 export const Input = styled.textarea`
     border-radius: 10px;
-    border: none;
     font-size: 1.2rem; 
     height: 15rem;
     width: 20rem;
