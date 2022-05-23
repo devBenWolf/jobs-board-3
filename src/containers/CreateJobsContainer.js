@@ -202,14 +202,41 @@ const CreateJobsContainer = () => {
 
                 <TextAreaSection>
                     <TextArea.Input 
-                        value    = {localStorage.getItem("RequirementContent") || requirementContent} 
-                        onChange = {handleRequirementContent}
-                        background = "hsl(235, 69%, 86%)"
-                        color = "hsl(235, 69%, 61%)"
-                        placeholder = "enter skill summary . . ."
+                        value    = {localStorage.getItem("RoleContent") || roleContent} 
+                        onChange = {handleRoleContent}
+                        background = "hsl(235, 69%, 71%)"
+                        color = "white"
+                        placeholder = "enter role summary . . ."
                     />
-
                 </TextAreaSection>
+
+                <ListDisplay.SkillDiv>
+                    <TextAreaSection>
+                        <TextArea.InputDiv
+                            background = "hsl(235, 69%, 61%)"
+                        >                       
+                        <TextArea.Input 
+                            value = {localStorage.getItem("ReoleItemsInput") || roleItemsInput}
+                            onChange = {handleRoleItemsInput}   
+                            background = "hsl(235, 69%, 61%)"
+                            color = "white"
+                            placeholder = "enter up to 5 specific roles . . ."
+                        />
+                    <ListDisplay.AddButton 
+                        background = "hsl(235, 69%, 61%)"
+                        onClick = {addToRoleItems}
+                    >Add to skills</ListDisplay.AddButton>
+                    </TextArea.InputDiv> 
+                    </TextAreaSection>
+                    <ListDisplay.UL>
+                        {roleItemsArray.map((item, index) => (
+                            <ListDisplay.SkillDiv key = {item.id}>
+                                <ListDisplay.LI>{item.roleItemsInput}</ListDisplay.LI>
+                                <ListDisplay.DeleteButton onClick = {() => removeFromRoleItems(index)}>delete</ListDisplay.DeleteButton>
+                            </ListDisplay.SkillDiv>
+                        ))}                        
+                    </ListDisplay.UL>
+                </ListDisplay.SkillDiv>
             </CreateJobs.BottomSubDiv>
         </CreateJobsMain>
      );
