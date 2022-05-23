@@ -30,11 +30,11 @@ export const Input = styled.textarea`
     }
     
     @media(width > 35rem) {
-        width: 20rem;
+        width: 40rem;
     }
     
     @media(width > 45rem) {
-        width: 25rem;
+        width: 50rem;
     }
 `
 
