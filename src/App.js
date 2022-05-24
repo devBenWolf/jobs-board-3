@@ -1,17 +1,31 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import { GlobalStyles } from './globalStyles';
 import ThemeContextProvider from './contexts/ThemeContext';
-import DataContextProvider from './contexts/DataContext';
+import DataContextProvider, { DataContext } from './contexts/DataContext';
 import InputContextProvider from './contexts/InputContext';
+import AuthContextProvider from './contexts/AuthContext';
 import HomeContainer from "./containers/HomeContainer";
 import LoginContainer from './containers/LoginContainer';
 import Job from './routes/job';
 import Layout from './components/Layout';
-import AuthContextProvider from './contexts/AuthContext';
 import CreateJobsContainer from './containers/CreateJobsContainer';
+import { useContext, useEffect } from 'react';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from './firebase';
 
 
 function App() {
+  const {jobs, setJobs} = useContext(DataContext)
+
+  const jobsCollectionRef = collection(db, "jobs")
+
+  useEffect(() => {
+    const getJobs = async () => {
+      const data = await getDocs(jobsCollectionRef)
+      console.log(data)
+    }
+    getJobs()
+  }, [])
 
   return (
     <>

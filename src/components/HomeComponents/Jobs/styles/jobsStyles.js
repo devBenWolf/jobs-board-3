@@ -70,7 +70,7 @@ export const IconBackground = styled.div`
     display: grid;
     padding: 0.2rem;
     place-items: center;
-    
+    background-color: ${(props) => props.backgroundColor};
     width: 40px;
     height: 40px;
     border-radius: 10px;

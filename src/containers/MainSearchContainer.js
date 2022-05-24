@@ -7,7 +7,7 @@ import {ThemeContext} from "../contexts/ThemeContext"
 const MainSearchContainer = () => {
     const {currentData, mainInputData} = useContext(DataContext)
     const {themeBoolean} = useContext(ThemeContext)
-
+    console.log(currentData)
 
     return ( 
         currentData.filter(datum => datum.company.toLowerCase().includes(mainInputData) ||

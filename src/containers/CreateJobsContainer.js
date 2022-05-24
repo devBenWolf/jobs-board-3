@@ -16,7 +16,6 @@ import { InputContext } from "../contexts/InputContext";
 
 
 const CreateJobsContainer = () => {
-
     // functions
     const {addToSkills, addToRoleItems, removeFromSkills, clearAllInputs, handleCompany, handleDescription, handleLogo,handleLogoBackground, handlePosition, handlePostedAt, handleContract,
         handleLocation, handleWebsite, handleApply, handleRequirementContent, handleRequirementSkillsInput, handleRoleContent, handleRoleItemsInput,
@@ -25,8 +24,6 @@ const CreateJobsContainer = () => {
         requirementSkillsArray, company, description, logo, logoBackground, position, postedAt, roleContent, roleItemsInput, 
         contract, location, website, apply, requirementContent, requirementSkillsInput, roleItemsArray    
     } = useContext(InputContext)
-
-    console.log(requirementSkillsArray)
     const {themeBoolean} = useContext(ThemeContext)
 
     // database and collection to which we add the jobs
