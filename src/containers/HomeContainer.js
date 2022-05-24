@@ -13,10 +13,8 @@ import LocationSearchContainer from "./LocationSearchContainer"
 
 
 
-const HomeContainer = (props) => {
+const HomeContainer = () => {
 
-    console.log(props)
-    // Detect Chrome
     let browser = window.navigator.vendor
     let breakpoint
 

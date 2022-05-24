@@ -2,15 +2,19 @@ import Login from "../components/HomeComponents/Login";
 import { LoginMain } from "../components/HomeComponents/Login/styles/loginStyles";
 import {auth, provider} from "../firebase"
 import { signInWithPopup } from "firebase/auth";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { DataContext } from "../contexts/DataContext";
 
 
 const LoginContainer = () => {
     const {setIsAuth} = useContext(AuthContext)
+    const {jobs} = useContext(DataContext)
+    console.log(jobs)
     let navigate = useNavigate()
 
+  
     const signInWithGoogle = () => {
         signInWithPopup(auth, provider).then((result) => {
             // set auth in local storage
@@ -25,8 +29,9 @@ const LoginContainer = () => {
     return ( 
         <LoginMain>
             <Login.Div>
-                <Login.Text>log in with the thing</Login.Text>
-                <Login.Button onClick = {signInWithGoogle}>sign in</Login.Button>
+                {jobs.map((item) => (
+                    <div>{item.company}</div>
+                ))}
             </Login.Div>
         </LoginMain>
 

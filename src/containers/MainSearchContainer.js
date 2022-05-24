@@ -7,10 +7,12 @@ import {ThemeContext} from "../contexts/ThemeContext"
 const MainSearchContainer = () => {
     const {currentData, mainInputData} = useContext(DataContext)
     const {themeBoolean} = useContext(ThemeContext)
-    console.log(currentData)
+    const {jobs} = useContext(DataContext)
+    console.log(jobs)
+
 
     return ( 
-        currentData.filter(datum => datum.company.toLowerCase().includes(mainInputData) ||
+        jobs.filter(datum => datum.company.toLowerCase().includes(mainInputData) ||
         datum.position.toLowerCase().includes(mainInputData)).map((datum) => (
             <Jobs.OuterDiv key = {datum.id}>
                 <Jobs.IconBackground backgroundColor={datum.logoBackground}>
