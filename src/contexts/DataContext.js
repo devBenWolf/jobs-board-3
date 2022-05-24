@@ -6,11 +6,12 @@ const DataContextProvider = ({children}) => {
     const [currentData, setCurrentData] = useState(data)
     const [mainInputData, setMainInputData] = useState("")
     const [locationInputData, setLocationInputData] = useState("")
+    const [jobs, setJobs] = useState([])
     
     return ( 
         <DataContext.Provider 
             value={{currentData, setCurrentData, mainInputData, setMainInputData,
-                locationInputData, setLocationInputData
+                locationInputData, setLocationInputData, jobs, setJobs
             }}
         >
             {children}

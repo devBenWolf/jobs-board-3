@@ -13,7 +13,9 @@ import LocationSearchContainer from "./LocationSearchContainer"
 
 
 
-const HomeContainer = () => {
+const HomeContainer = (props) => {
+
+    console.log(props)
     // Detect Chrome
     let browser = window.navigator.vendor
     let breakpoint
@@ -83,7 +85,6 @@ const HomeContainer = () => {
             setInputFilter(prevState => prevState + 1)
     }
 }
-
     // mobile searchbar layout
     const mobile = <Search.Wrapper
                         themeBoolean={themeBoolean}
