@@ -10,13 +10,12 @@ import { SearchDiv } from "../components/HomeComponents/Search/styles/searchStyl
 import { JobsMain } from "../components/HomeComponents/Jobs/styles/jobsStyles"
 import MainSearchContainer from "./MainSearchContainer"
 import LocationSearchContainer from "./LocationSearchContainer"
-import { useNavigate } from "react-router-dom"
 
 
 
 const HomeContainer = () => {
 
-    let navigate = useNavigate()
+
 
     let browser = window.navigator.vendor
     let breakpoint

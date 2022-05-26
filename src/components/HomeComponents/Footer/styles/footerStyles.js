@@ -8,8 +8,14 @@ export const FooterMain = styled.footer`
 
 export const Div = styled.div`
 display: flex;
-justify-content: center;
+justify-content: space-between;
 align-items: center;
+width: 30rem;
+
+@media(width < 35rem) {
+    flex-direction: column;
+    width: 20rem;
+}
 `
 
 export const Text = styled.p`
