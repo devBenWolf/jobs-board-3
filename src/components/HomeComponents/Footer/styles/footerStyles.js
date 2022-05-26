@@ -17,8 +17,8 @@ export const Text = styled.p`
     font-size: clamp(18px, 6vw, 28px);
     color: hsl(var(--clr-white));
     margin-inline: 1rem;
-    cursor: pointer;
-    line-height: 1;   
+    cursor: pointer;  
+    line-height: 0;
 `
 
 export const LogoutButton = styled.button`

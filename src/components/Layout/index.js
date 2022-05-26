@@ -59,7 +59,7 @@ const Layout = ({children}) => {
             </HeaderDiv>
             {children}
             <FooterMain>
-                <Footer.Div>
+                <Footer.Div data-flow="2">
                     {!local ? <Footer.Text onClick={signInWithGoogle}>login</Footer.Text>
                     :         <Link to="/" onClick={signout} style={{textDecoration: "none"}}><Footer.Text>logout</Footer.Text></Link>
                     }
