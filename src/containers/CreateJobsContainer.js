@@ -38,11 +38,15 @@ const CreateJobsContainer = () => {
         alert("You must log in")
         }
     }, [])
+
+    // get date and time of post
+    let today = new Date()
+    let postDate = today.toString()
     
     const createJob = async () => {
         // add document to the collection along with with author id object
         await addDoc(jobsCollectionRef, {
-            company, description, logo, logoBackground, position, postedAt, 
+            company, description, logo, logoBackground, position, postDate, 
             contract, location, website, apply, requirementContent, requirementSkillsArray, roleItemsArray, 
             author: {name:  auth.currentUser.displayName, id: auth.currentUser.uid}})
             localStorage.clear()
@@ -97,17 +101,6 @@ const CreateJobsContainer = () => {
                     background = "hsl(235, 69%, 86%)"
                     color = "hsl(235, 69%, 61%)"
                     placeholder = "position"
-                />
-            </TextInputSection>
-
-            {/* Time Posted info */}
-            <TextInputSection>
-                <TextInput.Input
-                    value = {localStorage.getItem("PostedAt") || postedAt}
-                    onChange = {handlePostedAt}
-                    background = "hsl(235, 69%, 86%)"
-                    color = "hsl(235, 69%, 61%)"
-                    placeholder = "posted at"                    
                 />
             </TextInputSection>
 
