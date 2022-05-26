@@ -75,9 +75,9 @@ export const MapDiv = styled.div`
 display: flex;
 justify-content: space-between;
 width: 80%;
-height: 4rem;
 align-items: center;
 margin-top: 1rem;
+border-bottom: ${(props) => props.themeBoolean ? "1px solid hsl(235, 69%, 61%)" : "1px solid white" };
 `
 
 export const UL = styled.ul`
@@ -95,7 +95,6 @@ letter-spacing: 0.1rem;
 color: ${(props) => props.themeBoolean ? "black" : "white"};
 margin-top: 1rem;
 width: 80%;
-border-bottom: ${(props) => props.themeBoolean ? "1px solid hsl(235, 69%, 61%)" : "1px solid white" };
 overflow-wrap: anywhere;
 
 @media(width > 35rem) {
