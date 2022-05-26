@@ -63,7 +63,7 @@ const Layout = ({children}) => {
                     {!local ? <Footer.Text onClick={signInWithGoogle}>login</Footer.Text>
                     :         <Link to="/" onClick={signout} style={{textDecoration: "none"}}><Footer.Text>logout</Footer.Text></Link>
                     }
-                    
+                    {local ? <Link to = "/create-jobs" style={{textDecoration: "none"}}><Footer.Text>back to creating jobs</Footer.Text></Link> : null}
                 </Footer.Div>
             </FooterMain>
         </Main>
