@@ -203,6 +203,7 @@ const CreateJobsContainer = () => {
                             border = "hsl(235, 69%, 61%) solid"
                             borderBottom="none"
                             placeholder = "enter up to 5 specific skills . . ."
+                            tabIndex = "-1"
                         />
                     <ListDisplay.AddButton 
                         background = "hsl(235, 69%, 79%)"

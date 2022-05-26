@@ -140,6 +140,13 @@ export const GlobalStyles = createGlobalStyle`
         }
    }
 
+// ****** inputs ****** //
+
+
+textArea:focus {
+    outline: none;
+}
+
 
 //    ****** switch ******  //
 .switch,
