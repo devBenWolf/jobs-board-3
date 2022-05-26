@@ -190,7 +190,7 @@ const CreateJobsContainer = () => {
                         color = "hsl(235, 69%, 61%)"
                         border = "hsl(235, 69%, 61%) solid"
                         borderBottom="none"
-                        placeholder = "enter skill summary . . ."
+                        placeholder = "enter requirements summary . . ."
                         required
                     />
                     <ListDisplay.PseudoButton
@@ -212,7 +212,7 @@ const CreateJobsContainer = () => {
                             color = "hsl(235, 69%, 61%)"
                             border = "hsl(235, 69%, 61%) solid"
                             borderBottom="none"
-                            placeholder = "enter up to 5 specific skills . . ."
+                            placeholder = "enter specific requirements . . ."
                             required
                         />
                     <ListDisplay.AddButton 
@@ -220,7 +220,7 @@ const CreateJobsContainer = () => {
                         border = "hsl(235, 69%, 61%) solid"
                         borderTop = "none"
                         onClick = {addToSkills}
-                    >Add to skills</ListDisplay.AddButton>
+                    >Add to requirements</ListDisplay.AddButton>
                     </TextArea.InputDiv> 
                     </TextAreaSection>
                     <ListDisplay.UL>
@@ -265,7 +265,7 @@ const CreateJobsContainer = () => {
                             onChange = {handleRoleItemsInput}   
                             background = "hsl(235, 69%, 61%)"
                             color = "white"
-                            placeholder = "enter up to 5 specific roles . . ."
+                            placeholder = "enter specific roles . . ."
                             border = "hsl(235, 69%, 61%) solid"
                             borderBottom = "none"
                             required

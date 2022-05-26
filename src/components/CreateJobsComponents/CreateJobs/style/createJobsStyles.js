@@ -44,5 +44,6 @@ font-weight: bold;
 letter-spacing: 0.1rem;
 border-radius: 10px;
 padding: 1rem;
+cursor: pointer;
 
 `
