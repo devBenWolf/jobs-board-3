@@ -15,7 +15,6 @@ const DataContextProvider = ({children}) => {
     useEffect(() => {
       const getJobs = async () => {
         const data = await getDocs(jobsCollectionRef)
-        //console.log(data.docs.map((item) => ({...item.data(), id: doc.id})))
         setJobs(data.docs.map((item) => ({...item.data(), id: item.id})))
       }
       getJobs()

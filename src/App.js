@@ -9,25 +9,10 @@ import LoginContainer from './containers/LoginContainer';
 import Job from './routes/job';
 import Layout from './components/Layout';
 import CreateJobsContainer from './containers/CreateJobsContainer';
-import { useContext, useEffect } from 'react';
-import { collection, getDocs } from 'firebase/firestore';
-import { db } from './firebase';
 
 
 function App() {
-  const {jobs, setJobs} = useContext(DataContext)
 
-  //const jobsCollectionRef = collection(db, "jobs")
-//
-  //useEffect(() => {
-  //  const getJobs = async () => {
-  //    const data = await getDocs(jobsCollectionRef)
-  //    //console.log(data.docs.map((item) => ({...item.data(), id: doc.id})))
-  //    setJobs(data.docs)
-  //  }
-  //  getJobs()
-  //}, [])
-  //console.log(jobs)
   return (
     <>
       <GlobalStyles />
@@ -38,7 +23,7 @@ function App() {
         <BrowserRouter>
           <Layout>
             <Routes>
-              <Route path = "/" element={<HomeContainer jobs={jobs} />} />              
+              <Route path = "/" element={<HomeContainer />} />              
               <Route path = "/login" element={<LoginContainer />} />                  
               <Route path = "/create-jobs" element={<CreateJobsContainer />} />         
               <Route path = "/:jobId" element = {<Job />} />
