@@ -78,4 +78,6 @@ export const IconBackground = styled.div`
     left: 15%;
     top: -9%;
 `
-export const Icon = styled.img``
+export const Icon = styled.img`
+border-radius: 10px;
+`
