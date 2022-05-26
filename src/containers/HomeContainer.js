@@ -161,7 +161,7 @@ const HomeContainer = () => {
                           >
                           <AltSearch.Input 
                               type = "text"
-                              placeholder = "Enter company, job..."
+                              placeholder = "Search company, job..."
                               value = {mainInputData}
                               onChange = {lowerCaseMainData}
                               onFocus = {mainInput}
@@ -169,7 +169,7 @@ const HomeContainer = () => {
                           />
                           <AltSearch.Input 
                               type = "text"
-                              placeholder = "Enter location..."
+                              placeholder = "Search location..."
                               value = {locationInputData}
                               onChange = {lowerCaseLocationData}
                               onFocus = {locationInput}
