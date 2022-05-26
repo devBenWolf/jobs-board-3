@@ -28,7 +28,7 @@
       ]
     }
   },
-  
+
   {
     "company": "Blogr",
     "logo": "./assets/logos/blogr.svg",
@@ -124,7 +124,6 @@
     "logo": "./assets/logos/pod.svg",
     "logoBackground": "hsl(216, 46%, 14%)",
     "position": "Remote DevOps Engineer",
-    "postedAt": "2d ago",
     "contract": "Part Time",
     "location": "Japan",
     "website": "https://example.com/pod",

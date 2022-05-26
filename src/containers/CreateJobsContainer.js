@@ -62,7 +62,7 @@ const CreateJobsContainer = () => {
             <CreateJobs.TopSubDiv>
             <TextInputSection>                   
                 <TextInput.Input 
-                    value    = {localStorage.getItem("TextInput") || company} 
+                    value    = {localStorage.getItem("Company") || company} 
                     onChange = {handleCompany}
                     background = "hsl(235, 69%, 91%)"
                     color = "hsl(235, 69%, 61%)"
@@ -79,6 +79,7 @@ const CreateJobsContainer = () => {
                     background = "hsl(235, 69%, 91%)"
                     color = "hsl(235, 69%, 61%)"
                     placeholder = "logo path"
+                    required
                 />
             </TextInputSection>
 
@@ -89,7 +90,8 @@ const CreateJobsContainer = () => {
                     onChange = {handleLogoBackground}
                     background = "hsl(235, 69%, 91%)"
                     color = "hsl(235, 69%, 61%)"
-                    placeholder = "logo background color"
+                    placeholder = "logo background color (optional)"
+                    required
                 />
             </TextInputSection>
 
@@ -101,6 +103,7 @@ const CreateJobsContainer = () => {
                     background = "hsl(235, 69%, 86%)"
                     color = "hsl(235, 69%, 61%)"
                     placeholder = "position"
+                    required
                 />
             </TextInputSection>
 
@@ -111,7 +114,8 @@ const CreateJobsContainer = () => {
                     onChange = {handleContract}   
                     background = "hsl(235, 69%, 86%)"
                     color = "hsl(235, 69%, 61%)"
-                    placeholder = "contract type"               
+                    placeholder = "contract type"
+                    required               
                 />
             </TextInputSection>
 
@@ -123,6 +127,7 @@ const CreateJobsContainer = () => {
                     background = "hsl(235, 69%, 79%)"
                     color = "hsl(235, 69%, 61%)"
                     placeholder = "job location"
+                    required
                 />
             </TextInputSection>
 
@@ -133,7 +138,8 @@ const CreateJobsContainer = () => {
                     onChange = {handleWebsite} 
                     background = "hsl(235, 69%, 79%)"
                     color = "hsl(235, 69%, 61%)"
-                    placeholder = "website"              
+                    placeholder = "website"
+                    required              
                 />
             </TextInputSection>
 
@@ -144,7 +150,8 @@ const CreateJobsContainer = () => {
                     onChange = {handleApply}   
                     background = "hsl(235, 69%, 79%)"
                     color = "hsl(235, 69%, 61%)"
-                    placeholder = "apply at"               
+                    placeholder = "apply at"
+                    required               
                 />
             </TextInputSection>
             </CreateJobs.TopSubDiv>
@@ -161,6 +168,7 @@ const CreateJobsContainer = () => {
                         border = "hsl(235, 69%, 61%) solid"
                         borderBottom="none"
                         placeholder = "enter job description . . ."
+                        required
                     />
                     <ListDisplay.PseudoButton
                         background = "hsl(235, 69%, 91%)"
@@ -182,6 +190,7 @@ const CreateJobsContainer = () => {
                         border = "hsl(235, 69%, 61%) solid"
                         borderBottom="none"
                         placeholder = "enter skill summary . . ."
+                        required
                     />
                     <ListDisplay.PseudoButton
                         background = "hsl(235, 69%, 86%)"
@@ -203,7 +212,7 @@ const CreateJobsContainer = () => {
                             border = "hsl(235, 69%, 61%) solid"
                             borderBottom="none"
                             placeholder = "enter up to 5 specific skills . . ."
-                            tabIndex = "-1"
+                            required
                         />
                     <ListDisplay.AddButton 
                         background = "hsl(235, 69%, 79%)"
@@ -235,6 +244,7 @@ const CreateJobsContainer = () => {
                         border = "hsl(235, 69%, 61%) solid"
                         borderBottom="none"
                         placeholder = "enter role summary . . ."
+                        required
                     />
                     <ListDisplay.PseudoButton
                         background = "hsl(235, 69%, 71%)"
@@ -257,6 +267,7 @@ const CreateJobsContainer = () => {
                             placeholder = "enter up to 5 specific roles . . ."
                             border = "hsl(235, 69%, 61%) solid"
                             borderBottom = "none"
+                            required
                         />
                     <ListDisplay.AddButton 
                         background = "hsl(235, 69%, 61%)"
