@@ -8,14 +8,8 @@ export const FooterMain = styled.footer`
 
 export const Div = styled.div`
 display: flex;
-justify-content: space-between;
+flex-direction: column;
 align-items: center;
-width: 30rem;
-
-@media(width < 35rem) {
-    flex-direction: column;
-    width: 20rem;
-}
 `
 
 export const Text = styled.p`
@@ -23,7 +17,8 @@ export const Text = styled.p`
     font-size: clamp(18px, 6vw, 28px);
     color: hsl(var(--clr-white));
     margin-inline: 1rem;
-    cursor: pointer;   
+    cursor: pointer;
+    line-height: 1;   
 `
 
 export const LogoutButton = styled.button`
