@@ -267,9 +267,10 @@ const CreateJobsContainer = () => {
                     </TextAreaSection>
                     <ListDisplay.UL>
                         {roleItemsArray.map((item, index) => (
-                            <ListDisplay.MapDiv 
+                            <ListDisplay.MapDiv
+                            themeBoolean = {themeBoolean} 
                                 key = {item.id}>
-                                <ListDisplay.LI themeBoolean = {themeBoolean}>{item.roleItemsInput}</ListDisplay.LI>
+                                <ListDisplay.LI  themeBoolean = {themeBoolean}>{item.roleItemsInput}</ListDisplay.LI>
                                 <ListDisplay.DeleteButton onClick = {() => removeFromRoleItems(index)}>delete</ListDisplay.DeleteButton>
                             </ListDisplay.MapDiv>
                         ))}                        
