@@ -14,7 +14,7 @@ import LocationSearchContainer from "./LocationSearchContainer"
 
 
 const HomeContainer = () => {
-
+    const {jobs, setJobs} = useContext(DataContext)
 
 
     let browser = window.navigator.vendor
@@ -24,7 +24,8 @@ const HomeContainer = () => {
         const [width, setWidth] = useState(window.innerWidth)
 
     // data matching full-time filter
-    const time = data.filter(datum => datum.contract === "Full Time")
+    const time = jobs.filter(datum => datum.contract === "Full Time")
+    console.log(time)
 
     // contexts
     const {themeBoolean} = useContext(ThemeContext)
@@ -33,7 +34,6 @@ const HomeContainer = () => {
     
     const {inputFilter, setInputFilter, timeFilter, setTimeFilter, 
             inputFocus, setInputFocus} = useContext(InputContext)
-
     
     // clear input on focus change
     const mainInput = () => {
@@ -48,8 +48,9 @@ const HomeContainer = () => {
 
     // set state for entries labelled "Full time"
     const fullTimeFilter = () => {
-        timeFilter ? setCurrentData(data) : setCurrentData(time)
+        timeFilter ? setJobs(jobs) : setJobs(time)
         setTimeFilter(prevState => !prevState)
+        console.log(time)
       }
     
       const clearInput = () => {

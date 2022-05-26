@@ -19,7 +19,6 @@ const DataContextProvider = ({children}) => {
       }
       getJobs()
     }, [])
-    console.log(jobs)
 
     return ( 
         <DataContext.Provider 

@@ -7,7 +7,7 @@ import {ThemeContext} from "../contexts/ThemeContext"
 const LocationSearchContainer = () => {
     const {currentData, locationInputData, jobs} = useContext(DataContext)
     const {themeBoolean} = useContext(ThemeContext)
-    console.log(jobs)
+
     return ( 
         jobs.filter(datum => datum.location.toLowerCase().includes(locationInputData)).map(datum => (
             <Jobs.OuterDiv key = {datum.id}>
