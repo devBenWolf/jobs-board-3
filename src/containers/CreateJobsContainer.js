@@ -41,7 +41,8 @@ const CreateJobsContainer = () => {
 
     // get date and time of post
     let today = new Date()
-    let postDate = today.toString()
+    let postDate = today.toString().slice(0, -42)
+    console.log(postDate)
     
     const createJob = async () => {
         // add document to the collection along with with author id object

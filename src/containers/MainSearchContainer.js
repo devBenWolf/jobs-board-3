@@ -5,10 +5,10 @@ import { DataContext } from "../contexts/DataContext"
 import {ThemeContext} from "../contexts/ThemeContext"
 
 const MainSearchContainer = () => {
-    const {currentData, mainInputData} = useContext(DataContext)
+    const {currentData, mainInputData, jobs} = useContext(DataContext)
     const {themeBoolean} = useContext(ThemeContext)
-    const {jobs} = useContext(DataContext)
     console.log(jobs)
+
 
 
     return ( 
@@ -26,7 +26,7 @@ const MainSearchContainer = () => {
                         to={`/${datum.id}`}
                     >
                         <Jobs.InfoDiv>
-                            <Jobs.Heading>{datum.postedAt}<Jobs.HeadingSpan></Jobs.HeadingSpan>{datum.contract}</Jobs.Heading>
+                            <Jobs.Heading>{datum.postDate}<Jobs.HeadingSpan></Jobs.HeadingSpan>{datum.contract}</Jobs.Heading>
                             <Jobs.InfoText themeBoolean={themeBoolean}>{datum.position}</Jobs.InfoText>
                             <Jobs.InfoSubtext>{datum.company}</Jobs.InfoSubtext>
                             <Jobs.LocationText>{datum.location}</Jobs.LocationText>

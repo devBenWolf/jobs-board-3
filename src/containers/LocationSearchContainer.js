@@ -9,7 +9,7 @@ const LocationSearchContainer = () => {
     const {themeBoolean} = useContext(ThemeContext)
     console.log(jobs)
     return ( 
-        currentData.filter(datum => datum.location.toLowerCase().includes(locationInputData)).map(datum => (
+        jobs.filter(datum => datum.location.toLowerCase().includes(locationInputData)).map(datum => (
             <Jobs.OuterDiv key = {datum.id}>
                 <Jobs.IconBackground backgroundColor={datum.logoBackground}>
                     <Jobs.Icon
@@ -22,7 +22,7 @@ const LocationSearchContainer = () => {
                         to={`/${datum.id}`}
                     >
                         <Jobs.InfoDiv>
-                            <Jobs.Heading>{datum.postedAt}<Jobs.HeadingSpan></Jobs.HeadingSpan>{datum.contract}</Jobs.Heading>
+                            <Jobs.Heading>{datum.postDate}<Jobs.HeadingSpan></Jobs.HeadingSpan>{datum.contract}</Jobs.Heading>
                             <Jobs.InfoText themeBoolean={themeBoolean}>{datum.position}</Jobs.InfoText>
                             <Jobs.InfoSubtext>{datum.company}</Jobs.InfoSubtext>
                             <Jobs.LocationText>{datum.location}</Jobs.LocationText>
