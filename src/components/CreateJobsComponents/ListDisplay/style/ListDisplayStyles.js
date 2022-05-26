@@ -74,10 +74,10 @@ export const TextAndListDiv = styled.div`
 export const MapDiv = styled.div`
 display: flex;
 justify-content: space-between;
-width: 100%;
+width: 80%;
 height: 4rem;
 align-items: center;
-border-bottom: ${(props) => props.themeBoolean ? "1px solid hsl(235, 69%, 61%)" : "1px solid white" }
+margin-top: 1rem;
 `
 
 export const UL = styled.ul`
@@ -85,7 +85,7 @@ display: grid;
 place-items: center;
 margin-top: 0;
 border-radius: 5px;
-width: 100%;
+max-width: 100%;
 `
 
 export const LI = styled.li`
@@ -94,6 +94,9 @@ font-size: 1.5rem;
 letter-spacing: 0.1rem;
 color: ${(props) => props.themeBoolean ? "black" : "white"};
 margin-top: 1rem;
+width: 80%;
+border-bottom: ${(props) => props.themeBoolean ? "1px solid hsl(235, 69%, 61%)" : "1px solid white" };
+overflow-wrap: anywhere;
 
 @media(width > 35rem) {
     font-size: 1.6rem;
