@@ -14,11 +14,15 @@ align-items: center;
 
 export const Text = styled.p`
     font-weight: bold;
-    font-size: clamp(18px, 6vw, 28px);
+    font-size: 18px;
     color: hsl(var(--clr-white));
     margin-inline: 1rem;
     cursor: pointer;  
     line-height: 0;
+
+    @media(min-width: 45rem) {
+        font-size: 28px;
+    }
 `
 
 export const LogoutButton = styled.button`
