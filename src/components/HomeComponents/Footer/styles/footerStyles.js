@@ -4,8 +4,6 @@ export const FooterMain = styled.footer`
     display: grid;
     place-items: center;
     background-color: #5964e0;
-    position: sticky;
-    bottom: 0;
 `
 
 export const Div = styled.div`
