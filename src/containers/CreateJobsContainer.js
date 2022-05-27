@@ -54,6 +54,7 @@ const CreateJobsContainer = () => {
             localStorage.setItem("isAuth", true)
             navigate("/create-jobs")
             clearAllInputs()
+            alert("Job submitted!!")
     }
 
     return ( 
