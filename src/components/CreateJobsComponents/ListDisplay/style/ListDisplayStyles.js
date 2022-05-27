@@ -97,7 +97,7 @@ margin-top: 1rem;
 width: 80%;
 overflow-wrap: anywhere;
 
-@media(width > 35rem) {
+@media(min-width: 35rem) {
     font-size: 1.6rem;
 }
 `

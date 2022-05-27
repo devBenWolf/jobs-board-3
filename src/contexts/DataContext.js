@@ -9,6 +9,7 @@ const DataContextProvider = ({children}) => {
     const [mainInputData, setMainInputData] = useState("")
     const [locationInputData, setLocationInputData] = useState("")
     const [jobs, setJobs] = useState([])
+    const [unfilteredJobs, setUnfilteredJobs] = useState([])
     
     const jobsCollectionRef = collection(db, "jobs")
 
@@ -16,6 +17,7 @@ const DataContextProvider = ({children}) => {
       const getJobs = async () => {
         const data = await getDocs(jobsCollectionRef)
         setJobs(data.docs.map((item) => ({...item.data(), id: item.id})))
+        setUnfilteredJobs(data.docs.map((item) => ({...item.data(), id: item.id})))
       }
       getJobs()
     }, [])
@@ -23,7 +25,7 @@ const DataContextProvider = ({children}) => {
     return ( 
         <DataContext.Provider 
             value={{currentData, setCurrentData, mainInputData, setMainInputData,
-                locationInputData, setLocationInputData, jobs, setJobs
+                locationInputData, setLocationInputData, jobs, setJobs, unfilteredJobs
             }}
         >
             {children}

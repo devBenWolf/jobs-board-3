@@ -10,11 +10,11 @@ display: grid;
 place-items: center;
 margin-top: 3rem;
 
-@media(width > 35rem) {
+@media(min-width: 35rem) {
     grid-template-columns: 1fr 1fr;
 }
 
-@media(width > 50rem) {
+@media(min-width: 50rem) {
     grid-template-columns: repeat(3, 1fr);
 }
 `

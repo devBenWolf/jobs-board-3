@@ -31,28 +31,33 @@ background-color: ${(props) => props.background};
 
 &::placeholder {
     opacity: 1;
+    color: ${(props) => props.color};
 }
 
-@media(width > 20rem) {
+@media(min-width: 20rem) {
     width: 25rem;
 }
 
-@media(width > 30rem) {
+@media(min-width: 30rem) {
     width: 35rem;
 }
 
-@media(width > 35rem) {
+@media(min-width: 35rem) {
     width: 25rem;
 }
 
-@media(width > 45rem) {
+@media(min-width: 45rem) {
     width: 25rem;
     font-size: 1.3rem;
 }
 
-@media(width > 65rem) {
+@media(min-width: 65rem) {
     width: 35rem;
     font-size: 1.6rem;
+
+    &::placeholder {
+        font-size: 1.6rem;
+    }
 }
 
 `

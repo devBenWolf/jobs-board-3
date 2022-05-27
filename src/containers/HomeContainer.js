@@ -1,5 +1,4 @@
 import {useContext, useEffect, useState} from "react"
-import data from "../data"
 import {ThemeContext} from "../contexts/ThemeContext"
 import { DataContext } from "../contexts/DataContext"
 import { InputContext } from "../contexts/InputContext"
@@ -14,7 +13,10 @@ import LocationSearchContainer from "./LocationSearchContainer"
 
 
 const HomeContainer = () => {
-    const {jobs, setJobs} = useContext(DataContext)
+    const {jobs, setJobs, unfilteredJobs} = useContext(DataContext)
+    console.log(jobs)
+    // Filter jobs by full time status
+    const time = jobs.filter(datum => datum.contract === "Full Time")
 
 
     let browser = window.navigator.vendor
@@ -23,13 +25,9 @@ const HomeContainer = () => {
     browser === "Google Inc." ? breakpoint = 650 : breakpoint = 700
         const [width, setWidth] = useState(window.innerWidth)
 
-    // data matching full-time filter
-    const time = jobs.filter(datum => datum.contract === "Full Time")
-    console.log(time)
-
     // contexts
     const {themeBoolean} = useContext(ThemeContext)
-    const {setCurrentData, mainInputData, setMainInputData, 
+    const {mainInputData, setMainInputData, 
             locationInputData, setLocationInputData} = useContext(DataContext)
     
     const {inputFilter, setInputFilter, timeFilter, setTimeFilter, 
@@ -46,12 +44,13 @@ const HomeContainer = () => {
       setMainInputData("")
     }
 
-    // set state for entries labelled "Full time"
+    // switch full time filter on/off
     const fullTimeFilter = () => {
-        timeFilter ? setJobs(jobs) : setJobs(time)
+        !timeFilter ? setJobs(time) : setJobs(unfilteredJobs)
         setTimeFilter(prevState => !prevState)
-        console.log(time)
       }
+
+   
     
       const clearInput = () => {
         setMainInputData("")

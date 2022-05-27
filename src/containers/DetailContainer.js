@@ -1,23 +1,28 @@
 import { useContext } from "react";
 import { ThemeContext } from "../contexts/ThemeContext"
+
 import Company from "../components/DetailComponents/Company";
 import { OuterDiv } from "../components/DetailComponents/Company/styles/companyStyles";
 import { useParams } from "react-router-dom";
 import data from "../data.json"
 import { JobDiv } from "../components/DetailComponents/Job/styles/jobStyles";
 import Job from "../components/DetailComponents/Job";
+import { DataContext } from "../contexts/DataContext";
 
 const DetailContainer = () => {
     const {themeBoolean} = useContext(ThemeContext)
+    const {jobs, unfilteredJobs} = useContext(DataContext)
+    console.log(jobs, unfilteredJobs)
 
     // useParams to access id of the url
     const params = useParams()
     const findJob = (id) => {
-        return data.find((job) => job.id === id)
+        return jobs.find((job) => job.id === id)
     }
 
     // store id integer
-    const selectedJob = findJob(parseInt(params.jobId, 10))
+    const selectedJob = findJob(params.jobId, 10)
+    console.log(params)
     console.log(selectedJob)
     return ( 
         <>
@@ -42,7 +47,7 @@ const DetailContainer = () => {
                 <Job.InnerDiv themeBoolean={themeBoolean}>
                     <Job.HeadingDiv>
                         <Job.InfoDiv>
-                            <Job.Heading>{selectedJob.postedAt}<Job.HeadingSpan></Job.HeadingSpan>{selectedJob.contract}</Job.Heading>
+                            <Job.Heading>{selectedJob.postDate}<Job.HeadingSpan></Job.HeadingSpan>{selectedJob.contract}</Job.Heading>
                             <Job.Title themeBoolean={themeBoolean}>{selectedJob.position}</Job.Title>
                             <Job.Location>{selectedJob.location}</Job.Location>
                         </Job.InfoDiv>
@@ -53,17 +58,17 @@ const DetailContainer = () => {
                     <Job.BodyDiv>
                         <Job.BodyText>{selectedJob.description}</Job.BodyText>
                         <Job.SectionTitle>Requirements</Job.SectionTitle>
-                        <Job.BodyText>{selectedJob.requirements.content}</Job.BodyText>
+                        <Job.BodyText>{selectedJob.requirementContent}</Job.BodyText>
                         <Job.UList>
-                            {selectedJob.requirements.items.map((item) => (
-                                <Job.ListItem key={item.length}>{item}</Job.ListItem>
+                            {selectedJob.requirementSkillsArray.map((item) => (
+                                <Job.ListItem key={item.id}>{item.requirementSkillsInput}</Job.ListItem>
                             ))}
                         </Job.UList>
                         <Job.SectionTitle>What You Will Do</Job.SectionTitle>
-                        <Job.BodyText>{selectedJob.role.content}</Job.BodyText>
+                        <Job.BodyText>{selectedJob.requirementContent}</Job.BodyText>
                         <Job.OList>
-                            {selectedJob.role.items.map((item) => (
-                                <Job.ListItem key={item.length}>{item}</Job.ListItem>
+                            {selectedJob.roleItemsArray.map((item) => (
+                                <Job.ListItem key={item.id}>{item.roleItemsInput}</Job.ListItem>
                             ))}
                         </Job.OList>
                     </Job.BodyDiv>

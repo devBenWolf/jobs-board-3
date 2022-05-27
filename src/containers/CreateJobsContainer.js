@@ -126,7 +126,7 @@ const CreateJobsContainer = () => {
                     value = {localStorage.getItem("Location") || location}
                     onChange = {handleLocation}                
                     background = "hsl(235, 69%, 79%)"
-                    color = "hsl(235, 69%, 61%)"
+                    color = "white"
                     placeholder = "job location"
                     required
                 />
@@ -138,7 +138,7 @@ const CreateJobsContainer = () => {
                     value = {localStorage.getItem("Website") || website}
                     onChange = {handleWebsite} 
                     background = "hsl(235, 69%, 79%)"
-                    color = "hsl(235, 69%, 61%)"
+                    color = "white"
                     placeholder = "website"
                     required              
                 />
@@ -150,7 +150,7 @@ const CreateJobsContainer = () => {
                     value = {localStorage.getItem("Apply") || apply}
                     onChange = {handleApply}   
                     background = "hsl(235, 69%, 79%)"
-                    color = "hsl(235, 69%, 61%)"
+                    color = "white"
                     placeholder = "apply at"
                     required               
                 />

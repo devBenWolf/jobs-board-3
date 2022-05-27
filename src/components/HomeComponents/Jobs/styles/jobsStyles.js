@@ -6,7 +6,6 @@ margin-top: 4rem;
 
 @media (min-width: 30rem) {
     grid-template-columns: repeat(2, minmax(0, 35rem));
-
 }
 
 @media (min-width: 45rem) {
@@ -15,8 +14,9 @@ margin-top: 4rem;
 }
 
 @media (min-width: 60rem) {
-    grid-template-columns: repeat(4, minmax(0, 35rem));
+    grid-template-columns: repeat(4, minmax(0, 40rem));
     padding: 0 6rem;
+    gap: 3rem;
 }
 `
 

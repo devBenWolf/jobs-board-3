@@ -21,27 +21,28 @@ export const Input = styled.textarea`
 
     &::placeholder {
         opacity: 1;
+        color: ${(props) => props.color};
     }
 
-    @media(width > 20rem) {
+    @media(min-width: 20rem) {
         width: 25rem;
     }
     
-    @media(width > 30rem) {
+    @media(min-width: 30rem) {
         width: 30rem;
     }
     
-    @media(width > 35rem) {
+    @media(min-width: 35rem) {
         width: 40rem;
         height: 18rem;
     }
     
-    @media(width > 45rem) {
+    @media(min-width: 45rem) {
         width: 50rem;
         font-size: 1.6rem;
     }
 
-    @media(width > 55rem) {
+    @media(min-width: 55rem) {
         width: 60rem;
         font-size: 1.6rem;
         height: 20rem;
