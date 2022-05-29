@@ -39,6 +39,7 @@ const CreateJobsContainer = () => {
         }
     }, [])
 
+
     // get date and time of post
     let today = new Date()
     let postDate = today.toString().slice(0, -42)
