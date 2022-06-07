@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
     border-radius: 5px;
     display: flex;
     align-items: center;
-    width: 25rem;
+    width: 30rem;
     justify-content: space-evenly;
     background-color: ${(props) => props.themeBoolean ? "white" : "hsl(var(--clr-dark-blue))"};
     transition: .4s;

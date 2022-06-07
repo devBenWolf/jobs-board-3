@@ -113,7 +113,7 @@ const HomeContainer = () => {
                         <Search.Reset
                             onClick = {clearInput}                         
                         >
-                        <FaUndo style={{color: "white"}} size="25" />
+                        <FaUndo style={{color: "white"}} size="20" />
                         </Search.Reset>
                     </Search.Wrapper>
 
@@ -150,7 +150,7 @@ const HomeContainer = () => {
                             <Search.Reset
                             onClick = {clearInput}                         
                             >
-                                <FaUndo style={{color: "white"}} size="15" />
+                                <FaUndo style={{color: "white"}} size="20" />
                             </Search.Reset>
                         </Search.TimeFilterDiv>
                     </Search.Wrapper>  
@@ -188,7 +188,7 @@ const HomeContainer = () => {
                               <AltSearch.Reset
                               onClick = {clearInput}                         
                               >
-                                  <FaUndo style={{color: "white"}} size="15" />
+                                  <FaUndo style={{color: "white"}} size="20" />
                               </AltSearch.Reset>
                           </AltSearch.TimeFilterDiv>
                           </AltSearch.Wrapper>  
