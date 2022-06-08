@@ -9,12 +9,16 @@ import { SearchDiv } from "../components/HomeComponents/Search/styles/searchStyl
 import { JobsMain } from "../components/HomeComponents/Jobs/styles/jobsStyles"
 import MainSearchContainer from "./MainSearchContainer"
 import LocationSearchContainer from "./LocationSearchContainer"
+import { LoadingMain } from "../components/HomeComponents/Loading/style/loadingStyles"
+import Loading from "../components/HomeComponents/Loading"
+import LoadingContainer from "./LoadingContainer"
 
 
 
 const HomeContainer = () => {
+    const [isLoading, setIsLoading] = useState(true)
+
     const {jobs, setJobs, unfilteredJobs} = useContext(DataContext)
-    console.log(jobs)
     // Filter jobs by full time status
     const time = jobs.filter(datum => datum.contract === "Full Time")
 
@@ -69,11 +73,15 @@ const HomeContainer = () => {
     
       // handle layout of search bar on window resize
       useEffect(() => {
+        setTimeout(() => {
+            setIsLoading(false)
+        }, 2000)
         const handleResize = () => setWidth(window.innerWidth)
           window.addEventListener("resize", handleResize)
           return () => {
             window.removeEventListener("resize", handleResize)
           }
+          
       }, [])
 
         // loop through filter variables (companies, titles, locations)
@@ -197,6 +205,7 @@ const HomeContainer = () => {
     const mobileFilter = inputFilter === 1 ? <MainSearchContainer /> : <LocationSearchContainer />
     const desktopFilter = inputFocus === 2 ? <MainSearchContainer /> : <LocationSearchContainer />
 
+
     return (
         <> 
             <SearchDiv>
@@ -205,6 +214,7 @@ const HomeContainer = () => {
             <JobsMain>
                 {width < breakpoint ? mobileFilter : desktopFilter}
             </JobsMain>
+            <LoadingContainer isLoading = {isLoading} />
         </>
      );
 }
