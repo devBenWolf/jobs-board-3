@@ -2,11 +2,13 @@ import styled from 'styled-components'
 
 export const JobDiv = styled.section`
 `
-export const OuterDiv = styled.div``
+export const OuterDiv = styled.div`
+`
 export const InnerDiv = styled.div`
     display: flex;  
     flex-direction: column;
     width: 80%;
+    border: solid red;
     background-color: ${(props) => props.themeBoolean ? "white" : "hsl(var(--clr-dark-blue))"};
     transition: .4s;
     align-self: center;
@@ -14,7 +16,7 @@ export const InnerDiv = styled.div`
     border-radius: 5px;
     margin: 0 auto;
 
-    @media (min-width: 35rem) {
+    @media (min-width: 45rem) {
         max-width: 60%;
     }
 
@@ -43,7 +45,6 @@ export const HeadingDiv = styled.div`
     display: grid;
     place-items: left;
     width: 100%;
-
 
     @media (min-width: 35rem) {
         display: flex;
