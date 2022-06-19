@@ -9,8 +9,6 @@ import { SearchDiv } from "../components/HomeComponents/Search/styles/searchStyl
 import { JobsMain } from "../components/HomeComponents/Jobs/styles/jobsStyles"
 import MainSearchContainer from "./MainSearchContainer"
 import LocationSearchContainer from "./LocationSearchContainer"
-import { LoadingMain } from "../components/HomeComponents/Loading/style/loadingStyles"
-import Loading from "../components/HomeComponents/Loading"
 import LoadingContainer from "./LoadingContainer"
 
 
