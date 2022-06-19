@@ -8,6 +8,7 @@ import HomeContainer from "./containers/HomeContainer";
 import Job from './routes/job';
 import Layout from './components/Layout';
 import CreateJobsContainer from './containers/CreateJobsContainer';
+import ScrollToTop from './components/ScrollToTop';
 
 
 function App() {
@@ -21,11 +22,13 @@ function App() {
       <AuthContextProvider>
         <BrowserRouter>
           <Layout>
+            <ScrollToTop>
             <Routes>
               <Route path = "/" element={<HomeContainer />} />                              
               <Route path = "/create-jobs" element={<CreateJobsContainer />} />         
               <Route path = "/:jobId" element = {<Job />} />
             </Routes>
+            </ScrollToTop>
           </Layout>
         </BrowserRouter>
         </AuthContextProvider>
