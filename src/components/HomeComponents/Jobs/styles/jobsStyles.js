@@ -87,10 +87,6 @@ export const IconBackground = styled.div`
     position: absolute;
     left: 15%;
     top: -9%;
-
-    @media(min-width: 60rem) {
-        left: 25%;
-    }
 `
 export const Icon = styled.img`
 border-radius: 10px;
