@@ -24,14 +24,14 @@ export const InnerDiv = styled.div`
         flex-direction: row;
         height: 100px;
         padding: 0;
-        max-width: 60%;
+        max-width: 80%;
         justify-content: space-between;
     }
 
     @media (min-width: 55rem) {
         max-width: 50%;
     }
-}
+
 `
 export const IconBackground = styled.div`
     display: grid;
