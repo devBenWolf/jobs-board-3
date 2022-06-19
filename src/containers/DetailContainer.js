@@ -2,28 +2,28 @@ import { useContext } from "react";
 import { ThemeContext } from "../contexts/ThemeContext"
 
 import Company from "../components/DetailComponents/Company";
+import { useEffect } from "react";
 import { OuterDiv } from "../components/DetailComponents/Company/styles/companyStyles";
 import { useParams } from "react-router-dom";
-import data from "../data.json"
 import { JobDiv } from "../components/DetailComponents/Job/styles/jobStyles";
 import Job from "../components/DetailComponents/Job";
 import { DataContext } from "../contexts/DataContext";
 
 const DetailContainer = () => {
     const {themeBoolean} = useContext(ThemeContext)
-    const {jobs, unfilteredJobs} = useContext(DataContext)
-    console.log(jobs, unfilteredJobs)
+    const {localJobs} = useContext(DataContext)
+
 
     // useParams to access id of the url
     const params = useParams()
     const findJob = (id) => {
-        return jobs.find((job) => job.id === id)
+        return localJobs.find((job) => job.id === id)
     }
+    
 
     // store id integer
     const selectedJob = findJob(params.jobId, 10)
-    console.log(params)
-    console.log(selectedJob)
+    
     return ( 
         <>
             <OuterDiv
