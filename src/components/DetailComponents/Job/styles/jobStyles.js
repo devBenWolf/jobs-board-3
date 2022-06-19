@@ -8,7 +8,6 @@ export const InnerDiv = styled.div`
     display: flex;  
     flex-direction: column;
     width: 80%;
-    border: solid red;
     background-color: ${(props) => props.themeBoolean ? "white" : "hsl(var(--clr-dark-blue))"};
     transition: .4s;
     align-self: center;
