@@ -1,7 +1,7 @@
 # Devjobs app
 Search and filter functions, data was initially pulled from a json file. I added a form and database to expand the project into a full CRUD application.
 
-## To see a deployment of this site, visit https://vercel.com/devbenwolf/jobs-board-3
+## To see a deployment of this site, visit https://jobs-board-3.vercel.app/
 
 # Getting Started with Create React App
 
