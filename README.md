@@ -1,9 +1,7 @@
 # Devjobs app
-Search and filter functions, pulls data from a json file. 
+Search and filter functions, data was initially pulled from a json file. I added a form and database to expand the project into a full CRUD application.
 
-## Figma file and assets available at https://www.frontendmentor.io/challenges/devjobs-web-app-HuvC_LP4l
-
-## To see a deployment of this site, visit https://vercel.com/devbenwolf/jobs-board-3
+## To see a deployment of this site, visit https://jobs-board-3.vercel.app/
 
 # Getting Started with Create React App
 
@@ -101,3 +99,7 @@ Quicklinks to some of the most-visited pages:
 # Getting started with React-Icons
 
 https://react-icons.github.io/react-icons/
+
+# Firebase is an app development platform supported by Google. Want to know more?
+
+https://firebase.google.com/
