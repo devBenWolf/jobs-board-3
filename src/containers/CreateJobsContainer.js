@@ -21,7 +21,7 @@ const CreateJobsContainer = () => {
         handleLocation, handleWebsite, handleApply, handleRequirementContent, handleRequirementSkillsInput, handleRoleContent, handleRoleItemsInput,
         removeFromRoleItems,
         // state hooks
-        requirementSkillsArray, company, description, logo, logoBackground, position, postedAt, roleContent, roleItemsInput, 
+        requirementSkillsArray, company, description, logo, logoBackground, position, roleContent, roleItemsInput, 
         contract, location, website, apply, requirementContent, requirementSkillsInput, roleItemsArray    
     } = useContext(InputContext)
     const {themeBoolean} = useContext(ThemeContext)
