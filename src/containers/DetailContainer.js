@@ -1,8 +1,6 @@
 import { useContext } from "react";
 import { ThemeContext } from "../contexts/ThemeContext"
-
 import Company from "../components/DetailComponents/Company";
-import { useEffect } from "react";
 import { OuterDiv } from "../components/DetailComponents/Company/styles/companyStyles";
 import { useParams } from "react-router-dom";
 import { JobDiv } from "../components/DetailComponents/Job/styles/jobStyles";
@@ -23,7 +21,7 @@ const DetailContainer = () => {
 
     // store id integer
     const selectedJob = findJob(params.jobId, 10)
-    
+
     return ( 
         <>
             <OuterDiv
