@@ -20,11 +20,11 @@ export const Wrapper = styled.div`
     }
 
     @media (min-width: 28rem) {
-        width: 42rem;
+        width: 45rem;
     }
 
     @media (min-width: 45rem) {
-        width: 50rem;
+        width: 60rem;
     }
 
 `

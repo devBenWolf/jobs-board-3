@@ -3,20 +3,24 @@ import styled from "styled-components"
 export const JobsMain = styled.main`
 display: grid;
 margin-top: 4rem;
-
-@media (min-width: 30rem) {
-    grid-template-columns: repeat(2, minmax(0, 35rem));
+gap: 3rem;
+@media (min-width: 40rem) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-@media (min-width: 45rem) {
-    grid-template-columns: repeat(3, minmax(0, 35rem));
+
+
+@media (min-width: 80rem) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     padding: 0 6rem;
+    margin-inline: 10rem;
+
+@media (min-width: 100rem) {
+    margin-inline: 20rem;
 }
 
-@media (min-width: 60rem) {
-    grid-template-columns: repeat(4, minmax(0, 40rem));
-    padding: 0 6rem;
-    gap: 3rem;
+@media (min-width: 110rem) {
+    margin-inline: 30rem;
 }
 `
 
@@ -24,7 +28,9 @@ export const OuterDiv = styled.main`
     display: flex;
     flex-direction: column;
     margin-bottom: 3rem;
-    position: relative;
+    position: relative
+
+
 `
 export const InnerDiv = styled.div`
     display: flex;  
@@ -36,6 +42,10 @@ export const InnerDiv = styled.div`
     padding: 2rem;
     border-radius: 5px;
     height: 100%;
+
+    @media (min-width: 80rem) {
+        width: 80%;
+    }
 `
 export const InfoDiv = styled.div``
 export const Heading = styled.h1`
@@ -77,6 +87,10 @@ export const IconBackground = styled.div`
     position: absolute;
     left: 15%;
     top: -9%;
+
+    @media(min-width: 60rem) {
+        left: 25%;
+    }
 `
 export const Icon = styled.img`
 border-radius: 10px;
