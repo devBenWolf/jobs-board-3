@@ -5,7 +5,7 @@ import { DataContext } from "../contexts/DataContext"
 import {ThemeContext} from "../contexts/ThemeContext"
 
 const LocationSearchContainer = () => {
-    const {currentData, locationInputData, jobs} = useContext(DataContext)
+    const {locationInputData, jobs} = useContext(DataContext)
     const {themeBoolean} = useContext(ThemeContext)
 
     return ( 
