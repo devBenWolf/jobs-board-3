@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../contexts/ThemeContext"
 import Company from "../components/DetailComponents/Company";
 import { OuterDiv } from "../components/DetailComponents/Company/styles/companyStyles";
@@ -6,10 +6,19 @@ import { useParams } from "react-router-dom";
 import { JobDiv } from "../components/DetailComponents/Job/styles/jobStyles";
 import Job from "../components/DetailComponents/Job";
 import { DataContext } from "../contexts/DataContext";
+import LoadingContainer from "./LoadingContainer";
 
 const DetailContainer = () => {
     const {themeBoolean} = useContext(ThemeContext)
     const {localJobs} = useContext(DataContext)
+
+    const[isLoading, setIsLoading] = useState(true)
+
+    useEffect(() => {
+        setTimeout(() => {
+            setIsLoading(false)
+        }, 1000)
+    })
 
 
     // useParams to access id of the url
@@ -81,6 +90,7 @@ const DetailContainer = () => {
                     </Job.FootDiv>
                 </Job.Foot>
             </JobDiv>
+            <LoadingContainer isLoading = {isLoading} />
         </>
      );
 }

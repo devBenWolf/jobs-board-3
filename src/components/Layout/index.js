@@ -1,4 +1,4 @@
-import {useContext, useEffect} from "react"
+import {useContext} from "react"
 import { ThemeContext } from "../../contexts/ThemeContext"
 import { AuthContext } from "../../contexts/AuthContext"
 import Header from "../HomeComponents/Header"
