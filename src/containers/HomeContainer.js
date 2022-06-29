@@ -73,7 +73,7 @@ const HomeContainer = () => {
       useEffect(() => {
         setTimeout(() => {
             setIsLoading(false)
-        }, 3000)
+        }, 4000)
         const handleResize = () => setWidth(window.innerWidth)
           window.addEventListener("resize", handleResize)
           return () => {
