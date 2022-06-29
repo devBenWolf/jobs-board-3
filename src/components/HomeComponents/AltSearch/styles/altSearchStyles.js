@@ -16,15 +16,27 @@ export const Wrapper = styled.div`
     transition: .4s;
     
     @media (min-width: 25rem) {
-        width: 40rem;
+        width: 35rem;
     }
 
     @media (min-width: 28rem) {
-        width: 50rem;
+        width: 45rem;
     }
 
     @media (min-width: 45rem) {
         width: 60rem;
+    }
+
+    @media (min-width: 60rem) {
+        width: 80rem;
+    }
+
+    @media (min-width: 80rem) {
+        width: 90rem;
+    }
+
+    @media(min-width: 90rem) {
+        width: 100rem;
     }
 
 `

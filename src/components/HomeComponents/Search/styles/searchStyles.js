@@ -27,6 +27,17 @@ export const Wrapper = styled.div`
         width: 60rem;
     }
 
+    @media (min-width: 60rem) {
+        width: 80rem;
+    }
+
+    @media (min-width: 80rem) {
+        width: 90rem;
+    }
+
+    @media(min-width: 90rem) {
+        width: 100rem;
+    }
 `
 export const Input = styled.input.attrs({type: "text"})`
     margin-left: 1rem;
@@ -44,13 +55,13 @@ export const Input = styled.input.attrs({type: "text"})`
     }
 
     @media (min-width: 35rem) {
-        border-right: solid 1px hsl(var(--clr-grey));
-        border-radius: 0px;
-        width: 20rem;
+
     }
 
     @media (min-width: 45rem) {
         width: 30rem;
+        border-right: solid 1px hsl(var(--clr-grey));
+        border-radius: 0px;
     }
 `
 
