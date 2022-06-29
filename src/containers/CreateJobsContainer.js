@@ -81,7 +81,7 @@ const CreateJobsContainer = () => {
                     onChange = {handleLogo}
                     background = "hsl(235, 69%, 91%)"
                     color = "hsl(235, 69%, 61%)"
-                    placeholder = "logo path"
+                    placeholder = "logo path (optional)"
                     required
                 />
             </TextInputSection>
