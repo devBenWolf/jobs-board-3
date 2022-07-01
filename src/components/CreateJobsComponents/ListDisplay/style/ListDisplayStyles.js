@@ -32,6 +32,7 @@ cursor: pointer;
 border-radius: 0 0 10px 10px;
 color: white;
 font-weight: bold;
+padding-bottom: 25px;
 &:hover {
     background-color: red;
     transition: 1s;
