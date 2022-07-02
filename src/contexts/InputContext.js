@@ -25,7 +25,7 @@ const InputContextProvider = ({children}) => {
     const [roleItemsInput, setRoleItemsInput] = useState("")
     const [roleItemsArray, setRoleItemsArray] = useState([])
 
-        // create skills array in local and firebase, and bullet points next to input
+        // add to individual skills array , and bullet points next to input
         const addToSkills = () => {
             const newSkill = [...requirementSkillsArray, {id: nanoid(), requirementSkillsInput}]
             setRequirementSkillsArray(newSkill)
@@ -33,7 +33,7 @@ const InputContextProvider = ({children}) => {
             localStorage.removeItem("RequirementSkillsInput")
         }
 
-        // create role array in local and firebase, and bullet points next to input
+        // add to individual role array, and bullet points next to input
         const addToRoleItems = () => {
             const newItem = [...roleItemsArray, {id: nanoid(), roleItemsInput}]
             setRoleItemsArray(newItem)
@@ -41,18 +41,22 @@ const InputContextProvider = ({children}) => {
             localStorage.removeItem("RoleItems")
         }
     
+        // remove from individual skills array
         const removeFromSkills = index => {
             const updateSkills = [...requirementSkillsArray]
             updateSkills.splice(index, 1)
             setRequirementSkillsArray(updateSkills)
         }
 
+        // remove from individual roles array
         const removeFromRoleItems = index => {
             const updateItems = [...roleItemsArray]
             updateItems.splice(index, 1)
             setRoleItemsArray(updateItems)
         }
 
+
+        // ****** handle input functions ******
         const handleCompany = (event) => {
             localStorage.setItem(`Company`, event.target.value)
             setCompany(event.target.value)
