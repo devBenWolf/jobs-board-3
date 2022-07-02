@@ -25,7 +25,7 @@ const InputContextProvider = ({children}) => {
     const [roleItemsInput, setRoleItemsInput] = useState("")
     const [roleItemsArray, setRoleItemsArray] = useState([])
 
-        // create skills array in local and firebase
+        // create skills array in local and firebase, and bullet points next to input
         const addToSkills = () => {
             const newSkill = [...requirementSkillsArray, {id: nanoid(), requirementSkillsInput}]
             setRequirementSkillsArray(newSkill)
@@ -33,7 +33,7 @@ const InputContextProvider = ({children}) => {
             localStorage.removeItem("RequirementSkillsInput")
         }
 
-        // role bullet points
+        // create role array in local and firebase, and bullet points next to input
         const addToRoleItems = () => {
             const newItem = [...roleItemsArray, {id: nanoid(), roleItemsInput}]
             setRoleItemsArray(newItem)
