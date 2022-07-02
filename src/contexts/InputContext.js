@@ -117,6 +117,7 @@ const InputContextProvider = ({children}) => {
             localStorage.setItem(`RoleItems`, event.target.value)
         }
 
+        //****** clear state ******
         const clearAllInputs = () => {
             setRequirementSkillsArray([])
             setCompany("")
