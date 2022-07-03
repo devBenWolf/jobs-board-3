@@ -22,6 +22,7 @@ function App() {
       <AuthContextProvider>
         <BrowserRouter>
           <Layout>
+            {/* scrolls to top when job form is submitted */}
             <ScrollToTop>
             <Routes>
               <Route path = "/" element={<HomeContainer />} />                              
