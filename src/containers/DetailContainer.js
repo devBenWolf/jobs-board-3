@@ -31,7 +31,6 @@ const DetailContainer = () => {
 
     // store id integer
     const selectedJob = findJob(params.jobId, 10)
-    console.log(selectedJob.apply)
     return ( 
         <>
             <OuterDiv
