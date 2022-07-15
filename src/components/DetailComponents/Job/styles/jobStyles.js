@@ -66,8 +66,9 @@ export const Location = styled.p`
     font-weight: bold;
     color: #5964e0;
 `
-export const Apply = styled.button`
+export const Apply = styled.a`
     display: grid;
+    text-decoration: none;
     margin-top: 3rem;
     position: relative;
     padding: 1rem 0;

@@ -7,6 +7,7 @@ import { JobDiv } from "../components/DetailComponents/Job/styles/jobStyles";
 import Job from "../components/DetailComponents/Job";
 import { DataContext } from "../contexts/DataContext";
 import LoadingContainer from "./LoadingContainer";
+import { Link } from "react-router-dom";
 
 const DetailContainer = () => {
     const {themeBoolean} = useContext(ThemeContext)
@@ -30,7 +31,7 @@ const DetailContainer = () => {
 
     // store id integer
     const selectedJob = findJob(params.jobId, 10)
-
+    console.log(selectedJob.apply)
     return ( 
         <>
             <OuterDiv
@@ -59,7 +60,7 @@ const DetailContainer = () => {
                             <Job.Location>{selectedJob.location}</Job.Location>
                         </Job.InfoDiv>
                         <Job.ApplyDiv themeBoolean={themeBoolean}>
-                            <Job.Apply>Apply Now</Job.Apply>
+                            <Job.Apply href={selectedJob.apply}>Apply Now</Job.Apply>
                         </Job.ApplyDiv>
                     </Job.HeadingDiv>
                     <Job.BodyDiv>
