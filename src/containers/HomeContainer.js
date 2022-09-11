@@ -34,17 +34,24 @@ const HomeContainer = () => {
     
     const {inputFilter, setInputFilter, timeFilter, setTimeFilter, 
             inputFocus, setInputFocus} = useContext(InputContext)
+
+            const company = document.querySelector(".company")
+            const location = document.querySelector(".location")
+            
+           
     
     // clear input on focus change
-    const mainInput = () => {
-        inputFocus > 2 || inputFocus < 1 ? setInputFocus(1) : setInputFocus(prevCount => prevCount + 1)
-        setLocationInputData("")
+    const clearPreviousInput = () => {
+        if (company === document.activeElement) {
+            setLocationInputData("")
+            setInputFocus(true)
+        } else if (location === document.activeElement) {
+            setMainInputData("")
+            setInputFocus(false)
+        }
     }
 
-    const locationInput = () => {
-        inputFocus > 2 || inputFocus < 1 ? setInputFocus(1) : setInputFocus(prevCount => prevCount - 1)
-      setMainInputData("")
-    }
+
 
     // switch full time filter on/off
     const fullTimeFilter = () => {
@@ -52,7 +59,6 @@ const HomeContainer = () => {
         setTimeFilter(prevState => !prevState)
       }
 
-   
     
       const clearInput = () => {
         setMainInputData("")
@@ -73,7 +79,13 @@ const HomeContainer = () => {
       useEffect(() => {
         setTimeout(() => {
             setIsLoading(false)
+            sessionStorage.setItem('loaded', true)
         }, 4000)
+
+        if (sessionStorage.getItem('loaded')) {
+            setIsLoading(false)
+        }
+
         const handleResize = () => setWidth(window.innerWidth)
           window.addEventListener("resize", handleResize)
           return () => {
@@ -86,11 +98,11 @@ const HomeContainer = () => {
     const filterArray = [1, 2]
     const listLoop = () => {
         if (inputFilter === filterArray.length) {
-      setInputFilter(1)
+            setInputFilter(1)
         } else {
             setInputFilter(prevState => prevState + 1)
+        }
     }
-}
     // mobile searchbar layout
     const mobile = <Search.Wrapper
                         themeBoolean={themeBoolean}
@@ -132,16 +144,17 @@ const HomeContainer = () => {
                             placeholder = "Enter company, job..."
                             value = {mainInputData}
                             onChange = {lowerCaseMainData}
-                            onFocus = {mainInput}
+                            onFocus = {clearPreviousInput}
                             themeBoolean = {themeBoolean}
+                            className = "company"
                         />
                         <Search.Input 
                             type = "text"
                             placeholder = "Enter location..."
                             value = {locationInputData}
                             onChange = {lowerCaseLocationData}
-                            onFocus = {locationInput}
-                            themeBoolean = {themeBoolean}
+                            onFocus = {clearPreviousInput}
+                            className = "location"
                         />
                         <Search.TimeFilterDiv
                             themeBoolean = {themeBoolean}
@@ -170,7 +183,7 @@ const HomeContainer = () => {
                               placeholder = "Search company, job..."
                               value = {mainInputData}
                               onChange = {lowerCaseMainData}
-                              onFocus = {mainInput}
+                              onFocus = {clearPreviousInput}
                               themeBoolean = {themeBoolean}
                           />
                           <AltSearch.Input 
@@ -178,7 +191,7 @@ const HomeContainer = () => {
                               placeholder = "Search location..."
                               value = {locationInputData}
                               onChange = {lowerCaseLocationData}
-                              onFocus = {locationInput}
+                              onFocus = {clearPreviousInput}
                               themeBoolean = {themeBoolean}
                           />
                           <AltSearch.TimeFilterDiv
@@ -201,9 +214,9 @@ const HomeContainer = () => {
                    
     // conditionally render main or location search results on mobile or desktop
     const mobileFilter = inputFilter === 1 ? <MainSearchContainer /> : <LocationSearchContainer />
-    const desktopFilter = inputFocus === 2 ? <MainSearchContainer /> : <LocationSearchContainer />
+    const desktopFilter = inputFocus === true ? <MainSearchContainer /> : <LocationSearchContainer />
 
-
+                            
     return (
         <> 
             <SearchDiv>
