@@ -71,6 +71,8 @@ export const Reset = styled.button.attrs({type: "submit"})`
     border: none;
     padding: 0.6rem;
     border-radius: 5px;
+    display: grid;
+    place-items: center;
     cursor: pointer;
 
     @media (min-width: 55rem) {
