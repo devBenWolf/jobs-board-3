@@ -9,7 +9,6 @@ const MainSearchContainer = () => {
     const {themeBoolean} = useContext(ThemeContext)
 
 
-
     return ( 
         jobs.filter(datum => datum.company.toLowerCase().includes(mainInputData) ||
         datum.position.toLowerCase().includes(mainInputData)).map((datum) => (
