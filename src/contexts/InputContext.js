@@ -3,10 +3,30 @@ import {nanoid} from "nanoid"
 
 export const InputContext = createContext()
 
+const initialState = {
+    company: "",
+    description: "",
+    logo: "",
+    logoBackground: "",
+    position: "",
+    postedAt: "",
+    contract: "",
+    location: "",
+    website: "",
+    apply: "",
+    requirementContent: "",
+    requirementSkillsInput: "",
+    roleContent: "",
+    roleItemsInput: "",
+    requirementSkillsArray: [],
+    roleItemsArray: []
+}
+
 const InputContextProvider = ({children}) => {
+    const [values, setValues] = useState(initialState)
     const [inputFilter, setInputFilter] = useState(1)
     const [timeFilter, setTimeFilter] = useState(false)
-    const [inputFocus, setInputFocus] = useState(1)
+    const [inputFocus, setInputFocus] = useState(true)
     const [desktopInputFocus, setDesktopInputFocus] = useState(true)
     const [company, setCompany] = useState("")
     const [description, setDescription] = useState("")
@@ -25,129 +45,79 @@ const InputContextProvider = ({children}) => {
     const [roleItemsInput, setRoleItemsInput] = useState("")
     const [roleItemsArray, setRoleItemsArray] = useState([])
 
+    const handleChange = (event) => {
+        const {name, value} = event.target
+        setValues({
+            ...values,
+            [name]: value
+        })
+        console.log(name)
+        localStorage.setItem(name.charAt(0).toUpperCase() + name.slice(1), value)
+    }
+
+    
+
         // add to individual skills array , and bullet points next to input
         const addToSkills = () => {
-            const newSkill = [...requirementSkillsArray, {id: nanoid(), requirementSkillsInput}]
-            setRequirementSkillsArray(newSkill)
-            setRequirementSkillsInput("")
-            localStorage.removeItem("RequirementSkillsInput")
+            const newSkill = [...values.requirementSkillsArray, {id: nanoid(), name: values.requirementSkillsInput}]
+            setValues(prevState => ({...prevState, requirementSkillsArray: newSkill}))
+            setValues(prevState => ({...prevState, requirementSkillsInput: ""}))
+            localStorage.removeItem("RequirementSkillsInput")    
         }
 
         // add to individual role array, and bullet points next to input
         const addToRoleItems = () => {
-            const newItem = [...roleItemsArray, {id: nanoid(), roleItemsInput}]
-            setRoleItemsArray(newItem)
-            setRoleItemsInput("")
+            const newItem = [...values.roleItemsArray, {id: nanoid(), name: values.roleItemsInput}]
+            setValues(prevState => ({...prevState, roleItemsArray: newItem}))
+            setValues(prevState => ({...prevState, roleItemsInput: ""}))
             localStorage.removeItem("RoleItems")
+            console.log(values.roleItemsArray)
         }
     
         // remove from individual skills array
         const removeFromSkills = index => {
-            const updateSkills = [...requirementSkillsArray]
-            updateSkills.splice(index, 1)
-            setRequirementSkillsArray(updateSkills)
+            const updateSkills = [...values.requirementSkillsArray]
+            updateSkills.splice(index, 1)       
+            setValues(prevState => ({...prevState, requirementSkillsArray: updateSkills}))
         }
 
         // remove from individual roles array
         const removeFromRoleItems = index => {
-            const updateItems = [...roleItemsArray]
+            const updateItems = [...values.roleItemsArray]
             updateItems.splice(index, 1)
-            setRoleItemsArray(updateItems)
+            setValues(prevState => ({...prevState, roleItemsArray: updateItems}))
         }
 
 
-        // ****** handle input functions ******
-        const handleCompany = (event) => {
-            localStorage.setItem(`Company`, event.target.value)
-            setCompany(event.target.value)
-            
-        }
-        const handleDescription = (event) => {
-            localStorage.setItem(`Description`, event.target.value)
-            setDescription(event.target.value)
-        }
-        const handleLogo = (event) => {
-            localStorage.setItem(`Logo`, event.target.value)
-            setLogo(event.target.value)
-        }
-        const handleLogoBackground = (event) => {
-            localStorage.setItem(`LogoBackground`, event.target.value)
-            setLogoBackground(event.target.value)
-        }
-        const handlePosition = (event) => {
-            localStorage.setItem(`Position`, event.target.value)
-            setPosition(event.target.value)
-        }
-        const handlePostedAt = (event) => {
-            localStorage.setItem(`PostedAt`, event.target.value)
-            setPostedAt(event.target.value)
-        }
-        const handleContract = (event) => {
-            localStorage.setItem(`Contract`, event.target.value)
-            setContract(event.target.value)
-        }
-        const handleLocation = (event) => {
-            localStorage.setItem(`Location`, event.target.value)
-            setLocation(event.target.value)
-        }
-        const handleWebsite = (event) => {
-            localStorage.setItem(`Website`, event.target.value)
-            setWebsite(event.target.value)
-        }
-        const handleApply = (event) => {
-            localStorage.setItem(`Apply`, event.target.value)
-            setApply(event.target.value)
-        }
-        const handleRequirementContent = (event) => {
-            localStorage.setItem(`RequirementContent`, event.target.value)
-            setRequirementContent(event.target.value)
-        }
-        const handleRequirementSkillsInput = (event) => {
-            setRequirementSkillsInput(event.target.value)
-            localStorage.setItem(`RequirementSkillsInput`, event.target.value)
-        }
-
-        const handleRoleContent = (event) => {
-            setRoleContent(event.target.value)
-            localStorage.setItem(`RoleContent`, event.target.value)
-        }
-
-        const handleRoleItemsInput = (event) => {
-            setRoleItemsInput(event.target.value)
-            localStorage.setItem(`RoleItems`, event.target.value)
-        }
+      
 
         //****** clear state ******
         const clearAllInputs = () => {
-            setRequirementSkillsArray([])
-            setCompany("")
-            setDescription("")
-            setLogo("")
-            setLogoBackground("")
-            setPosition("")
-            setPostedAt("")
-            setRoleContent("")
-            setRoleItemsInput("")
-            setContract("")
-            setLocation("")
-            setWebsite("")
-            setApply("")
-            setRequirementContent("")
-            setRequirementSkillsInput("")
-            setRoleItemsArray([])
+            setValues({
+                company: "",
+                description: "",
+                logo: "",
+                logoBackground: "",
+                position: "",
+                postedAt: "",
+                contract: "",
+                location: "",
+                website: "",
+                apply: "",
+                requirementContent: "",
+                requirementSkillsInput: "",
+                roleContent: "",
+                roleItemsInput: "",
+                requirementSkillsArray: [],
+                roleItemsArray: []
+            })
         }
 
 
 
     return ( 
         <InputContext.Provider value={{setInputFilter, setTimeFilter, setInputFocus, clearAllInputs,
-            setDesktopInputFocus, addToSkills, addToRoleItems, removeFromSkills, removeFromRoleItems, handleCompany, 
-            handleDescription, handleLogo, handleLogoBackground, handlePosition, handlePostedAt, handleContract,
-            handleLocation, handleWebsite, handleApply, handleRequirementContent, handleRequirementSkillsInput,
-            handleRoleItemsInput, handleRoleContent,
-            company, description, logo, logoBackground, position, postedAt, inputFilter, timeFilter, inputFocus,
-            contract, location, website, apply, requirementContent, requirementSkillsArray, requirementSkillsInput,
-            desktopInputFocus, roleContent, roleItemsInput, roleItemsArray
+            setDesktopInputFocus, addToSkills, addToRoleItems, removeFromSkills, removeFromRoleItems, handleChange, values, inputFilter, timeFilter, inputFocus
 
         }}
         >
