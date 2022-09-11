@@ -21,7 +21,6 @@ const Layout = ({children}) => {
     const {isAuth, setIsAuth} = useContext(AuthContext)
     const navigate = useNavigate()
     const local = localStorage.getItem("isAuth")
-    console.log(local)
 
     const signout = () => {
         signOut(auth).then(() => {
@@ -30,7 +29,7 @@ const Layout = ({children}) => {
             navigate("/")
         })
     }
-
+    
     const signInWithGoogle = () => {
         signInWithPopup(auth, provider).then((result) => {
             // set auth in local storage
@@ -63,7 +62,7 @@ const Layout = ({children}) => {
                     {!local ? <Footer.Text onClick={signInWithGoogle}>login</Footer.Text>
                     :         <Link to="/" onClick={signout} style={{textDecoration: "none"}}><Footer.Text>logout</Footer.Text></Link>
                     }
-                    {local ? <Link to = "/create-jobs" style={{textDecoration: "none"}}><Footer.Text>create jobs</Footer.Text></Link> : null}
+                    {local && window.location.pathname === '/' ? <Link to = "/create-jobs" style={{textDecoration: "none"}}><Footer.Text>create jobs</Footer.Text></Link> : null}
                 </Footer.Div>
             </FooterMain>
         </Main>
