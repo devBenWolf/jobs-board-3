@@ -7,7 +7,6 @@ import { JobDiv } from "../components/DetailComponents/Job/styles/jobStyles";
 import Job from "../components/DetailComponents/Job";
 import { DataContext } from "../contexts/DataContext";
 import LoadingContainer from "./LoadingContainer";
-import { Link } from "react-router-dom";
 
 const DetailContainer = () => {
     const {themeBoolean} = useContext(ThemeContext)
@@ -68,14 +67,14 @@ const DetailContainer = () => {
                         <Job.BodyText>{selectedJob.requirementContent}</Job.BodyText>
                         <Job.UList>
                             {selectedJob.requirementSkillsArray.map((item) => (
-                                <Job.ListItem key={item.id}>{item.requirementSkillsInput}</Job.ListItem>
+                                <Job.ListItem key={item.id}>{item.requirementSkillsInput || item.name}</Job.ListItem>
                             ))}
                         </Job.UList>
                         <Job.SectionTitle>What You Will Do</Job.SectionTitle>
                         <Job.BodyText>{selectedJob.requirementContent}</Job.BodyText>
                         <Job.OList>
                             {selectedJob.roleItemsArray.map((item) => (
-                                <Job.ListItem key={item.id}>{item.roleItemsInput}</Job.ListItem>
+                                <Job.ListItem key={item.id}>{item.roleItemsInput || item.name}</Job.ListItem>
                             ))}
                         </Job.OList>
                     </Job.BodyDiv>
