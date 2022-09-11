@@ -17,14 +17,10 @@ import { InputContext } from "../contexts/InputContext";
 
 const CreateJobsContainer = () => {
     // functions
-    const {addToSkills, addToRoleItems, removeFromSkills, clearAllInputs, handleCompany, handleDescription, handleLogo,handleLogoBackground, handlePosition, handleContract,
-        handleLocation, handleWebsite, handleApply, handleRequirementContent, handleRequirementSkillsInput, handleRoleContent, handleRoleItemsInput,
-        removeFromRoleItems,
-        // state hooks
-        requirementSkillsArray, company, description, logo, logoBackground, position, roleContent, roleItemsInput, 
-        contract, location, website, apply, requirementContent, requirementSkillsInput, roleItemsArray    
-    } = useContext(InputContext)
+    const {addToSkills, addToRoleItems, removeFromSkills, clearAllInputs,
+        removeFromRoleItems, handleChange, values} = useContext(InputContext)
     const {themeBoolean} = useContext(ThemeContext)
+
 
     // database and collection to which we add the jobs
     const jobsCollectionRef = collection(db, "jobs")
@@ -43,13 +39,16 @@ const CreateJobsContainer = () => {
     // get date and time of post
     let today = new Date()
     let postDate = today.toString().slice(0, -42)
-    console.log(postDate)
     
     const createJob = async () => {
+        const {company, description, logo, logoBackground, position, 
+            contract, location, website, apply, requirementContent, requirementSkillsArray, roleItemsArray} = values
+            
+
         // add document to the collection along with with author id object
         await addDoc(jobsCollectionRef, {
             company, description, logo, logoBackground, position, postDate, 
-            contract, location, website, apply, requirementContent, requirementSkillsArray, roleItemsArray, 
+            contract, location, website, apply, requirementContent, requirementSkillsArray, roleItemsArray,
             author: {name:  auth.currentUser.displayName, id: auth.currentUser.uid}})
             localStorage.clear()
             localStorage.setItem("isAuth", true)
@@ -65,11 +64,12 @@ const CreateJobsContainer = () => {
             <CreateJobs.TopSubDiv>
             <TextInputSection>                   
                 <TextInput.Input 
-                    value    = {localStorage.getItem("Company") || company} 
-                    onChange = {handleCompany}
+                    value    = {localStorage.getItem("Company") || values.company} 
+                    onChange = {handleChange}
                     background = "hsl(235, 69%, 91%)"
                     color = "hsl(235, 69%, 61%)"
                     placeholder = "company name"
+                    name="company"
                     required    
                 />
             </TextInputSection>
@@ -77,35 +77,36 @@ const CreateJobsContainer = () => {
             {/* Logo info */}
             <TextInputSection>
                 <TextInput.Input 
-                    value    = {localStorage.getItem("Logo") || logo}
-                    onChange = {handleLogo}
+                    value    = {localStorage.getItem("Logo") || values.logo}
+                    onChange = {handleChange}
                     background = "hsl(235, 69%, 91%)"
                     color = "hsl(235, 69%, 61%)"
                     placeholder = "logo path (optional)"
-                    required
+                    name="logo"
                 />
             </TextInputSection>
 
             {/* Logo Background info */}
             <TextInputSection>
                 <TextInput.Input 
-                    value = {localStorage.getItem("LogoBackground") || logoBackground}
-                    onChange = {handleLogoBackground}
+                    value = {localStorage.getItem("LogoBackground") || values.logoBackground}
+                    onChange = {handleChange}
                     background = "hsl(235, 69%, 91%)"
                     color = "hsl(235, 69%, 61%)"
                     placeholder = "logo background color (optional)"
-                    required
+                    name="logoBackground"
                 />
             </TextInputSection>
 
             {/* position info */}
             <TextInputSection>
                 <TextInput.Input
-                    value = {localStorage.getItem("Position") || position}
-                    onChange = {handlePosition}
+                    value = {localStorage.getItem("Position") || values.position}
+                    onChange = {handleChange}
                     background = "hsl(235, 69%, 86%)"
                     color = "hsl(235, 69%, 61%)"
                     placeholder = "position"
+                    name="position"
                     required
                 />
             </TextInputSection>
@@ -113,11 +114,12 @@ const CreateJobsContainer = () => {
             {/* Contract info */}
             <TextInputSection>
                 <TextInput.Input 
-                    value = {localStorage.getItem("Contract") || contract}
-                    onChange = {handleContract}   
+                    value = {localStorage.getItem("Contract") || values.contract}
+                    onChange = {handleChange}   
                     background = "hsl(235, 69%, 86%)"
                     color = "hsl(235, 69%, 61%)"
                     placeholder = "contract type"
+                    name="contract"
                     required               
                 />
             </TextInputSection>
@@ -125,11 +127,12 @@ const CreateJobsContainer = () => {
             {/* Location info */}
             <TextInputSection>
                 <TextInput.Input 
-                    value = {localStorage.getItem("Location") || location}
-                    onChange = {handleLocation}                
+                    value = {localStorage.getItem("Location") || values.location}
+                    onChange = {handleChange}                
                     background = "hsl(235, 69%, 79%)"
                     color = "white"
                     placeholder = "job location"
+                    name="location"
                     required
                 />
             </TextInputSection>
@@ -137,11 +140,12 @@ const CreateJobsContainer = () => {
             {/* Website info */}
             <TextInputSection>
                 <TextInput.Input 
-                    value = {localStorage.getItem("Website") || website}
-                    onChange = {handleWebsite} 
+                    value = {localStorage.getItem("Website") || values.website}
+                    onChange = {handleChange} 
                     background = "hsl(235, 69%, 79%)"
                     color = "white"
-                    placeholder = "website"
+                    placeholder = " company website"
+                    name="website"
                     required              
                 />
             </TextInputSection>
@@ -149,11 +153,12 @@ const CreateJobsContainer = () => {
             {/* Application link */}
             <TextInputSection>
                 <TextInput.Input 
-                    value = {localStorage.getItem("Apply") || apply}
-                    onChange = {handleApply}   
+                    value = {localStorage.getItem("Apply") || values.apply}
+                    onChange = {handleChange}   
                     background = "hsl(235, 69%, 79%)"
                     color = "white"
                     placeholder = "apply at"
+                    name="apply"
                     required               
                 />
             </TextInputSection>
@@ -164,13 +169,14 @@ const CreateJobsContainer = () => {
                         background = "hsl(235, 69%, 91%)"
                     >
                     <TextArea.Input 
-                        value    = {localStorage.getItem("Description") || description} 
-                        onChange = {handleDescription}
+                        value    = {localStorage.getItem("Description") || values.description} 
+                        onChange = {handleChange}
                         background = "hsl(235, 69%, 91%)"
                         color = "hsl(235, 69%, 61%)"
                         border = "hsl(235, 69%, 61%) solid"
                         borderBottom="none"
                         placeholder = "enter job description . . ."
+                        name="description"
                         required
                     />
                     <ListDisplay.PseudoButton
@@ -186,13 +192,14 @@ const CreateJobsContainer = () => {
                         background = "hsl(235, 69%, 86%)"
                     >
                     <TextArea.Input 
-                        value    = {localStorage.getItem("RequirementContent") || requirementContent} 
-                        onChange = {handleRequirementContent}
+                        value    = {localStorage.getItem("RequirementContent") || values.requirementContent} 
+                        onChange = {handleChange}
                         background = "hsl(235, 69%, 86%)"
                         color = "hsl(235, 69%, 61%)"
                         border = "hsl(235, 69%, 61%) solid"
                         borderBottom="none"
-                        placeholder = "enter requirements summary . . ."
+                        name="requirementContent"
+                        placeholder = "enter required skills summary . . ."
                         required
                     />
                     <ListDisplay.PseudoButton
@@ -208,13 +215,14 @@ const CreateJobsContainer = () => {
                             background = "hsl(235, 69%, 79%)"
                         >                       
                         <TextArea.Input 
-                            value = {localStorage.getItem("RequirementSkillsInput") || requirementSkillsInput}
-                            onChange = {handleRequirementSkillsInput}   
+                            value = {localStorage.getItem("RequirementSkillsInput") || values.requirementSkillsInput}
+                            onChange = {handleChange}   
                             background = "hsl(235, 69%, 79%)"
                             color = "hsl(235, 69%, 61%)"
                             border = "hsl(235, 69%, 61%) solid"
                             borderBottom="none"
-                            placeholder = "enter specific requirements . . ."
+                            placeholder = "enter specific skills . . ."
+                            name="requirementSkillsInput"
                             required
                         />
                     <ListDisplay.AddButton 
@@ -226,9 +234,9 @@ const CreateJobsContainer = () => {
                     </TextArea.InputDiv> 
                     </TextAreaSection>
                     <ListDisplay.UL>
-                        {requirementSkillsArray.map((item, index) => (
+                        {values.requirementSkillsArray.map((item, index) => (
                             <ListDisplay.MapDiv key = {item.id}>
-                                <ListDisplay.LI themeBoolean = {themeBoolean}>{item.requirementSkillsInput}</ListDisplay.LI>
+                                <ListDisplay.LI themeBoolean = {themeBoolean}>{item.name}</ListDisplay.LI>
                                 <ListDisplay.DeleteButton onClick = {() => removeFromSkills(index)}>delete</ListDisplay.DeleteButton>
                             </ListDisplay.MapDiv>
                         ))}                        
@@ -240,13 +248,14 @@ const CreateJobsContainer = () => {
                     background = "hsl(235, 69%, 71%)"
                     >
                     <TextArea.Input 
-                        value    = {localStorage.getItem("RoleContent") || roleContent} 
-                        onChange = {handleRoleContent}
+                        value    = {localStorage.getItem("RoleContent") || values.roleContent} 
+                        onChange = {handleChange}
                         background = "hsl(235, 69%, 71%)"
                         color = "white"
                         border = "hsl(235, 69%, 61%) solid"
                         borderBottom="none"
                         placeholder = "enter role summary . . ."
+                        name="roleContent"
                         required
                     />
                     <ListDisplay.PseudoButton
@@ -263,13 +272,14 @@ const CreateJobsContainer = () => {
                             background = "hsl(235, 69%, 61%)"
                         >                       
                         <TextArea.Input 
-                            value = {localStorage.getItem("RoleItemsInput") || roleItemsInput}
-                            onChange = {handleRoleItemsInput}   
+                            value = {localStorage.getItem("RoleItemsInput") || values.roleItemsInput}
+                            onChange = {handleChange}   
                             background = "hsl(235, 69%, 61%)"
                             color = "white"
                             placeholder = "enter specific roles . . ."
                             border = "hsl(235, 69%, 61%) solid"
                             borderBottom = "none"
+                            name="roleItemsInput"
                             required
                         />
                     <ListDisplay.AddButton 
@@ -281,11 +291,12 @@ const CreateJobsContainer = () => {
                     </TextArea.InputDiv> 
                     </TextAreaSection>
                     <ListDisplay.UL>
-                        {roleItemsArray.map((item, index) => (
+                        {values.roleItemsArray.map((item, index) => (
                             <ListDisplay.MapDiv
-                            themeBoolean = {themeBoolean} 
+                                themeBoolean = {themeBoolean} 
                                 key = {item.id}>
-                                <ListDisplay.LI  themeBoolean = {themeBoolean}>{item.roleItemsInput}</ListDisplay.LI>
+                                <ListDisplay.LI  themeBoolean = {themeBoolean}>{item.name}</ListDisplay.LI>
+                                
                                 <ListDisplay.DeleteButton onClick = {() => removeFromRoleItems(index)}>delete</ListDisplay.DeleteButton>
                             </ListDisplay.MapDiv>
                         ))}                        
