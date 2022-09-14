@@ -1,5 +1,5 @@
 # Devjobs app
-Search and filter functions, data was initially pulled from a json file. I added a form and database to expand the project into a full CRUD application.
+A React project using styled-components and react-router for the front-end. Search capability is also implemented within the browser. Database and authentication are provided by Firebase. Users can log in with their Google accounts to upload a job, then view the results on the landing page.
 
 ## To see a deployment of this site, visit https://jobs-board-3.vercel.app/
 
