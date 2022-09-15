@@ -27,23 +27,7 @@ const InputContextProvider = ({children}) => {
     const [inputFilter, setInputFilter] = useState(1)
     const [timeFilter, setTimeFilter] = useState(false)
     const [inputFocus, setInputFocus] = useState(true)
-    const [desktopInputFocus, setDesktopInputFocus] = useState(true)
-    const [company, setCompany] = useState("")
-    const [description, setDescription] = useState("")
-    const [logo, setLogo] = useState("")
-    const [logoBackground, setLogoBackground] = useState("")
-    const [position, setPosition] = useState("")
-    const [postedAt, setPostedAt] = useState("")
-    const [contract, setContract] = useState("")
-    const [location, setLocation] = useState("")
-    const [website, setWebsite] = useState("")
-    const [apply, setApply] = useState("")
-    const [requirementContent, setRequirementContent] = useState("")
-    const [requirementSkillsInput, setRequirementSkillsInput] = useState("")
-    const [requirementSkillsArray, setRequirementSkillsArray] = useState([])
-    const [roleContent, setRoleContent] = useState("")
-    const [roleItemsInput, setRoleItemsInput] = useState("")
-    const [roleItemsArray, setRoleItemsArray] = useState([])
+
 
     const handleChange = (event) => {
         const {name, value} = event.target
@@ -116,10 +100,11 @@ const InputContextProvider = ({children}) => {
 
 
     return ( 
-        <InputContext.Provider value={{setInputFilter, setTimeFilter, setInputFocus, clearAllInputs,
-            setDesktopInputFocus, addToSkills, addToRoleItems, removeFromSkills, removeFromRoleItems, handleChange, values, inputFilter, timeFilter, inputFocus
-
-        }}
+        <InputContext.Provider 
+            value={{
+                setInputFilter, setTimeFilter, setInputFocus, clearAllInputs, 
+                addToSkills, addToRoleItems, removeFromSkills, removeFromRoleItems, handleChange, values, inputFilter, timeFilter, inputFocus
+            }}
         >
             {children}
         </InputContext.Provider>
